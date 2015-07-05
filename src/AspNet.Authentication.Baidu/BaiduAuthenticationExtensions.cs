@@ -10,7 +10,7 @@ namespace Microsoft.AspNet.Authentication.Baidu
     {
         internal static string GetDescription([NotNull] this BaiduAuthenticationOptions.DisplayStyle style)
         {
-            // DNX CORE not supported Type.GetMember(string name); So use switch instead
+            // DNX CORE do not support Type.GetMember(string name); So use switch instead
             switch (style)
             {
                 case BaiduAuthenticationOptions.DisplayStyle.Dialog:

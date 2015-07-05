@@ -8,8 +8,15 @@ using Microsoft.Framework.WebEncoders;
 
 namespace Microsoft.AspNet.Authentication.Baidu
 {
+    /// <summary>
+    /// An ASP.NET middleware for authenticating users using the Baidu Account service.
+    /// </summary>
     public class BaiduAuthenticationMiddleware : OAuthAuthenticationMiddleware<BaiduAuthenticationOptions>
     {
+        /// <summary>
+        ///  构造一个新的 <see cref="BaiduAuthenticationMiddleware"/>
+        /// </summary>
+        /// <param name="next">The next middleware in the HTTP pipeline to invoke.</param>
         public BaiduAuthenticationMiddleware(
             [NotNull] RequestDelegate next,
             [NotNull] IDataProtectionProvider dataProtectionProvider,
@@ -26,6 +33,10 @@ namespace Microsoft.AspNet.Authentication.Baidu
             }
         }
 
+        /// <summary>
+        /// Provides the <see cref="AuthenticationHandler"/> object for processing authentication-related requests.
+        /// </summary>
+        /// <returns>An <see cref="AuthenticationHandler"/> configured with the <see cref="BaiduAuthenticationHandler"/> supplied to the constructor.</returns>
         protected override AuthenticationHandler<BaiduAuthenticationOptions> CreateHandler()
         {
             return new BaiduAuthenticationHandler(Backchannel);
