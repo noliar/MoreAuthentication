@@ -1,0 +1,14 @@
+﻿{
+  "authors": [ "杜晓宇" ],
+  "version": "1.0.0-*",
+  "description": "ASP.NET 5 middleware that enables an application to support the Baidu Account authentication workflow.",
+
+  "dependencies": {
+    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-*",
+    "Microsoft.Framework.NotNullAttribute.Sources": { "type": "build", "version": "1.0.0-*" }
+  },
+  "frameworks": {
+    "dnx451": { },
+    "dnxcore50": { }
+  }
+}
