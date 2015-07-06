@@ -29,7 +29,7 @@ namespace Microsoft.AspNet.Authentication.Baidu
         /// <summary>
         ///  百度授权页面的样式；一般来说，这些够用了，不像 scope，权限很杂，很多都要另外申请
         /// </summary>
-        public enum DisplayStyle
+        public enum DisplayStyle : byte
         {
             //[Description("page")]
             Page,                    // 全屏形式的授权页面(默认)，适用于web应用。
