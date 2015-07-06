@@ -52,5 +52,32 @@ namespace Microsoft.AspNet.Authentication.Baidu
         }
 
         public DisplayStyle Display { get; set; }
+
+        /// <summary>
+        ///  表示 redirect_uri 参数 是否为 oob；
+        ///  目前，不推荐这么做
+        /// </summary>
+        [Obsolete]
+        public bool IsOob { get; set; }
+
+        /// <summary>
+        ///  是否强制用户输入。
+        /// <value> true 则表示加载登录页时强制用户输入用户名和口令，不会从cookie中读取百度用户的登陆状态</value>
+        /// </summary>
+        public bool IsForce { get; set; }
+
+        /// <summary>
+        ///  需要用户手动授权。
+        /// <value>
+        ///  当百度用户已处于登陆状态，true 则表示要提示是否使用已当前登陆用户对应用授权
+        /// </value>
+        /// </summary>
+        public bool IsConfirm { get; set; } = true;
+
+        /// <summary>
+        ///  是否启用短信动态指令注册和登录。
+        /// <value> true 则表示，当需要注册和登录时，授权页面会默认使用短信动态密码。</value>
+        /// </summary>
+        public bool UseSms { get; set; }
     }
 }
