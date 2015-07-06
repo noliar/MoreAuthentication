@@ -57,7 +57,7 @@ namespace Microsoft.AspNet.Authentication.Baidu
         ///  表示 redirect_uri 参数 是否为 oob；
         ///  目前，不推荐这么做
         /// </summary>
-        [Obsolete]
+        [Obsolete("没想好网页上怎么搞比较恰当")]
         public bool IsOob { get; set; }
 
         /// <summary>

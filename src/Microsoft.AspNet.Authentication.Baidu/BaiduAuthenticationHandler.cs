@@ -1,18 +1,12 @@
 ﻿using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Http.Extensions;
-using Microsoft.AspNet.Http.Internal;
-using Microsoft.AspNet.WebUtilities;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Microsoft.AspNet.Http.Authentication;
 using System.Security.Claims;
 using Microsoft.AspNet.Http.Features.Authentication;
 using Microsoft.Framework.Internal;
-using Microsoft.AspNet.Http;
-using System;
-using System.Collections.Generic;
 
 namespace Microsoft.AspNet.Authentication.Baidu
 {
@@ -26,43 +20,36 @@ namespace Microsoft.AspNet.Authentication.Baidu
         }
 
         /// <summary>
-        /// 主要生成的是 Authorization 的链接。其中，display 是百度对 OAuth 2.0 的非标准扩展标识，用来控制外观显示
+        /// 主要生成的是 Authorization 的链接。其中，display 等是百度对 OAuth 2.0 的非标准扩展标识，用来控制外观及行为显示
         /// </summary>
         protected override string BuildChallengeUrl(AuthenticationProperties properties, string redirectUri)
         {
-            var append = $"&display={Options.Display.GetDescription()}";
-            if (Options.IsForce) append += "&force_login=1";
-            if (Options.IsConfirm) append += "confirm_login=1";
-            if (Options.UseSms) append += "&login_type=sms";
-#if DEBUG
-                // TODO
-                redirectUri = BuildRedirectUri(redirectUri);
-                Console.WriteLine(redirectUri);
-#endif
-            return base.BuildChallengeUrl(properties, redirectUri) + append;
+            var queryBuilder = new QueryBuilder {
+                { "client_id", this.Options.ClientId },
+                { "scope", this.FormatScope() },
+                { "response_type", "code" },
+                { "redirect_uri", redirectUri },
+                { "state", Options.StateDataFormat.Protect(properties) },
+                { "display", Options.Display.GetDescription()}
+            };
+            if (Options.IsForce) queryBuilder.Add("force_login", "1");
+            if (Options.IsConfirm) queryBuilder.Add("confirm_login", "1");
+            if (Options.UseSms) queryBuilder.Add("login_type", "sms");
+            return Options.AuthorizationEndpoint + queryBuilder.ToString();
         }
 
-        // 然而，现在并没有什么乱用，还没想好怎么搞比较恰当
-        [Obsolete]
-        private new string BuildRedirectUri(string uri)
-        {
-            if(Options.IsOob)
-            {
-                return "oob";
-            }
-            return uri;
-        }
-
+        /// <summary>
+        ///  用 AuthorizationCode 获取 token 等参数
+        /// </summary>
         protected override Task<OAuthTokenResponse> ExchangeCodeAsync(string code, string redirectUri)
         {
-            
-            #if DEBUG
+#if DEBUG
                 // TODO
-                redirectUri = BuildRedirectUri(redirectUri);
-                Console.WriteLine(code);
+                System.Console.WriteLine(code);
                 var cookie = this.Context.Response.Cookies;
-                Console.WriteLine(cookie.ToString());
-            #endif
+                System.Console.WriteLine(cookie.ToString());
+#endif
+            redirectUri = Options.IsOob ? "oob" : redirectUri;
             return base.ExchangeCodeAsync(code, redirectUri);
         }
 
@@ -107,13 +94,36 @@ namespace Microsoft.AspNet.Authentication.Baidu
             return new AuthenticationTicket(notification.Principal, notification.Properties, notification.Options.AuthenticationScheme);
         }
 
-        //public override async Task<bool> InvokeAsync()
-        //{
-        //    if(Options.CallbackPath.HasValue && (Options.CallbackPath == Request.Path || Options.CallbackPath == oob))
-        //    {
-        //        return await InvokeReturnPathAsync();
-        //    }
-        //    return false;
-        //}
+        /// <summary>
+        ///  未授权时跳转到授权页面
+        /// </summary>
+        /// <returns></returns>
+        protected override Task<bool> HandleUnauthorizedAsync([NotNull]ChallengeContext context)
+        {
+            var properties = new AuthenticationProperties(context.Properties);
+            if (string.IsNullOrEmpty(properties.RedirectUri))
+            {
+                properties.RedirectUri = CurrentUri;
+            }
+            GenerateCorrelationId(properties);
+            var redirect = string.Empty;
+            if (!Options.IsOob)
+            {
+                redirect = BuildChallengeUrl(properties, BuildRedirectUri(Options.CallbackPath));
+            }
+            else
+            {
+                // redirect = BuildRedirectUri(Options.CallbackPath);
+                redirect = BuildChallengeUrl(properties, "oob");
+            }
+            Options.Notifications.ApplyRedirect(new OAuthApplyRedirectContext(Context, Options, properties, redirect));
+            // tip: 原本是打算新建窗口来相对友好地处理 oob。
+            //if (Options.IsOob)
+            //{
+            //    var window = BuildChallengeUrl(properties, "oob");
+            //    await Context.Response.WriteAsync($"<script>window.open('{window}')</script>");
+            //}
+            return Task.FromResult(true);
+        }
     }
 }

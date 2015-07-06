@@ -1,4 +1,4 @@
-# Baidu OAuth 2.0 in ASP.NET 5
+# More Authentication Middleware for ASP.NET 5
 
 This project is an ASP.NET 5 middleware that enables an application to support the Baidu Account authentication workflow.
 
