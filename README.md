@@ -6,7 +6,7 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 
 ### 计划支持的授权平台
 - [x] [百度 OAuth2.0 授权](http://developer.baidu.com/wiki/index.php?title=docs/oauth)
-- [ ] [豆瓣 OAuth2.0 授权](https://developers.douban.com/wiki/?title=oauth2)
+- [x] [豆瓣 OAuth2.0 授权](https://developers.douban.com/wiki/?title=oauth2)
 - [ ] [搜狐 OAuth2.0 授权](https://open.sohu.com/wiki/OAuth2%E4%BB%8B%E7%BB%8D)
 - [ ] [淘宝 OAuth2.0 授权](http://open.taobao.com/doc/category_list.htm?id=199)
 - [ ] [腾讯 OAuth2.0 授权](http://wiki.open.qq.com/wiki/website/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3)
@@ -19,7 +19,7 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 > ### 有关更多关于 OAuth 2.0 的信息，可参考 [oauth.net](http://oauth.net/2/) 和 [OAuth 2.0 中文文档](https://github.com/jeansfish/RFC6749.zh-cn/blob/master/TableofContents.md)。
 
 ## 使用步骤
-该项目是根据 [ASP.NET 5 Security](https://github.com/aspnet/Security) 写的 百度 OAuth 2.0 账号授权。
+该项目是根据 [ASP.NET 5 Security](https://github.com/aspnet/Security) 写的众多账号平台授权调用。
 
 所以，你可以跟 `Microsoft.AspNet.Authentication.*` 下的众多账号授权组件一样使用：
 
@@ -28,23 +28,21 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 3. 最后，在 `Startup` 中的 `Configure` 里 开启使用 这些服务。
 
 ## 示例代码
-在这里，就贴关键的部分（以百度为例），有关账号授权的较为完整代码，建议参考官方提供的例子 —— 
+在这里，就贴关键的部分（以豆瓣为例），有关账号授权的较为完整代码，建议参考官方提供的例子 —— 
 [Music Store](https://github.com/aspnet/MusicStore/tree/dev) 或者查看 [Security sample](https://github.com/aspnet/Security/tree/dev/samples)
 
 ``` csharp
 ...
 // ConfigureServices 下
-services.ConfigureBaiduAuthentication(options =>
+services.ConfigureDoubanAuthentication(options =>
 {
-    options.ClientId = "ycC****a8";
-    options.ClientSecret = "2ID****B1vA";
-    options.Display = BaiduAuthenticationOptions.DisplayStyle.Touch;
-    options.CallbackPath = new PathString("/oauth_success"); 
+    options.ApiKey = "00d***060";
+    options.Secret = "39**b4";
 });
 
 ...
 // Configure 下
-app.UseBaiduAuthentication();
+app.UseDoubanAuthentication();
 
 ...
 ```
