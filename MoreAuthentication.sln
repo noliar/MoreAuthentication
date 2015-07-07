@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.Baidu", "src\Microsoft.AspNet.Authentication.Baidu\Microsoft.AspNet.Authentication.Baidu.xproj", "{12486D00-6929-4C59-B3B2-EC07B9870639}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.Sina", "src\Microsoft.AspNet.Authentication.Sina\Microsoft.AspNet.Authentication.Sina.xproj", "{8BACE8C6-4B10-4B4F-9C33-3C7CA835FC67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +24,16 @@ Global
 		{12486D00-6929-4C59-B3B2-EC07B9870639}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12486D00-6929-4C59-B3B2-EC07B9870639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12486D00-6929-4C59-B3B2-EC07B9870639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BACE8C6-4B10-4B4F-9C33-3C7CA835FC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BACE8C6-4B10-4B4F-9C33-3C7CA835FC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BACE8C6-4B10-4B4F-9C33-3C7CA835FC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BACE8C6-4B10-4B4F-9C33-3C7CA835FC67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{12486D00-6929-4C59-B3B2-EC07B9870639} = {A629AEC0-862F-42E6-8C28-0F7CA0643830}
+		{8BACE8C6-4B10-4B4F-9C33-3C7CA835FC67} = {A629AEC0-862F-42E6-8C28-0F7CA0643830}
 	EndGlobalSection
 EndGlobal
