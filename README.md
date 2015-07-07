@@ -13,7 +13,7 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 - [ ] [微信 OAuth2.0 授权](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&id=open1419316505)
 - [x] [新浪 OAuth2.0 授权](http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E)
 - [ ] [优酷 OAuth2.0 授权](http://open.youku.com/docs?id=100)
-- [ ] [易信 OAuth2.0 授权](https://open.yixin.im/document/oauth/web)
+- [x] [易信 OAuth2.0 授权](https://open.yixin.im/document/oauth/web)
 - [ ] [支付宝 OAuth2.0 授权](https://openhome.alipay.com/doc/docIndex.htm?url=https://openhome.alipay.com/doc/viewKbDoc.htm?key=236615_236620&type=cat)
 
 > ### 有关更多关于 OAuth 2.0 的信息，可参考 [oauth.net](http://oauth.net/2/) 和 [OAuth 2.0 中文文档](https://github.com/jeansfish/RFC6749.zh-cn/blob/master/TableofContents.md)。
