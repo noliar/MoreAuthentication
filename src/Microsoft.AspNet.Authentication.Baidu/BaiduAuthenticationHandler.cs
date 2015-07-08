@@ -39,21 +39,6 @@ namespace Microsoft.AspNet.Authentication.Baidu
         }
 
         /// <summary>
-        ///  用 AuthorizationCode 获取 token 等参数
-        /// </summary>
-        protected override Task<OAuthTokenResponse> ExchangeCodeAsync(string code, string redirectUri)
-        {
-#if DEBUG
-                // TODO
-                System.Console.WriteLine(code);
-                var cookie = this.Context.Response.Cookies;
-                System.Console.WriteLine(cookie.ToString());
-#endif
-            redirectUri = Options.IsOob ? "oob" : redirectUri;
-            return base.ExchangeCodeAsync(code, redirectUri);
-        }
-
-        /// <summary>
         /// 根据获取到的 token，来得到登录用户的基本信息，并配对。
         /// </summary>
         protected override async Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
@@ -92,38 +77,6 @@ namespace Microsoft.AspNet.Authentication.Baidu
             await Options.Notifications.Authenticated(notification);
 
             return new AuthenticationTicket(notification.Principal, notification.Properties, notification.Options.AuthenticationScheme);
-        }
-
-        /// <summary>
-        ///  未授权时跳转到授权页面
-        /// </summary>
-        /// <returns></returns>
-        protected override Task<bool> HandleUnauthorizedAsync([NotNull]ChallengeContext context)
-        {
-            var properties = new AuthenticationProperties(context.Properties);
-            if (string.IsNullOrEmpty(properties.RedirectUri))
-            {
-                properties.RedirectUri = CurrentUri;
-            }
-            GenerateCorrelationId(properties);
-            var redirect = string.Empty;
-            if (!Options.IsOob)
-            {
-                redirect = BuildChallengeUrl(properties, BuildRedirectUri(Options.CallbackPath));
-            }
-            else
-            {
-                // redirect = BuildRedirectUri(Options.CallbackPath);
-                redirect = BuildChallengeUrl(properties, "oob");
-            }
-            Options.Notifications.ApplyRedirect(new OAuthApplyRedirectContext(Context, Options, properties, redirect));
-            // tip: 原本是打算新建窗口来相对友好地处理 oob。
-            //if (Options.IsOob)
-            //{
-            //    var window = BuildChallengeUrl(properties, "oob");
-            //    await Context.Response.WriteAsync($"<script>window.open('{window}')</script>");
-            //}
-            return Task.FromResult(true);
         }
     }
 }

@@ -56,8 +56,9 @@ namespace Microsoft.AspNet.Authentication.Baidu
         /// <summary>
         ///  表示 redirect_uri 参数 是否为 oob；
         ///  目前，不推荐这么做
+        ///  TODO 但十分有可能是删掉
         /// </summary>
-        [Obsolete("没想好网页上怎么搞比较恰当")]
+        [Obsolete("没想好网页上怎么搞比较恰当", true)]
         public bool IsOob { get; set; }
 
         /// <summary>
@@ -79,5 +80,29 @@ namespace Microsoft.AspNet.Authentication.Baidu
         /// <value> true 则表示，当需要注册和登录时，授权页面会默认使用短信动态密码。</value>
         /// </summary>
         public bool UseSms { get; set; }
+
+        /// <summary>
+        ///  百度开放云上用 AccessKeyId 来指代 ClientId。
+        /// </summary>
+        /// <remarks>
+        ///  相当于，百度开放平台中的 ApiKey
+        /// </remarks>
+        public string AccessKeyId
+        {
+            get { return ClientId; }
+            set { ClientId = value; }
+        }
+
+        /// <summary>
+        ///  百度开放云上用 SecretAccessKey 来指代 ClientSecret。
+        /// </summary>
+        /// <remarks>
+        ///  相当于，百度开放平台中的 SecretKey
+        /// </remarks>
+        public string SecretAccessKey
+        {
+            get { return ClientSecret; }
+            set { ClientSecret = value; }
+        }
     }
 }

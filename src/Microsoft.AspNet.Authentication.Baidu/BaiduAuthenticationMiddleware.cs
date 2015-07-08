@@ -27,6 +27,14 @@ namespace Microsoft.AspNet.Authentication.Baidu
             ConfigureOptions<BaiduAuthenticationOptions> configureOptions = null) 
             : base(next, dataProtectionProvider, loggerFactory, encoder, externalOptions, options, configureOptions)
         {
+            if (string.IsNullOrWhiteSpace(Options.AccessKeyId))
+            {
+                throw new System.ArgumentException("请输入有效的 Access Key ID 或 API Key");
+            }
+            if (string.IsNullOrWhiteSpace(Options.SecretAccessKey))
+            {
+                throw new System.ArgumentException("请输入有效的 Secret Access Key 或 Secret Key");
+            }
             if (Options.Scope.Count == 0)
             {
                 Options.Scope.Add("basic");
