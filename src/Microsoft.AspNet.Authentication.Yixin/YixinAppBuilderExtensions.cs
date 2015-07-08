@@ -5,6 +5,9 @@ using System;
 
 namespace Microsoft.AspNet.Builder
 {
+    /// <summary>
+    /// Extension methods for using <see cref="YixinAuthenticationMiddleware" />
+    /// </summary>
     public static class YixinAppBuilderExtensions
     {
         /// <summary>

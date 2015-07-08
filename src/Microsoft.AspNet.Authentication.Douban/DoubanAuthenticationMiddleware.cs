@@ -9,6 +9,9 @@ using System;
 
 namespace Microsoft.AspNet.Authentication.Douban
 {
+    /// <summary>
+    /// An ASP.NET middleware for authenticating users using the Douban Account service.
+    /// </summary>
     public class DoubanAuthenticationMiddleware : OAuthAuthenticationMiddleware<DoubanAuthenticationOptions>
     {
         /// <summary>
