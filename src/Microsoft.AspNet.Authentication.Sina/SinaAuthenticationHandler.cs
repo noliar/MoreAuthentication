@@ -9,7 +9,7 @@ namespace Microsoft.AspNet.Authentication.Sina
     /// <summary>
     ///  新浪授权核心处理类
     /// </summary>
-    internal class SinaAuthenticationHandler : OAuth.OAuthAuthenticationHandler<SinaAuthenticationOptions>
+    public class SinaAuthenticationHandler : OAuth.OAuthAuthenticationHandler<SinaAuthenticationOptions>
     {
         public SinaAuthenticationHandler(HttpClient backchannel) : base(backchannel) { }
 

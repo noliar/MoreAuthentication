@@ -13,7 +13,7 @@ namespace Microsoft.AspNet.Authentication.Baidu
     /// <summary>
     /// 对一系列认证过程的调控
     /// </summary>
-    internal class BaiduAuthenticationHandler : OAuthAuthenticationHandler<BaiduAuthenticationOptions>
+    public class BaiduAuthenticationHandler : OAuthAuthenticationHandler<BaiduAuthenticationOptions>
     {
         public BaiduAuthenticationHandler(HttpClient backchannel) : base(backchannel)
         {
