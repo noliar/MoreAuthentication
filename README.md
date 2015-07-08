@@ -9,7 +9,7 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 - [x] [豆瓣 OAuth2.0 授权](https://developers.douban.com/wiki/?title=oauth2)
 - [ ] [搜狐 OAuth2.0 授权](https://open.sohu.com/wiki/OAuth2%E4%BB%8B%E7%BB%8D)
 - [ ] [淘宝 OAuth2.0 授权](http://open.taobao.com/doc/category_list.htm?id=199)
-- [ ] [腾讯 OAuth2.0 授权](http://wiki.open.qq.com/wiki/website/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3)
+- [x] [腾讯 OAuth2.0 授权](http://wiki.open.qq.com/wiki/website/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3)
 - [ ] [微信 OAuth2.0 授权](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&id=open1419316505)
 - [x] [新浪 OAuth2.0 授权](http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E)
 - [ ] [优酷 OAuth2.0 授权](http://open.youku.com/docs?id=100)
