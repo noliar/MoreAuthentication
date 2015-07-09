@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNet.Authentication.Baidu
 {
+    /// <summary>
+    ///  一些扩展方法
+    /// </summary>
     public static class BaiduAuthenticationExtensions
     {
-        internal static string GetDescription([NotNull] this BaiduAuthenticationOptions.DisplayStyle style)
+        // 获取 display style 的名称
+        public static string GetDescription([NotNull] this BaiduAuthenticationOptions.DisplayStyle style)
         {
             // DNX CORE do not support Type.GetMember(string name); So use switch instead
             switch (style)
