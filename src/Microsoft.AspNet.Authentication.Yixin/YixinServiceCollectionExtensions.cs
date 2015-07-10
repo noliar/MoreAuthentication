@@ -6,7 +6,7 @@ using System;
 namespace Microsoft.Framework.DependencyInjection
 {
     /// <summary>
-    /// Extension methods for using <see cref="YixinServiceCollectionExtensions" />
+    /// Extension methods for using <see cref="YixinAuthenticationMiddleware" />
     /// </summary>
     public static class YixinServiceCollectionExtensions
     {
