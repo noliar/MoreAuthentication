@@ -15,6 +15,8 @@ namespace Microsoft.AspNet.Authentication.Baidu
         public static string GetDescription([NotNull] this BaiduAuthenticationOptions.DisplayStyle style)
         {
             // DNX CORE do not support Type.GetMember(string name); So use switch instead
+            // 不知道为啥，dnx core 就是访问不了 mscorelib(7cec85d7bea7798e) 里的东西，
+            // 明明里面有啊。不知道是 BUG，还是啥
             switch (style)
             {
                 case BaiduAuthenticationOptions.DisplayStyle.Dialog:

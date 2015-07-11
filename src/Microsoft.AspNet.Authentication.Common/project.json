@@ -1,0 +1,18 @@
+﻿{
+  "version": "1.0.0-*",
+  "shared": "*.cs",
+  "dependencies": {
+  },
+  "frameworks": {
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System.ComponentModel.DataAnnotations": "4.0.0.0"
+      }
+    },
+    "dnxcore50": {
+      "dependencies": {
+        "System.ComponentModel.Annotations": "4.0.10-*"
+      }
+    },
+  }
+}

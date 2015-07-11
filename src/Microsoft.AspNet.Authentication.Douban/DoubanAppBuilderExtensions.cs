@@ -6,7 +6,7 @@ using System;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="DoubanAppBuilderExtensions" />
+    /// Extension methods for using <see cref="DoubanAuthenticationMiddleware" />
     /// </summary>
     public static class DoubanAppBuilderExtensions
     {

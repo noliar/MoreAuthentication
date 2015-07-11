@@ -40,15 +40,19 @@ namespace Microsoft.AspNet.Authentication.XiaoMI
         /// <param name="redirectUri">回调地址</param>
         protected override async Task<OAuthTokenResponse> ExchangeCodeAsync(string code, string redirectUri)
         {
-            var query = new FormUrlEncodedContent(new Dictionary<string, string>
+            var dic = new Dictionary<string, string>
             {
                 {"client_id", Options.ClientId},
                 {"redirect_uri", redirectUri},
                 {"client_secret", Options.ClientSecret},
                 {"grant_type", "authorization_code"},
-                {"code", code},
-                {"token_type", Options.TokenType.ToLower() }
-            });
+                {"code", code}
+            };
+            if (Options.TokenType != TokenType.None)
+            {
+                dic.Add("token_type", Options.TokenType.ToLower() /*GetDescription()*/);
+            }
+            var query = new FormUrlEncodedContent(dic);
             var message = new HttpRequestMessage(HttpMethod.Get, Options.TokenEndpoint + $"?{await query.ReadAsStringAsync()}");
             message.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var response = await Backchannel.SendAsync(message, Context.RequestAborted);
@@ -132,7 +136,8 @@ namespace Microsoft.AspNet.Authentication.XiaoMI
                 message.RequestUri.Query.Substring(1)
             };
             var mac = ComputeSignature(string.Join("\n", param) + "\n", key, algorithm);
-            return $"access_token=\"{token.ToEscapeData()}\", nonce=\"{nonce.ToEscapeData()}\",mac=\"{mac.ToEscapeData()}\"";
+            //return $"access_token=\"{token.ToEscapeData()}\", nonce=\"{nonce.ToEscapeData()}\",mac=\"{mac.ToEscapeData()}\"";
+            return $"access_token=\"{UrlEncoder.UrlEncode(token)}\", nonce=\"{UrlEncoder.UrlEncode(nonce)}\",mac=\"{UrlEncoder.UrlEncode(mac)}\"";
         }
 
         /// <summary>

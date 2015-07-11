@@ -1,15 +1,16 @@
 ﻿{
   "authors": [ "杜晓宇" ],
   "version": "1.0.0-*",
-  "description": "ASP.NET 5 middleware that enables an application to support the Baidu Account authentication workflow.",
-  "tags": [ "ASP.NET", "Authentication", "Baidu" ],
+  "description": "ASP.NET 5 middleware that enables an application to support the Taobao Account authentication workflow.",
+  "tags": [ "ASP.NET", "Authentication", "Taobao" ],
   "repository": {
     "type": "git",
     "url": "git://github.com/noliar/MoreAuthentication"
   },
   "dependencies": {
     "Microsoft.AspNet.Authentication.OAuth": "1.0.0-*",
-    "Microsoft.Framework.NotNullAttribute.Sources": { "type": "build", "version": "1.0.0-*" }
+    "Microsoft.Framework.NotNullAttribute.Sources": { "type": "build", "version": "1.0.0-*" },
+    "Microsoft.AspNet.Authentication.Common": "1.0.0-*"
   },
   "frameworks": {
     "dnx451": { },

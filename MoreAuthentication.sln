@@ -22,7 +22,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentica
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.XiaoMI", "src\Microsoft.AspNet.Authentication.XiaoMI\Microsoft.AspNet.Authentication.XiaoMI.xproj", "{A731EEF9-AA90-4E93-8031-F3E8721AE03B}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.Common.Sources", "src\Microsoft.AspNet.Authentication.Common.Sources\Microsoft.AspNet.Authentication.Common.Sources.xproj", "{790D9EF7-4C96-4F3B-B838-F043E19AB90C}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.Common", "src\Microsoft.AspNet.Authentication.Common\Microsoft.AspNet.Authentication.Common.xproj", "{790D9EF7-4C96-4F3B-B838-F043E19AB90C}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.Youku", "src\Microsoft.AspNet.Authentication.Youku\Microsoft.AspNet.Authentication.Youku.xproj", "{DA0D9BFF-DCC4-4FFC-99C3-A29D618BF0D6}"
 EndProject
