@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Http.Authentication;
-using Microsoft.AspNet.Authentication.Common;
+using Microsoft.AspNet.Authentication.Internal;
 
 namespace Microsoft.AspNet.Authentication.Taobao
 {
@@ -31,13 +31,13 @@ namespace Microsoft.AspNet.Authentication.Taobao
             if (!string.IsNullOrEmpty(identifier))
             {
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:sina:id", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:taobao:id", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
             var name = System.Uri.UnescapeDataString(tokens.Response.Value<string>("taobao_user_nick"));
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:douban:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:taobao:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
             return base.CreateTicketAsync(identity, properties, tokens);
         }

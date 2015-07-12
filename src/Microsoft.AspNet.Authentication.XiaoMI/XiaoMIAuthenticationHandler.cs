@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Globalization;
 using System;
+using Microsoft.AspNet.Authentication.Internal;
 
 namespace Microsoft.AspNet.Authentication.XiaoMI
 {

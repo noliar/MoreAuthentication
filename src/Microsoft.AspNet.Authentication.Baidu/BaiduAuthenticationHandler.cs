@@ -7,7 +7,7 @@ using Microsoft.AspNet.Http.Authentication;
 using System.Security.Claims;
 using Microsoft.AspNet.Http.Features.Authentication;
 using Microsoft.Framework.Internal;
-using Microsoft.AspNet.Authentication.Common;
+using Microsoft.AspNet.Authentication.Internal;
 
 namespace Microsoft.AspNet.Authentication.Baidu
 {

@@ -4,22 +4,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Microsoft.AspNet.Authentication.Common
+namespace Microsoft.AspNet.Authentication.Internal
 {
-    public static class EnumExtensions
+    internal static class EnumExtensions
     {
-        public static TEnum ToEnum<TEnum>(this string value) where TEnum : struct
+        internal static TEnum ToEnum<TEnum>(this string value) where TEnum : struct
         {
             TEnum tmp;
             Enum.TryParse(value, true, out tmp);
             return tmp;
         }
 
-        public static string ToLower<TEnum>(this TEnum value)
+        internal static string ToLower<TEnum>(this TEnum value)
             where TEnum : struct
             => value.ToString().ToLower();
 
-        /*public static string GetDescription<TEnum>(this TEnum value) where TEnum: struct
+        /*internal static string GetDescription<TEnum>(this TEnum value) where TEnum: struct
         {
             var type = value.GetType();
             if (!type.IsEnum)
