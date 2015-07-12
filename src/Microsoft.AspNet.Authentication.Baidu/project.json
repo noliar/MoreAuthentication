@@ -1,8 +1,8 @@
 ﻿{
   "authors": [ "杜晓宇" ],
   "version": "1.0.0-*",
-  "description": "ASP.NET 5 middleware that enables an application to support the Taobao Account authentication workflow.",
-  "tags": [ "ASP.NET", "Authentication", "Taobao" ],
+  "description": "ASP.NET 5 middleware that enables an application to support the Baidu Account authentication workflow.",
+  "tags": [ "ASP.NET", "Authentication", "Baidu" ],
   "repository": {
     "type": "git",
     "url": "git://github.com/noliar/MoreAuthentication"
