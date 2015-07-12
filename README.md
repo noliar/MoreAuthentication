@@ -17,7 +17,7 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 - [x] [易信 OAuth2.0 授权](https://open.yixin.im/document/oauth/web)
 - [ ] [支付宝 OAuth2.0 授权](https://openhome.alipay.com/doc/docIndex.htm?url=https://openhome.alipay.com/doc/viewKbDoc.htm?key=236615_236620&type=cat)
 
-> ### 有关更多关于 OAuth 2.0 的信息，可参考 [oauth.net](http://oauth.net/2/) 和 [OAuth 2.0 中文文档](https://github.com/jeansfish/RFC6749.zh-cn/blob/master/TableofContents.md)。
+> ### 更多关于 OAuth 2.0 的信息，可参考 [oauth.net](http://oauth.net/2/) 和 [OAuth 2.0 中文文档](https://github.com/jeansfish/RFC6749.zh-cn/blob/master/TableofContents.md)。
 
 ## 使用步骤
 该项目是根据 [ASP.NET 5 Security](https://github.com/aspnet/Security) 写的众多账号平台授权登录。
