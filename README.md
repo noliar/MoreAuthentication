@@ -7,7 +7,7 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 ### 计划支持的授权平台
 - [x] [百度 OAuth2.0 授权](http://developer.baidu.com/wiki/index.php?title=docs/oauth)
 - [x] [豆瓣 OAuth2.0 授权](https://developers.douban.com/wiki/?title=oauth2)
-- [ ] [搜狐 OAuth2.0 授权](https://open.sohu.com/wiki/OAuth2%E4%BB%8B%E7%BB%8D)
+- [ ] ~~[搜狐 OAuth2.0 授权](https://open.sohu.com/wiki/OAuth2%E4%BB%8B%E7%BB%8D "搜狐开放平台目测已死")~~
 - [x] [淘宝 OAuth2.0 授权](http://open.taobao.com/doc/category_list.htm?id=199)
 - [x] [腾讯 OAuth2.0 授权](http://wiki.open.qq.com/wiki/website/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3)
 - [x] [微信 OAuth2.0 授权](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&id=open1419316505)
@@ -15,7 +15,7 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 - [x] [小米 OAuth2.0 授权](http://dev.xiaomi.com/docs/passport/way/)
 - [x] [优酷 OAuth2.0 授权](http://open.youku.com/docs?id=100)
 - [x] [易信 OAuth2.0 授权](https://open.yixin.im/document/oauth/web)
-- [ ] [支付宝 OAuth2.0 授权](https://openhome.alipay.com/doc/docIndex.htm?url=https://openhome.alipay.com/doc/viewKbDoc.htm?key=236615_236620&type=cat)
+- [ ] ~~[支付宝 OAuth2.0 授权](https://openhome.alipay.com/doc/docIndex.htm?url=https://openhome.alipay.com/doc/viewKbDoc.htm?key=236615_236620&type=cat "好旧")~~
 
 > ### 更多关于 OAuth 2.0 的信息，可参考 [oauth.net](http://oauth.net/2/) 和 [OAuth 2.0 中文文档](https://github.com/jeansfish/RFC6749.zh-cn/blob/master/TableofContents.md)。
 
