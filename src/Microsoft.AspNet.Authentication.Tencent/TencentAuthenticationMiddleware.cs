@@ -24,10 +24,10 @@ namespace Microsoft.AspNet.Authentication.Tencent
            [NotNull] IDataProtectionProvider dataProtectionProvider,
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
-           [NotNull] IOptions<ExternalAuthenticationOptions> externalOptions,
+           [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
            [NotNull] IOptions<TencentAuthenticationOptions> options,
            ConfigureOptions<TencentAuthenticationOptions> configureOptions = null)
-            : base(next, dataProtectionProvider, loggerFactory, encoder, externalOptions, options, configureOptions)
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
         {
             if (string.IsNullOrWhiteSpace(Options.AppId))
             {

@@ -188,3 +188,9 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+
+# ASP.NET Project Lock File
+project.lock.json
+
+# Visual Studio ASP.NET Config
+/.vs/config/applicationhost.config

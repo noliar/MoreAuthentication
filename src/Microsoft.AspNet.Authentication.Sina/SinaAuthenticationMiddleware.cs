@@ -24,10 +24,10 @@ namespace Microsoft.AspNet.Authentication.Sina
            [NotNull] IDataProtectionProvider dataProtectionProvider,
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
-           [NotNull] IOptions<ExternalAuthenticationOptions> externalOptions,
+           [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
            [NotNull] IOptions<SinaAuthenticationOptions> options,
            ConfigureOptions<SinaAuthenticationOptions> configureOptions = null) 
-            : base(next, dataProtectionProvider, loggerFactory, encoder, externalOptions, options, configureOptions)
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
         {
             if (string.IsNullOrWhiteSpace(Options.AppKey))
             {
