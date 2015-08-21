@@ -1,5 +1,5 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "1.0.0-beta6",
   "dependencies": {
   },
   "frameworks": {
@@ -10,7 +10,7 @@
     },
     "dnxcore50": {
       "dependencies": {
-        "System.ComponentModel.Annotations": "4.0.10-*"
+        "System.ComponentModel.Annotations": "4.0.10"
       }
     }
   }

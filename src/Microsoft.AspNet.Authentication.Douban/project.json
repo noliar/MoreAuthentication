@@ -1,6 +1,6 @@
 ﻿{
   "authors": [ "杜晓宇" ],
-  "version": "1.0.0-*",
+  "version": "1.0.0-beta6",
   "description": "ASP.NET 5 middleware that enables an application to support the Douban Account authentication workflow.",
   "tags": [ "ASP.NET", "Authentication", "Douban" ],
   "repository": {
@@ -8,8 +8,11 @@
     "url": "git://github.com/noliar/MoreAuthentication"
   },
   "dependencies": {
-    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-*",
-    "Microsoft.Framework.NotNullAttribute.Sources": { "type": "build", "version": "1.0.0-*" }
+    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-beta6",
+    "Microsoft.Framework.NotNullAttribute.Sources": {
+      "type": "build",
+      "version": "1.0.0-beta6"
+    }
   },
   "frameworks": {
     "dnx451": { },
