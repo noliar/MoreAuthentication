@@ -30,13 +30,23 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 在这里，就贴关键的部分（以豆瓣为例），有关账号授权的较为完整代码，建议参考官方提供的例子 —— 
 [Music Store](https://github.com/aspnet/MusicStore/tree/dev) 或者查看 [Security sample](https://github.com/aspnet/Security/tree/dev/samples)
 
+根据[文档][store-with-secretmanager]建议，可使用 [Microsoft.Framework.SecretManager][UserSecrets] 存储相关数据
+
+1. Visual Studio 2015 默认没有将 dnx runtime 放入 %PATH% 中，所以必须先将其放入，或者使用 `dnvm upgrade` 自动添加
+2. dnu commands install Microsoft.Framework.SecretManager
+3. user-secret set Authentication:Douban:ApiKey 00d***060
+4. user-secret set Authentication:Douban:Secret 39**b4
+
+[store-with-secretmanager]: http://docs.asp.net/en/latest/security/sociallogins.html#use-secretmanager-to-store-facebook-appid-and-appsecret
+[UserSecrets]: https://github.com/aspnet/UserSecrets
+
 ``` csharp
 ...
 // ConfigureServices 下
 services.ConfigureDoubanAuthentication(options =>
 {
-    options.ApiKey = "00d***060";
-    options.Secret = "39**b4";
+    options.ApiKey = Configuration["Authentication:Douban:ApiKey"];
+    options.Secret = Configuration["Authentication:Douban:Secret"];
 });
 
 ...
@@ -48,4 +58,4 @@ app.UseDoubanAuthentication();
 
 ## 注意
 目前，仅在 ASP.NET 5 beta6+ 有效；也不要在意命名空间名→_→实在想不出什么名好，只好搞统一了。
-最后要说的，也是显而易见的是，目前的授权模式仅支持 ***Server-side***
+最后要说的，也是显而易见的是，目前的授权模式为 ***Server-side***
