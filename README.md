@@ -43,7 +43,7 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 ``` csharp
 ...
 // ConfigureServices 下
-services.ConfigureDoubanAuthentication(options =>
+services.AddDoubanAuthentication(options =>
 {
     options.ApiKey = Configuration["Authentication:Douban:ApiKey"];
     options.Secret = Configuration["Authentication:Douban:Secret"];
