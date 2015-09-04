@@ -18,10 +18,7 @@ namespace Microsoft.AspNet.Builder
         public static IApplicationBuilder UseSinaAuthentication([NotNull] this IApplicationBuilder app, Action<SinaAuthenticationOptions> configureOptions = null, string optionsName = "")
         {
             return app.UseMiddleware<SinaAuthenticationMiddleware>(
-                 new ConfigureOptions<SinaAuthenticationOptions>(configureOptions ?? (o => { }))
-                 {
-                     Name = optionsName
-                 });
+                 new ConfigureOptions<SinaAuthenticationOptions>(configureOptions ?? (o => { })));
         }
     }
 }

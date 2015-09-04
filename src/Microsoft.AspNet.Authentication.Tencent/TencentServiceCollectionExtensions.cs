@@ -10,14 +10,14 @@ namespace Microsoft.Framework.DependencyInjection
 	/// </summary>
     public static class TencentServiceCollectionExtensions
     {
-        public static IServiceCollection ConfigureTencentAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<TencentAuthenticationOptions> configure, string optionsName = "")
+        public static IServiceCollection AddTencentAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<TencentAuthenticationOptions> configure)
         {
-            return services.Configure(configure, optionsName);
+            return services.Configure(configure);
         }
 
-        public static IServiceCollection ConfigureTencentAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config, string optionsName = "")
+        public static IServiceCollection AddTencentAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<TencentAuthenticationOptions>(config, optionsName);
+            return services.Configure<TencentAuthenticationOptions>(config);
         }
     }
 }

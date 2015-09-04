@@ -10,14 +10,14 @@ namespace Microsoft.Framework.DependencyInjection
 	/// </summary>
     public static class DoubanServiceCollectionExtensions
     {
-        public static IServiceCollection ConfigureDoubanAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<DoubanAuthenticationOptions> configure, string optionsName = "")
+        public static IServiceCollection AddDoubanAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<DoubanAuthenticationOptions> configure)
         {
-            return services.Configure(configure, optionsName);
+            return services.Configure(configure);
         }
 
-        public static IServiceCollection ConfigureDoubanAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config, string optionsName = "")
+        public static IServiceCollection AddDoubanAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<DoubanAuthenticationOptions>(config, optionsName);
+            return services.Configure<DoubanAuthenticationOptions>(config);
         }
     }
 }

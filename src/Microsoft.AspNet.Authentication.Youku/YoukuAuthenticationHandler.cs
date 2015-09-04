@@ -55,7 +55,7 @@ namespace Microsoft.AspNet.Authentication.Youku
                 identity.AddClaim(new Claim("urn:youku:avatar", avatar, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
-            await Options.Notifications.Authenticated(notification);
+            await Options.Events.Authenticated(notification);
 
             return new AuthenticationTicket(notification.Principal, notification.Properties, notification.Options.AuthenticationScheme);
         }

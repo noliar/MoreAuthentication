@@ -10,14 +10,14 @@ namespace Microsoft.Framework.DependencyInjection
 	/// </summary>
     public static class WeixinServiceCollectionExtensions
     {
-        public static IServiceCollection ConfigureWeixinAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<WeixinAuthenticationOptions> configure, string optionsName = "")
+        public static IServiceCollection AddWeixinAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<WeixinAuthenticationOptions> configure)
         {
-            return services.Configure(configure, optionsName);
+            return services.Configure(configure);
         }
 
-        public static IServiceCollection ConfigureWeixinAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config, string optionsName = "")
+        public static IServiceCollection AddWeixinAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<WeixinAuthenticationOptions>(config, optionsName);
+            return services.Configure<WeixinAuthenticationOptions>(config);
         }
     }
 }

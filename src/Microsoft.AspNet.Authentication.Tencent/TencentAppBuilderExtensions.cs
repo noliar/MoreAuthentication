@@ -18,10 +18,7 @@ namespace Microsoft.AspNet.Builder
         public static IApplicationBuilder UseTencentAuthentication([NotNull] this IApplicationBuilder app, Action<TencentAuthenticationOptions> configureOptions = null, string optionsName = "")
         {
             return app.UseMiddleware<TencentAuthenticationMiddleware>(
-                 new ConfigureOptions<TencentAuthenticationOptions>(configureOptions ?? (o => { }))
-                 {
-                     Name = optionsName
-                 });
+                 new ConfigureOptions<TencentAuthenticationOptions>(configureOptions ?? (o => { })));
         }
     }
 }

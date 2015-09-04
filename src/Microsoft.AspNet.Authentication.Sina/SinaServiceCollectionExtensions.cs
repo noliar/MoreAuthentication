@@ -10,14 +10,14 @@ namespace Microsoft.Framework.DependencyInjection
 	/// </summary>
     public static class SinaServiceCollectionExtensions
     {
-        public static IServiceCollection ConfigureSinaAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<SinaAuthenticationOptions> configure, string optionsName = "")
+        public static IServiceCollection AddSinaAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<SinaAuthenticationOptions> configure)
         {
-            return services.Configure(configure, optionsName);
+            return services.Configure(configure);
         }
 
-        public static IServiceCollection ConfigureSinaAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config, string optionsName = "")
+        public static IServiceCollection AddSinaAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<SinaAuthenticationOptions>(config, optionsName);
+            return services.Configure<SinaAuthenticationOptions>(config);
         }
     }
 }

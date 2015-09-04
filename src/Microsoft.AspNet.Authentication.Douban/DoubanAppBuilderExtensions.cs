@@ -18,10 +18,7 @@ namespace Microsoft.AspNet.Builder
         public static IApplicationBuilder UseDoubanAuthentication([NotNull] this IApplicationBuilder app, Action<DoubanAuthenticationOptions> configureOptions = null, string optionsName = "")
         {
             return app.UseMiddleware<DoubanAuthenticationMiddleware>(
-                 new ConfigureOptions<DoubanAuthenticationOptions>(configureOptions ?? (o => { }))
-                 {
-                     Name = optionsName
-                 });
+                 new ConfigureOptions<DoubanAuthenticationOptions>(configureOptions ?? (o => { })));
         }
     }
 }

@@ -15,13 +15,10 @@ namespace Microsoft.AspNet.Builder
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseBaiduAuthentication([NotNull] this IApplicationBuilder app, Action<BaiduAuthenticationOptions> configureOptions = null, string optionsName = "")
+        public static IApplicationBuilder UseBaiduAuthentication([NotNull] this IApplicationBuilder app, Action<BaiduAuthenticationOptions> configureOptions = null)
         {
             return app.UseMiddleware<BaiduAuthenticationMiddleware>(
-                 new ConfigureOptions<BaiduAuthenticationOptions>(configureOptions ?? (o => { }))
-                 {
-                     Name = optionsName
-                 });
+                 new ConfigureOptions<BaiduAuthenticationOptions>(configureOptions ?? (o => { })));
         }
     }
 }

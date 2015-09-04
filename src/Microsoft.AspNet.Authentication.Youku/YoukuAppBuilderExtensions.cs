@@ -18,10 +18,7 @@ namespace Microsoft.AspNet.Builder
         public static IApplicationBuilder UseYoukuAuthentication([NotNull] this IApplicationBuilder app, Action<YoukuAuthenticationOptions> configureOptions = null, string optionsName = "")
         {
             return app.UseMiddleware<YoukuAuthenticationMiddleware>(
-                 new ConfigureOptions<YoukuAuthenticationOptions>(configureOptions ?? (o => { }))
-                 {
-                     Name = optionsName
-                 });
+                 new ConfigureOptions<YoukuAuthenticationOptions>(configureOptions ?? (o => { })));
         }
     }
 }

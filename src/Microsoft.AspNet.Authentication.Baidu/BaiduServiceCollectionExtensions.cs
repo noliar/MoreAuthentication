@@ -10,14 +10,14 @@ namespace Microsoft.Framework.DependencyInjection
 	/// </summary>
     public static class BaiduServiceCollectionExtensions
     {
-        public static IServiceCollection ConfigureBaiduAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<BaiduAuthenticationOptions> configure, string optionsName = "")
+        public static IServiceCollection AddBaiduAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<BaiduAuthenticationOptions> configure)
         {
-            return services.Configure(configure, optionsName);
+            return services.Configure(configure);
         }
 
-        public static IServiceCollection ConfigureBaiduAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config, string optionsName = "")
+        public static IServiceCollection AddBaiduAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<BaiduAuthenticationOptions>(config, optionsName);
+            return services.Configure<BaiduAuthenticationOptions>(config);
         }
     }
 }

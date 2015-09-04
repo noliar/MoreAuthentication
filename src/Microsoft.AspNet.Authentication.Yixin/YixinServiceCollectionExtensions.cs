@@ -10,14 +10,14 @@ namespace Microsoft.Framework.DependencyInjection
     /// </summary>
     public static class YixinServiceCollectionExtensions
     {
-        public static IServiceCollection ConfigureYixinAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<YixinAuthenticationOptions> configure, string optionsName = "")
+        public static IServiceCollection AddYixinAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<YixinAuthenticationOptions> configure)
         {
-            return services.Configure(configure, optionsName);
+            return services.Configure(configure);
         }
 
-        public static IServiceCollection ConfigureYixinAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config, string optionsName = "")
+        public static IServiceCollection AddYixinAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<YixinAuthenticationOptions>(config, optionsName);
+            return services.Configure<YixinAuthenticationOptions>(config);
         }
     }
 }

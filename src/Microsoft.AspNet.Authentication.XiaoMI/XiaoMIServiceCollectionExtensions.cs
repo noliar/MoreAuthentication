@@ -10,14 +10,14 @@ namespace Microsoft.Framework.DependencyInjection
 	/// </summary>
     public static class XiaoMIServiceCollectionExtensions
     {
-        public static IServiceCollection ConfigureXiaoMIAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<XiaoMIAuthenticationOptions> configure, string optionsName = "")
+        public static IServiceCollection AddXiaoMIAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<XiaoMIAuthenticationOptions> configure)
         {
-            return services.Configure(configure, optionsName);
+            return services.Configure(configure);
         }
 
-        public static IServiceCollection ConfigureXiaoMIAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config, string optionsName = "")
+        public static IServiceCollection AddXiaoMIAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<XiaoMIAuthenticationOptions>(config, optionsName);
+            return services.Configure<XiaoMIAuthenticationOptions>(config);
         }
     }
 }

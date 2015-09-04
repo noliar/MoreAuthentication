@@ -19,10 +19,7 @@ namespace Microsoft.AspNet.Builder
         public static IApplicationBuilder UseTaobaoAuthentication([NotNull] this IApplicationBuilder app, Action<TaobaoAuthenticationOptions> configureOptions = null, string optionsName = "")
         {
             return app.UseMiddleware<TaobaoAuthenticationMiddleware>(
-                 new ConfigureOptions<TaobaoAuthenticationOptions>(configureOptions ?? (o => { }))
-                 {
-                     Name = optionsName
-                 });
+                 new ConfigureOptions<TaobaoAuthenticationOptions>(configureOptions ?? (o => { })));
         }
     }
 

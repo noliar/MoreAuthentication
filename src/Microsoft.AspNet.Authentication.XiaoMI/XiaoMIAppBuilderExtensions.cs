@@ -18,10 +18,7 @@ namespace Microsoft.AspNet.Builder
         public static IApplicationBuilder UseXiaoMIAuthentication([NotNull] this IApplicationBuilder app, Action<XiaoMIAuthenticationOptions> configureOptions = null, string optionsName = "")
         {
             return app.UseMiddleware<XiaoMIAuthenticationMiddleware>(
-                 new ConfigureOptions<XiaoMIAuthenticationOptions>(configureOptions ?? (o => { }))
-                 {
-                     Name = optionsName
-                 });
+                 new ConfigureOptions<XiaoMIAuthenticationOptions>(configureOptions ?? (o => { })));
         }
     }
 }

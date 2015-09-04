@@ -18,10 +18,7 @@ namespace Microsoft.AspNet.Builder
         public static IApplicationBuilder UseWeixinAuthentication([NotNull] this IApplicationBuilder app, Action<WeixinAuthenticationOptions> configureOptions = null, string optionsName = "")
         {
             return app.UseMiddleware<WeixinAuthenticationMiddleware>(
-                 new ConfigureOptions<WeixinAuthenticationOptions>(configureOptions ?? (o => { }))
-                 {
-                     Name = optionsName
-                 });
+                 new ConfigureOptions<WeixinAuthenticationOptions>(configureOptions ?? (o => { })));
         }
     }
 }

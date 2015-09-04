@@ -10,14 +10,14 @@ namespace Microsoft.Framework.DependencyInjection
     /// </summary>
     public static class YoukuServiceCollectionExtensions
     {
-        public static IServiceCollection ConfigureYoukuAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<YoukuAuthenticationOptions> configure, string optionsName = "")
+        public static IServiceCollection AddYoukuAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<YoukuAuthenticationOptions> configure)
         {
-            return services.Configure(configure, optionsName);
+            return services.Configure(configure);
         }
 
-        public static IServiceCollection ConfigureYoukuAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config, string optionsName = "")
+        public static IServiceCollection AddYoukuAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<YoukuAuthenticationOptions>(config, optionsName);
+            return services.Configure<YoukuAuthenticationOptions>(config);
         }
     }
 }

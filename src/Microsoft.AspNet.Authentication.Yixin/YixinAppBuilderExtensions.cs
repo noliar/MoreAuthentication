@@ -18,10 +18,7 @@ namespace Microsoft.AspNet.Builder
         public static IApplicationBuilder UseYixinAuthentication([NotNull] this IApplicationBuilder app, Action<YixinAuthenticationOptions> configureOptions = null, string optionsName = "")
         {
             return app.UseMiddleware<YixinAuthenticationMiddleware>(
-                 new ConfigureOptions<YixinAuthenticationOptions>(configureOptions ?? (o => { }))
-                 {
-                     Name = optionsName
-                 });
+                 new ConfigureOptions<YixinAuthenticationOptions>(configureOptions ?? (o => { })));
         }
     }
 }
