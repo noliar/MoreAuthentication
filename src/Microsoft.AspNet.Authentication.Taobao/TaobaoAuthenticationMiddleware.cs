@@ -24,10 +24,10 @@ namespace Microsoft.AspNet.Authentication.Taobao
            [NotNull] IDataProtectionProvider dataProtectionProvider,
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
-           [NotNull] IOptions<ExternalAuthenticationOptions> externalOptions,
+           [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
            [NotNull] IOptions<TaobaoAuthenticationOptions> options,
            ConfigureOptions<TaobaoAuthenticationOptions> configureOptions = null) 
-            : base(next, dataProtectionProvider, loggerFactory, encoder, externalOptions, options, configureOptions)
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
         {
         }
 

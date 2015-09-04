@@ -23,10 +23,10 @@ namespace Microsoft.AspNet.Authentication.Youku
            [NotNull] IDataProtectionProvider dataProtectionProvider,
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
-           [NotNull] IOptions<ExternalAuthenticationOptions> externalOptions,
+           [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
            [NotNull] IOptions<YoukuAuthenticationOptions> options,
            ConfigureOptions<YoukuAuthenticationOptions> configureOptions = null)
-            : base(next, dataProtectionProvider, loggerFactory, encoder, externalOptions, options, configureOptions)
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
         {
         }
 
