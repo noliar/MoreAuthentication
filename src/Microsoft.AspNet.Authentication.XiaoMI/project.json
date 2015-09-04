@@ -1,6 +1,6 @@
 ﻿{
   "authors": [ "杜晓宇" ],
-  "version": "1.0.0-beta6",
+  "version": "1.0.0-beta7",
   "description": "ASP.NET 5 middleware that enables an application to support the XiaoMI Account authentication workflow.",
   "tags": [ "ASP.NET", "Authentication", "XiaoMI", "MI", "RUOK" ],
   "repository": {
@@ -8,22 +8,22 @@
     "url": "git://github.com/noliar/MoreAuthentication"
   },
   "dependencies": {
-    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-beta6",
+    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-beta7",
     "Microsoft.Framework.NotNullAttribute.Sources": {
       "type": "build",
-      "version": "1.0.0-beta6"
+      "version": "1.0.0-beta7"
     },
-    "Microsoft.AspNet.Authentication.Common": "1.0.0-beta6",
+    "Microsoft.AspNet.Authentication.Common": "1.0.0-beta7",
     "Microsoft.AspNet.Authentication.Common.Sources": {
       "type": "build",
-      "version": "1.0.0-beta6"
+      "version": "1.0.0-beta7"
     }
   },
   "frameworks": {
     "dnx451": { },
     "dnxcore50": {
       "dependencies": {
-        "System.Security.Cryptography.Hashing.Algorithms": "4.0.0-*"
+        "System.Security.Cryptography.Hashing.Algorithms": "4.0.0-beta-23225"
       }
     }
   }
