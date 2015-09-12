@@ -51,7 +51,7 @@ namespace Microsoft.AspNet.Authentication.XiaoMI
             };
             if (Options.TokenType != TokenType.None)
             {
-                dic.Add("token_type", Options.TokenType.ToLower() /*GetDescription()*/);
+                dic.Add("token_type", Options.TokenType.GetDescription());
             }
             var query = new FormUrlEncodedContent(dic);
             var message = new HttpRequestMessage(HttpMethod.Get, Options.TokenEndpoint + $"?{await query.ReadAsStringAsync()}");

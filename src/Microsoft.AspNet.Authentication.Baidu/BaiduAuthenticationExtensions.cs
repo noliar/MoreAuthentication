@@ -12,7 +12,7 @@ namespace Microsoft.AspNet.Authentication.Baidu
     public static class BaiduAuthenticationExtensions
     {
         // 获取 display style 的名称
-        public static string GetDescription([NotNull] this BaiduAuthenticationOptions.DisplayStyle style)
+        /*public static string GetDescription([NotNull] this BaiduAuthenticationOptions.DisplayStyle style)
         {
             // DNX CORE do not support Type.GetMember(string name); So use switch instead
             // 不知道为啥，dnx core 就是访问不了 mscorelib(7cec85d7bea7798e) 里的东西，
@@ -36,6 +36,6 @@ namespace Microsoft.AspNet.Authentication.Baidu
                 default:
                     return "page";
             }
-        }
+        }*/
     }
 }

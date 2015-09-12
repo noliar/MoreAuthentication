@@ -11,6 +11,6 @@ namespace Microsoft.AspNet.Authentication.Sina
     /// </summary>
     public static class SinaAuthenticationExtensions
     {
-        public static string GetDescription([NotNull] this SinaAuthenticationOptions.DisplayStyle style) => style.ToString().ToLower();
+        //public static string GetDescription([NotNull] this SinaAuthenticationOptions.DisplayStyle style) => style.ToString().ToLower();
     }
 }

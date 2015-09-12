@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace Microsoft.AspNet.Authentication.Internal
 {
@@ -19,15 +20,18 @@ namespace Microsoft.AspNet.Authentication.Internal
             where TEnum : struct
             => value.ToString().ToLower();
 
-        /*internal static string GetDescription<TEnum>(this TEnum value) where TEnum: struct
+        // sth. to display
+        internal static string GetDescription<TEnum>(this TEnum value) where TEnum: struct
         {
             var type = value.GetType();
-            if (!type.IsEnum)
+            // 解决方案来自 https://github.com/dotnet/coreclr/issues/760
+            // 但是为什么 CoreCLR 不能直接 Type.IsEnum 呢，明明 CoreCLR 的 mscorelib 里有这个属性
+            if (!type.GetTypeInfo().IsEnum)
             {
                 throw new NotSupportedException("类型不支持");
             }
             var name = Enum.GetName(type, value);
             return (type.GetField(name)?.GetCustomAttributes(typeof(DisplayAttribute), false) as DisplayAttribute[])?.Single()?.Description;
-        }*/
+        }
     }
 }

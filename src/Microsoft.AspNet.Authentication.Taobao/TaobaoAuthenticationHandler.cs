@@ -19,7 +19,7 @@ namespace Microsoft.AspNet.Authentication.Taobao
         /// </summary>
         protected override string BuildChallengeUrl(AuthenticationProperties properties, string redirectUri)
         {
-            return base.BuildChallengeUrl(properties, redirectUri) + $"&view={Options.View.ToLower()}";
+            return base.BuildChallengeUrl(properties, redirectUri) + $"&view={Options.View.GetDescription()}";
         }
 
         /// <summary>
