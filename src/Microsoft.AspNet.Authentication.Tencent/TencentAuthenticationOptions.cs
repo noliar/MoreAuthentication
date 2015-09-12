@@ -22,9 +22,9 @@ namespace Microsoft.AspNet.Authentication.Tencent
         }
 
         /// <summary>
-        ///  获取应用用户的OpenID， 腾讯开放平台中获取不到 QQ 号
+        ///  用来获取应用用户的OpenID， 腾讯开放平台中获取不到 QQ 号
         /// </summary>
-        public string OpenIdEndpoint { get; set; }
+        public string OpenIdEndpoint { get; }
 
         /// <summary>
         ///  腾讯开放平台中，用 AppId 来指代 ClientId

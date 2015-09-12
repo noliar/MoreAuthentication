@@ -69,7 +69,7 @@ namespace Microsoft.AspNet.Authentication.Tencent
         /// </summary>
         protected override async Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
-            var openIdEndpoint = TencentAuthenticationDefaults.OpenIdEndpoint + "?access_token=" + tokens.AccessToken;
+            var openIdEndpoint = Options.OpenIdEndpoint + "?access_token=" + tokens.AccessToken;
             var response = await Backchannel.GetAsync(openIdEndpoint, Context.RequestAborted);
             response.EnsureSuccessStatusCode();
             // 要不要这么懒……这回用正则看看
