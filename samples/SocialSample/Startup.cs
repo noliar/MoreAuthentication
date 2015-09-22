@@ -23,17 +23,6 @@ namespace SocialSample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAuthentication();
-            services.Configure<SharedAuthenticationOptions>(options =>
-            {
-                options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            });
-            services.AddClaimsTransformation(p =>
-            {
-                var id = new ClaimsIdentity("xform");
-                id.AddClaim(new Claim("ClaimsTransformation", "TransformAddedClaim"));
-                p.AddIdentity(id);
-                return p;
-            });
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory)
@@ -59,7 +48,7 @@ namespace SocialSample
             {
                 options.AccessKeyId = "00d08dfa114c80200271a9ee33e58060";
                 options.SecretAccessKey = "39e079a2c685fbb4";
-                options.Display = BaiduAuthenticationOptions.DisplayStyle.Touch;
+                options.Display = BaiduOptions.DisplayStyle.Touch;
                 options.IsForce = true;
                 options.UseSms = true;
             });
@@ -68,15 +57,15 @@ namespace SocialSample
             {
                 options.AppKey = "00d08dfa114c80200271a9ee33e58060";
                 options.AppSecret = "39e079a2c685fbb4";
-                options.Language = SinaAuthenticationOptions.LanguageType.English;
-                options.Display = SinaAuthenticationOptions.DisplayStyle.Mobile;
+                options.Language = SinaOptions.LanguageType.English;
+                options.Display = SinaOptions.DisplayStyle.Mobile;
             });
 
             app.UseTaobaoAuthentication(options =>
             {
                 options.ClientId = "00d08dfa114c80200271a9ee33e58060";
                 options.ClientSecret = "39e079a2c685fbb4";
-                options.View = TaobaoAuthenticationOptions.ViewStyle.Tmall;
+                options.View = TaobaoOptions.ViewStyle.Tmall;
             });
 
             app.UseTencentAuthentication(options =>
@@ -92,7 +81,7 @@ namespace SocialSample
                 options.AppSecret = "39e079a2c685fbb4";
             });
 
-            app.UseXiaoMIAuthentication(options =>
+            app.UseXiaoMiAuthentication(options =>
             {
                 options.AppId = "00d08dfa114c80200271a9ee33e58060";
                 options.AppSecret = "39e079a2c685fbb4";

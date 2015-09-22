@@ -6,18 +6,18 @@ using System;
 namespace Microsoft.Framework.DependencyInjection
 {
     /// <summary>
-	/// Extension methods for using <see cref="TaobaoAuthenticationMiddleware" />
+	/// Extension methods for using <see cref="TaobaoMiddleware" />
 	/// </summary>
     public static class TaobaoServiceCollectionExtensions
     {
-        public static IServiceCollection AddTaobaoAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<TaobaoAuthenticationOptions> configure)
+        public static IServiceCollection AddTaobaoAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<TaobaoOptions> configure)
         {
             return services.Configure(configure);
         }
 
         public static IServiceCollection AddTaobaoAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<TaobaoAuthenticationOptions>(config);
+            return services.Configure<TaobaoOptions>(config);
         }
     }
 }

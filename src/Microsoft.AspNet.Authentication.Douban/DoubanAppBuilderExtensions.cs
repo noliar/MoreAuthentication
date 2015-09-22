@@ -6,7 +6,7 @@ using System;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="DoubanAuthenticationMiddleware" />
+    /// Extension methods for using <see cref="DoubanMiddleware" />
     /// </summary>
     public static class DoubanAppBuilderExtensions
     {
@@ -15,10 +15,10 @@ namespace Microsoft.AspNet.Builder
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseDoubanAuthentication([NotNull] this IApplicationBuilder app, Action<DoubanAuthenticationOptions> configureOptions = null, string optionsName = "")
+        public static IApplicationBuilder UseDoubanAuthentication([NotNull] this IApplicationBuilder app, Action<DoubanOptions> configureOptions = null, string optionsName = "")
         {
-            return app.UseMiddleware<DoubanAuthenticationMiddleware>(
-                 new ConfigureOptions<DoubanAuthenticationOptions>(configureOptions ?? (o => { })));
+            return app.UseMiddleware<DoubanMiddleware>(
+                 new ConfigureOptions<DoubanOptions>(configureOptions ?? (o => { })));
         }
     }
 }

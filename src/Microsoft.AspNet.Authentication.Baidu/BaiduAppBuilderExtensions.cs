@@ -6,7 +6,7 @@ using System;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="BaiduAuthenticationMiddleware" />
+    /// Extension methods for using <see cref="BaiduMiddleware" />
     /// </summary>
     public static class BaiduAppBuilderExtensions
     {
@@ -15,10 +15,10 @@ namespace Microsoft.AspNet.Builder
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseBaiduAuthentication([NotNull] this IApplicationBuilder app, Action<BaiduAuthenticationOptions> configureOptions = null)
+        public static IApplicationBuilder UseBaiduAuthentication([NotNull] this IApplicationBuilder app, Action<BaiduOptions> configureOptions = null)
         {
-            return app.UseMiddleware<BaiduAuthenticationMiddleware>(
-                 new ConfigureOptions<BaiduAuthenticationOptions>(configureOptions ?? (o => { })));
+            return app.UseMiddleware<BaiduMiddleware>(
+                 new ConfigureOptions<BaiduOptions>(configureOptions ?? (o => { })));
         }
     }
 }

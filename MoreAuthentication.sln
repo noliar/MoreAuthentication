@@ -21,7 +21,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentica
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.Tencent", "src\Microsoft.AspNet.Authentication.Tencent\Microsoft.AspNet.Authentication.Tencent.xproj", "{330AE64C-011C-4E4B-885C-78CE234B22B9}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.XiaoMI", "src\Microsoft.AspNet.Authentication.XiaoMI\Microsoft.AspNet.Authentication.XiaoMI.xproj", "{A731EEF9-AA90-4E93-8031-F3E8721AE03B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.XiaoMi", "src\Microsoft.AspNet.Authentication.XiaoMi\Microsoft.AspNet.Authentication.XiaoMi.xproj", "{A731EEF9-AA90-4E93-8031-F3E8721AE03B}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.Common", "src\Microsoft.AspNet.Authentication.Common\Microsoft.AspNet.Authentication.Common.xproj", "{790D9EF7-4C96-4F3B-B838-F043E19AB90C}"
 EndProject

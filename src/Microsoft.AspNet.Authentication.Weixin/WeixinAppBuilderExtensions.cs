@@ -6,7 +6,7 @@ using System;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="WeixinAuthenticationMiddleware" />
+    /// Extension methods for using <see cref="WeixinMiddleware" />
     /// </summary>
     public static class WeixinAppBuilderExtensions
     {
@@ -15,10 +15,10 @@ namespace Microsoft.AspNet.Builder
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseWeixinAuthentication([NotNull] this IApplicationBuilder app, Action<WeixinAuthenticationOptions> configureOptions = null, string optionsName = "")
+        public static IApplicationBuilder UseWeixinAuthentication([NotNull] this IApplicationBuilder app, Action<WeixinOptions> configureOptions = null, string optionsName = "")
         {
-            return app.UseMiddleware<WeixinAuthenticationMiddleware>(
-                 new ConfigureOptions<WeixinAuthenticationOptions>(configureOptions ?? (o => { })));
+            return app.UseMiddleware<WeixinMiddleware>(
+                 new ConfigureOptions<WeixinOptions>(configureOptions ?? (o => { })));
         }
     }
 }

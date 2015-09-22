@@ -6,7 +6,7 @@ using System;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="TencentAuthenticationMiddleware" />
+    /// Extension methods for using <see cref="TencentMiddleware" />
     /// </summary>
     public static class TencentAppBuilderExtensions
     {
@@ -15,10 +15,10 @@ namespace Microsoft.AspNet.Builder
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseTencentAuthentication([NotNull] this IApplicationBuilder app, Action<TencentAuthenticationOptions> configureOptions = null, string optionsName = "")
+        public static IApplicationBuilder UseTencentAuthentication([NotNull] this IApplicationBuilder app, Action<TencentOptions> configureOptions = null, string optionsName = "")
         {
-            return app.UseMiddleware<TencentAuthenticationMiddleware>(
-                 new ConfigureOptions<TencentAuthenticationOptions>(configureOptions ?? (o => { })));
+            return app.UseMiddleware<TencentMiddleware>(
+                 new ConfigureOptions<TencentOptions>(configureOptions ?? (o => { })));
         }
     }
 }

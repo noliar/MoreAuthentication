@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Authentication.XiaoMI;
+﻿using Microsoft.AspNet.Authentication.XiaoMi;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.Internal;
 using System;
@@ -6,18 +6,18 @@ using System;
 namespace Microsoft.Framework.DependencyInjection
 {
     /// <summary>
-	/// Extension methods for using <see cref="XiaoMIAuthenticationMiddleware" />
+	/// Extension methods for using <see cref="XiaoMiMiddleware" />
 	/// </summary>
-    public static class XiaoMIServiceCollectionExtensions
+    public static class XiaoMiServiceCollectionExtensionss
     {
-        public static IServiceCollection AddXiaoMIAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<XiaoMIAuthenticationOptions> configure)
+        public static IServiceCollection AddXiaoMiAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<XiaoMiOptions> configure)
         {
             return services.Configure(configure);
         }
 
-        public static IServiceCollection AddXiaoMIAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
+        public static IServiceCollection AddXiaoMiAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<XiaoMIAuthenticationOptions>(config);
+            return services.Configure<XiaoMiOptions>(config);
         }
     }
 }

@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="TaobaoAuthenticationMiddleware" />
+    /// Extension methods for using <see cref="TaobaoMiddleware" />
     /// </summary>
     public static class TaobaoAppBuilderExtensions
     {
@@ -16,10 +16,10 @@ namespace Microsoft.AspNet.Builder
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseTaobaoAuthentication([NotNull] this IApplicationBuilder app, Action<TaobaoAuthenticationOptions> configureOptions = null, string optionsName = "")
+        public static IApplicationBuilder UseTaobaoAuthentication([NotNull] this IApplicationBuilder app, Action<TaobaoOptions> configureOptions = null, string optionsName = "")
         {
-            return app.UseMiddleware<TaobaoAuthenticationMiddleware>(
-                 new ConfigureOptions<TaobaoAuthenticationOptions>(configureOptions ?? (o => { })));
+            return app.UseMiddleware<TaobaoMiddleware>(
+                 new ConfigureOptions<TaobaoOptions>(configureOptions ?? (o => { })));
         }
     }
 

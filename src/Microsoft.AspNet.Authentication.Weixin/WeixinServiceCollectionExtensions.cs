@@ -6,18 +6,18 @@ using System;
 namespace Microsoft.Framework.DependencyInjection
 {
     /// <summary>
-	/// Extension methods for using <see cref="WeixinAuthenticationMiddleware" />
+	/// Extension methods for using <see cref="WeixinMiddleware" />
 	/// </summary>
     public static class WeixinServiceCollectionExtensions
     {
-        public static IServiceCollection AddWeixinAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<WeixinAuthenticationOptions> configure)
+        public static IServiceCollection AddWeixinAuthentication([NotNull] this IServiceCollection services, [NotNull] Action<WeixinOptions> configure)
         {
             return services.Configure(configure);
         }
 
         public static IServiceCollection AddWeixinAuthentication([NotNull] this IServiceCollection services, [NotNull] IConfiguration config)
         {
-            return services.Configure<WeixinAuthenticationOptions>(config);
+            return services.Configure<WeixinOptions>(config);
         }
     }
 }
