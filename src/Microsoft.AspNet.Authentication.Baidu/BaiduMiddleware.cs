@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.DataProtection;
 using Microsoft.Framework.Internal;
@@ -17,15 +18,19 @@ namespace Microsoft.AspNet.Authentication.Baidu
         ///  构造一个新的 <see cref="BaiduMiddleware"/>
         /// </summary>
         /// <param name="next">The next middleware in the HTTP pipeline to invoke.</param>
+        /// <param name="dataProtectionProvider"></param>
+        /// <param name="loggerFactory"></param>
+        /// <param name="encoder"></param>
+        /// <param name="sharedOptions"></param>
+        /// <param name="options">Configuration options for the middleware.</param>
         public BaiduMiddleware(
             [NotNull] RequestDelegate next,
             [NotNull] IDataProtectionProvider dataProtectionProvider,
             [NotNull] ILoggerFactory loggerFactory,
             [NotNull] IUrlEncoder encoder,
             [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
-            [NotNull] IOptions<BaiduOptions> options,
-            ConfigureOptions<BaiduOptions> configureOptions = null) 
-            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
+            [NotNull] BaiduOptions options) 
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options)
         {
             if (string.IsNullOrWhiteSpace(Options.AccessKeyId))
             {

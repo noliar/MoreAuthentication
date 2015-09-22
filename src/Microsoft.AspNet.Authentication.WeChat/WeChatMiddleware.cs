@@ -10,7 +10,7 @@ using System;
 namespace Microsoft.AspNet.Authentication.WeChat
 {
     /// <summary>
-	/// An ASP.NET middleware for authenticating users using Weixin.
+	/// An ASP.NET middleware for authenticating users using WeChat.
 	/// </summary>
     public class WeChatMiddleware : OAuthMiddleware<WeChatOptions>
     {
@@ -18,6 +18,10 @@ namespace Microsoft.AspNet.Authentication.WeChat
 		/// Initializes a new <see cref="WeChatMiddleware" />.
 		/// </summary>
 		/// <param name="next">The next middleware in the application pipeline to invoke.</param>
+		/// <param name="dataProtectionProvider"></param>
+        /// <param name="loggerFactory"></param>
+        /// <param name="encoder"></param>
+        /// <param name="sharedOptions"></param>
 		/// <param name="options">Configuration options for the middleware.</param>
         public WeChatMiddleware(
            [NotNull] RequestDelegate next,
@@ -25,9 +29,8 @@ namespace Microsoft.AspNet.Authentication.WeChat
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
            [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
-           [NotNull] IOptions<WeChatOptions> options,
-           ConfigureOptions<WeChatOptions> configureOptions = null)
-            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
+           [NotNull] WeChatOptions options)
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options)
         {
             if (string.IsNullOrWhiteSpace(Options.AppId))
             {

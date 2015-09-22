@@ -11,7 +11,7 @@ using System;
 namespace Microsoft.AspNet.Authentication.XiaoMi
 {
     /// <summary>
-    /// An ASP.NET middleware for authenticating users using the Xiao MI Account service.
+    /// An ASP.NET middleware for authenticating users using the Xiao Mi Account service.
     /// </summary>
     public class XiaoMiMiddleware : OAuthMiddleware<XiaoMiOptions>
     {
@@ -19,6 +19,10 @@ namespace Microsoft.AspNet.Authentication.XiaoMi
         /// Initializes a new <see cref="XiaoMiMiddleware" />.
         /// </summary>
         /// <param name="next">The next middleware in the application pipeline to invoke.</param>
+        /// <param name="dataProtectionProvider"></param>
+        /// <param name="loggerFactory"></param>
+        /// <param name="encoder"></param>
+        /// <param name="sharedOptions"></param>
         /// <param name="options">Configuration options for the middleware.</param>
         public XiaoMiMiddleware(
            [NotNull] RequestDelegate next,
@@ -26,9 +30,8 @@ namespace Microsoft.AspNet.Authentication.XiaoMi
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
            [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
-           [NotNull] IOptions<XiaoMiOptions> options,
-           ConfigureOptions<XiaoMiOptions> configureOptions = null)
-            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
+           [NotNull] XiaoMiOptions options)
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options)
         {
             if (string.IsNullOrWhiteSpace(Options.AppId))
             {

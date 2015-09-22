@@ -17,6 +17,10 @@ namespace Microsoft.AspNet.Authentication.Youku
 		/// Initializes a new <see cref="YoukuMiddleware" />.
 		/// </summary>
 		/// <param name="next">The next middleware in the application pipeline to invoke.</param>
+		/// <param name="dataProtectionProvider"></param>
+        /// <param name="loggerFactory"></param>
+        /// <param name="encoder"></param>
+        /// <param name="sharedOptions"></param>
 		/// <param name="options">Configuration options for the middleware.</param>
         public YoukuMiddleware(
            [NotNull] RequestDelegate next,
@@ -24,9 +28,8 @@ namespace Microsoft.AspNet.Authentication.Youku
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
            [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
-           [NotNull] IOptions<YoukuOptions> options,
-           ConfigureOptions<YoukuOptions> configureOptions = null)
-            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
+           [NotNull] YoukuOptions options)
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options)
         {
         }
 

@@ -18,6 +18,10 @@ namespace Microsoft.AspNet.Authentication.Sina
 		/// Initializes a new <see cref="SinaMiddleware" />.
 		/// </summary>
 		/// <param name="next">The next middleware in the application pipeline to invoke.</param>
+		/// <param name="dataProtectionProvider"></param>
+        /// <param name="loggerFactory"></param>
+        /// <param name="encoder"></param>
+        /// <param name="sharedOptions"></param>
 		/// <param name="options">Configuration options for the middleware.</param>
         public SinaMiddleware(
            [NotNull] RequestDelegate next,
@@ -25,9 +29,8 @@ namespace Microsoft.AspNet.Authentication.Sina
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
            [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
-           [NotNull] IOptions<SinaOptions> options,
-           ConfigureOptions<SinaOptions> configureOptions = null) 
-            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
+           [NotNull] SinaOptions options) 
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options)
         {
             if (string.IsNullOrWhiteSpace(Options.AppKey))
             {

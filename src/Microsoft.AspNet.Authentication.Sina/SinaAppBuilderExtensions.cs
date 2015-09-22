@@ -14,11 +14,24 @@ namespace Microsoft.AspNet.Builder
 		/// Authenticate users using Sina.
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
+		/// <param name="options">The Middleware options.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseSinaAuthentication([NotNull] this IApplicationBuilder app, Action<SinaOptions> configureOptions = null, string optionsName = "")
+        public static IApplicationBuilder UseSinaAuthentication([NotNull] this IApplicationBuilder app, [NotNull] SinaOptions options)
         {
-            return app.UseMiddleware<SinaMiddleware>(
-                 new ConfigureOptions<SinaOptions>(configureOptions ?? (o => { })));
+            return app.UseMiddleware<SinaMiddleware>(options);
+        }
+
+        /// <summary>
+		/// Authenticate users using Sina.
+		/// </summary>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
+		/// <param name="configureOptions">Used to configure Middleware options.</param>
+		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+        public static IApplicationBuilder UseSinaAuthentication([NotNull] this IApplicationBuilder app, Action<SinaOptions> configureOptions)
+        {
+            var options = new SinaOptions();
+            configureOptions?.Invoke(options);
+            return app.UseSinaAuthentication(options);
         }
     }
 }

@@ -14,11 +14,24 @@ namespace Microsoft.AspNet.Builder
 		/// Authenticate users using Douban.
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
+		/// <param name="options">The Middleware options.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseDoubanAuthentication([NotNull] this IApplicationBuilder app, Action<DoubanOptions> configureOptions = null, string optionsName = "")
+        public static IApplicationBuilder UseDoubanAuthentication([NotNull] this IApplicationBuilder app, [NotNull] DoubanOptions options)
         {
-            return app.UseMiddleware<DoubanMiddleware>(
-                 new ConfigureOptions<DoubanOptions>(configureOptions ?? (o => { })));
+            return app.UseMiddleware<DoubanMiddleware>(options);
+        }
+
+        /// <summary>
+		/// Authenticate users using Douban.
+		/// </summary>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
+		/// <param name="configureOptions">Used to configure Middleware options.</param>
+		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+        public static IApplicationBuilder UseDoubanAuthentication([NotNull] this IApplicationBuilder app, Action<DoubanOptions> configureOptions)
+        {
+            var options = new DoubanOptions();
+            configureOptions?.Invoke(options);
+            return app.UseDoubanAuthentication(options);
         }
     }
 }

@@ -18,6 +18,10 @@ namespace Microsoft.AspNet.Authentication.Taobao
         /// Initializes a new <see cref="TaobaoMiddleware" />.
         /// </summary>
         /// <param name="next">The next middleware in the application pipeline to invoke.</param>
+        /// <param name="dataProtectionProvider"></param>
+        /// <param name="loggerFactory"></param>
+        /// <param name="encoder"></param>
+        /// <param name="sharedOptions"></param>
         /// <param name="options">Configuration options for the middleware.</param>
         public TaobaoMiddleware(
            [NotNull] RequestDelegate next,
@@ -25,9 +29,8 @@ namespace Microsoft.AspNet.Authentication.Taobao
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
            [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
-           [NotNull] IOptions<TaobaoOptions> options,
-           ConfigureOptions<TaobaoOptions> configureOptions = null) 
-            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
+           [NotNull] TaobaoOptions options) 
+            : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options)
         {
         }
 
