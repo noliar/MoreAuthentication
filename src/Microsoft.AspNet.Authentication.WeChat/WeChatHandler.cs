@@ -6,14 +6,14 @@ using Microsoft.AspNet.Http.Authentication;
 using Microsoft.AspNet.Http.Extensions;
 using Newtonsoft.Json.Linq;
 
-namespace Microsoft.AspNet.Authentication.Weixin
+namespace Microsoft.AspNet.Authentication.WeChat
 {
     /// <summary>
     ///  微信授权登录处理核心类
     /// </summary>
-    public class WeixinHandler : OAuthHandler<WeixinOptions>
+    public class WeChatHandler : OAuthHandler<WeChatOptions>
     {
-        public WeixinHandler(HttpClient backchannel) : base(backchannel)
+        public WeChatHandler(HttpClient backchannel) : base(backchannel)
         {
         }
 
@@ -87,13 +87,13 @@ namespace Microsoft.AspNet.Authentication.Weixin
                 Principal = new ClaimsPrincipal(identity)
             };
 
-            var name = WeixinHelper.GetNick(payload);
+            var name = WeChatHelper.GetNick(payload);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));
                 identity.AddClaim(new Claim("urn:weixin:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
-            var img = WeixinHelper.GetHeadImage(payload);
+            var img = WeChatHelper.GetHeadImage(payload);
             if (!string.IsNullOrEmpty(img))
             {
                 identity.AddClaim(new Claim("urn:weixin:headimgurl", img, ClaimValueTypes.String, Options.ClaimsIssuer));

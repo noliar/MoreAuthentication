@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Microsoft.AspNet.Authentication.Weixin
+namespace Microsoft.AspNet.Authentication.WeChat
 {
-    public class WeixinOptions : OAuth.OAuthOptions
+    public class WeChatOptions : OAuth.OAuthOptions
     {
-        public WeixinOptions()
+        public WeChatOptions()
         {
-            AuthenticationScheme = WeixinDefaults.AuthenticationScheme;
+            AuthenticationScheme = WeChatDefaults.AuthenticationScheme;
             Caption = AuthenticationScheme;
             CallbackPath = "/signin-weixin";
-            AuthorizationEndpoint = WeixinDefaults.AuthorizationEndpoint;
-            TokenEndpoint = WeixinDefaults.TokenEndpoint;
-            UserInformationEndpoint = WeixinDefaults.UserInformationEndpoint;
+            AuthorizationEndpoint = WeChatDefaults.AuthorizationEndpoint;
+            TokenEndpoint = WeChatDefaults.TokenEndpoint;
+            UserInformationEndpoint = WeChatDefaults.UserInformationEndpoint;
         }
 
         /// <summary>

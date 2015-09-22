@@ -31,7 +31,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentica
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.Common.Sources", "src\Microsoft.AspNet.Authentication.Common.Sources\Microsoft.AspNet.Authentication.Common.Sources.xproj", "{AD978508-0829-419C-9839-C7CF98CF5F42}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.Weixin", "src\Microsoft.AspNet.Authentication.Weixin\Microsoft.AspNet.Authentication.Weixin.xproj", "{08E37AC5-83C5-40E5-9E7C-794482E4CFDA}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Authentication.WeChat", "src\Microsoft.AspNet.Authentication.WeChat\Microsoft.AspNet.Authentication.WeChat.xproj", "{08E37AC5-83C5-40E5-9E7C-794482E4CFDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{374A9E31-AB15-4E5C-9B3E-39562449CCF9}"
 EndProject

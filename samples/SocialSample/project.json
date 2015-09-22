@@ -9,7 +9,7 @@
     "Microsoft.AspNet.Authentication.Sina": "1.0.0-*",
     "Microsoft.AspNet.Authentication.Taobao": "1.0.0-*",
     "Microsoft.AspNet.Authentication.Tencent": "1.0.0-*",
-    "Microsoft.AspNet.Authentication.Weixin": "1.0.0-*",
+    "Microsoft.AspNet.Authentication.WeChat": "1.0.0-*",
     "Microsoft.AspNet.Authentication.XiaoMi": "1.0.0-*",
     "Microsoft.AspNet.Authentication.Yixin": "1.0.0-*",
     "Microsoft.AspNet.Authentication.Youku": "1.0.0-*",

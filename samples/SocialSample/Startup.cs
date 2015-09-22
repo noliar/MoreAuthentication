@@ -75,7 +75,7 @@ namespace SocialSample
                 options.IsMobile = true;
             });
 
-            app.UseWeixinAuthentication(options =>
+            app.UseWeChatAuthentication(options =>
             {
                 options.AppId = "00d08dfa114c80200271a9ee33e58060";
                 options.AppSecret = "39e079a2c685fbb4";

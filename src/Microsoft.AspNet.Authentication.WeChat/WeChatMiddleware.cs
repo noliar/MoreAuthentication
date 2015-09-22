@@ -7,26 +7,26 @@ using Microsoft.Framework.OptionsModel;
 using Microsoft.Framework.WebEncoders;
 using System;
 
-namespace Microsoft.AspNet.Authentication.Weixin
+namespace Microsoft.AspNet.Authentication.WeChat
 {
     /// <summary>
 	/// An ASP.NET middleware for authenticating users using Weixin.
 	/// </summary>
-    public class WeixinMiddleware : OAuthMiddleware<WeixinOptions>
+    public class WeChatMiddleware : OAuthMiddleware<WeChatOptions>
     {
         /// <summary>
-		/// Initializes a new <see cref="WeixinMiddleware" />.
+		/// Initializes a new <see cref="WeChatMiddleware" />.
 		/// </summary>
 		/// <param name="next">The next middleware in the application pipeline to invoke.</param>
 		/// <param name="options">Configuration options for the middleware.</param>
-        public WeixinMiddleware(
+        public WeChatMiddleware(
            [NotNull] RequestDelegate next,
            [NotNull] IDataProtectionProvider dataProtectionProvider,
            [NotNull] ILoggerFactory loggerFactory,
            [NotNull] IUrlEncoder encoder,
            [NotNull] IOptions<SharedAuthenticationOptions> sharedOptions,
-           [NotNull] IOptions<WeixinOptions> options,
-           ConfigureOptions<WeixinOptions> configureOptions = null)
+           [NotNull] IOptions<WeChatOptions> options,
+           ConfigureOptions<WeChatOptions> configureOptions = null)
             : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options, configureOptions)
         {
             if (string.IsNullOrWhiteSpace(Options.AppId))
@@ -45,12 +45,12 @@ namespace Microsoft.AspNet.Authentication.Weixin
         }
 
         /// <summary>
-		/// Provides the <see cref="AuthenticationHandler" /> object for processing authentication-related requests.
+		/// Provides the <see cref="AuthenticationHandler{TOptions}" /> object for processing authentication-related requests.
 		/// </summary>
-		/// <returns>An <see cref="AuthenticationHandler" /> configured with the <see cref="WeixinOptions" /> supplied to the constructor.</returns>
-        protected override AuthenticationHandler<WeixinOptions> CreateHandler()
+		/// <returns>An <see cref="AuthenticationHandler{TOptions}" /> configured with the <see cref="WeChatOptions" /> supplied to the constructor.</returns>
+        protected override AuthenticationHandler<WeChatOptions> CreateHandler()
         {
-            return new WeixinHandler(Backchannel);
+            return new WeChatHandler(Backchannel);
         }
     }
 }

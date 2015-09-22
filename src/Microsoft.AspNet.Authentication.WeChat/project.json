@@ -2,7 +2,7 @@
   "authors": [ "杜晓宇" ],
   "version": "1.0.0-*",
   "description": "ASP.NET 5 middleware that enables an application to support the WeiXin Account authentication workflow.",
-  "tags": [ "ASP.NET", "Authentication", "weixin" ],
+  "tags": [ "ASP.NET", "Authentication", "weixin", "WeChat" ],
   "repository": {
     "type": "git",
     "url": "git://github.com/noliar/MoreAuthentication"

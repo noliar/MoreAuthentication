@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 
-namespace Microsoft.AspNet.Authentication.Weixin
+namespace Microsoft.AspNet.Authentication.WeChat
 {
-    internal class WeixinHelper
+    internal class WeChatHelper
     {
         internal static string GetNick(JObject payload)
          => payload.Value<string>("nickname");
