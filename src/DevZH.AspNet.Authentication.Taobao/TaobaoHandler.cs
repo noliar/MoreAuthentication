@@ -1,10 +1,10 @@
 ﻿using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http.Authentication;
 using DevZH.AspNet.Authentication.Internal;
 using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Authentication.OAuth;
+using Microsoft.AspNet.Http.Authentication;
 
 namespace DevZH.AspNet.Authentication.Taobao
 {

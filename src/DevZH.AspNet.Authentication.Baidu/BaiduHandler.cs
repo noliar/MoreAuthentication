@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using System.Net.Http;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using DevZH.AspNet.Authentication.Internal;
+using Microsoft.AspNet.Authentication.OAuth;
+using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Http.Authentication;
 using Microsoft.AspNet.Http.Extensions;
 using Newtonsoft.Json.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Http.Authentication;
-using System.Security.Claims;
-using Microsoft.AspNet.Http.Features.Authentication;
-using Microsoft.Framework.Internal;
-using DevZH.AspNet.Authentication.Internal;
-using Microsoft.AspNet.Authentication;
 
 namespace DevZH.AspNet.Authentication.Baidu
 {

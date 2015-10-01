@@ -1,18 +1,17 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Http.Authentication;
-using System.Security.Claims;
-using Newtonsoft.Json.Linq;
+﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Net.Http.Headers;
-using DevZH.AspNet.Authentication.Common;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Globalization;
-using System;
+using System.Threading.Tasks;
+using DevZH.AspNet.Authentication.Common;
 using DevZH.AspNet.Authentication.Internal;
+using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Http.Authentication;
+using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.XiaoMi
 {

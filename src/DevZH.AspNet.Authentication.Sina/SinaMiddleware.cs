@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using System;
+using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.DataProtection;
 using Microsoft.Framework.Internal;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.OptionsModel;
 using Microsoft.Framework.WebEncoders;
-using System;
-using Microsoft.AspNet.Authentication;
 
 namespace DevZH.AspNet.Authentication.Sina
 {

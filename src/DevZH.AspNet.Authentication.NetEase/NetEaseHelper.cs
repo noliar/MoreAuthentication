@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Framework.Internal;
+﻿using Microsoft.Framework.Internal;
 using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.NetEase

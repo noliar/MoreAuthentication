@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Microsoft.Framework.Internal;
 
 namespace DevZH.AspNet.Authentication.Youku

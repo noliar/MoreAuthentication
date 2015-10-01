@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Http;
 
 namespace DevZH.AspNet.Authentication.Sina

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace DevZH.AspNet.Authentication.Baidu
+﻿namespace DevZH.AspNet.Authentication.Baidu
 {
     public static class BaiduDefaults
     {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DevZH.AspNet.Authentication.NetEase;
 using Microsoft.AspNet.Authentication;
 using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Builder;
