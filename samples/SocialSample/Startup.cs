@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Authentication;
 using DevZH.AspNet.Authentication.Baidu;
 using DevZH.AspNet.Authentication.Common;
+using DevZH.AspNet.Authentication.NetEase;
 using Microsoft.AspNet.Authentication.Cookies;
 using DevZH.AspNet.Authentication.Sina;
 using DevZH.AspNet.Authentication.Taobao;
@@ -51,6 +52,12 @@ namespace SocialSample
                 options.Display = BaiduOptions.DisplayStyle.Touch;
                 options.IsForce = true;
                 options.UseSms = true;
+            });
+
+            app.UseNetEaseAuthentication(options =>
+            {
+                options.Key = "00d08dfa114c80200271a9ee33e58060";
+                options.Secret = "39e079a2c685fbb4";
             });
 
             app.UseSinaAuthentication(options =>

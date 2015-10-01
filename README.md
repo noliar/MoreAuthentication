@@ -4,11 +4,12 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 
 [License]: https://img.shields.io/badge/license-Apache_2.0-blue.svg?style=flat-square
 
-### 计划支持的授权平台
+### 目前支持的授权平台
 - [x] [百度 OAuth2.0 授权](http://developer.baidu.com/wiki/index.php?title=docs/oauth)
 - [x] [豆瓣 OAuth2.0 授权](https://developers.douban.com/wiki/?title=oauth2)
 - [x] [淘宝 OAuth2.0 授权](http://open.taobao.com/doc/category_list.htm?id=199)
 - [x] [腾讯 OAuth2.0 授权](http://wiki.open.qq.com/wiki/website/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3)
+- [x] [网易 OAuth2.0 授权](http://reg.163.com/help/help_oauth2.html)
 - [x] [微信 OAuth2.0 授权](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&id=open1419316505)
 - [x] [新浪 OAuth2.0 授权](http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E)
 - [x] [小米 OAuth2.0 授权](http://dev.xiaomi.com/docs/passport/way/)

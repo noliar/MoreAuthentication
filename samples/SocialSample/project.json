@@ -4,8 +4,8 @@
 
   "dependencies": {
     "DevZH.AspNet.Authentication.Baidu": "1.0.0-*",
-    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-*",
     "DevZH.AspNet.Authentication.Douban": "1.0.0-*",
+    "DevZH.AspNet.Authentication.NetEase": "1.0.0-*",
     "DevZH.AspNet.Authentication.Sina": "1.0.0-*",
     "DevZH.AspNet.Authentication.Taobao": "1.0.0-*",
     "DevZH.AspNet.Authentication.Tencent": "1.0.0-*",
@@ -13,6 +13,7 @@
     "DevZH.AspNet.Authentication.XiaoMi": "1.0.0-*",
     "DevZH.AspNet.Authentication.Yixin": "1.0.0-*",
     "DevZH.AspNet.Authentication.Youku": "1.0.0-*",
+    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-*",
     "Microsoft.AspNet.DataProtection": "1.0.0-*",
     "Microsoft.AspNet.Server.IIS": "1.0.0-*",
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
