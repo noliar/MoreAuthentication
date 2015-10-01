@@ -1,23 +1,22 @@
 ﻿{
   "webroot": "wwwroot",
-  "version": "1.0.0-*",
+  "version": "1.0.0-beta8",
 
   "dependencies": {
-    "DevZH.AspNet.Authentication.Baidu": "1.0.0-*",
-    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-*",
-    "DevZH.AspNet.Authentication.Douban": "1.0.0-*",
-    "DevZH.AspNet.Authentication.Sina": "1.0.0-*",
-    "DevZH.AspNet.Authentication.Taobao": "1.0.0-*",
-    "DevZH.AspNet.Authentication.Tencent": "1.0.0-*",
-    "DevZH.AspNet.Authentication.WeChat": "1.0.0-*",
-    "DevZH.AspNet.Authentication.XiaoMi": "1.0.0-*",
-    "DevZH.AspNet.Authentication.Yixin": "1.0.0-*",
-    "DevZH.AspNet.Authentication.Youku": "1.0.0-*",
-    "Microsoft.AspNet.DataProtection": "1.0.0-*",
-    "Microsoft.AspNet.Server.IIS": "1.0.0-*",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
-    "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
-    "Microsoft.Framework.Logging.Console": "1.0.0-*"
+    "DevZH.AspNet.Authentication.Baidu": "1.0.0-beta8",
+    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-beta8-*",
+    "DevZH.AspNet.Authentication.Douban": "1.0.0-beta8",
+    "DevZH.AspNet.Authentication.Sina": "1.0.0-beta8",
+    "DevZH.AspNet.Authentication.Taobao": "1.0.0-beta8",
+    "DevZH.AspNet.Authentication.Tencent": "1.0.0-beta8",
+    "DevZH.AspNet.Authentication.WeChat": "1.0.0-beta8",
+    "DevZH.AspNet.Authentication.XiaoMi": "1.0.0-beta8",
+    "DevZH.AspNet.Authentication.Yixin": "1.0.0-beta8",
+    "DevZH.AspNet.Authentication.Youku": "1.0.0-beta8",
+    "Microsoft.AspNet.DataProtection": "1.0.0-beta8-*",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta8-*",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta8-*",
+    "Microsoft.Framework.Logging.Console": "1.0.0-beta8-*"
   },
 
   "commands": {
