@@ -11,7 +11,7 @@
         public YoukuOptions()
         {
             AuthenticationScheme = YoukuDefaults.AuthenticationScheme;
-            Caption = AuthenticationScheme;
+            DisplayName = AuthenticationScheme;
             CallbackPath = "/signin-youku"; // implicit
             AuthorizationEndpoint = YoukuDefaults.AuthorizationEndpoint;
             TokenEndpoint = YoukuDefaults.TokenEndpoint;

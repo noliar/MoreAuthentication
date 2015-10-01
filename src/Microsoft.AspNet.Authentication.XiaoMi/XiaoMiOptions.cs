@@ -10,7 +10,7 @@ namespace Microsoft.AspNet.Authentication.XiaoMi
         public XiaoMiOptions()
         {
             AuthenticationScheme = XiaoMiDefaults.AuthenticationScheme;
-            Caption = AuthenticationScheme;
+            DisplayName = AuthenticationScheme;
             CallbackPath = "/signin-mi"; // implicit
             AuthorizationEndpoint = XiaoMiDefaults.AuthorizationEndpoint;
             TokenEndpoint = XiaoMiDefaults.TokenEndpoint;

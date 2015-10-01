@@ -11,7 +11,7 @@
         public YixinOptions()
         {
             AuthenticationScheme = YixinDefaults.AuthenticationScheme;
-            Caption = AuthenticationScheme;
+            DisplayName = AuthenticationScheme;
             CallbackPath = "/signin-yixin"; // implicit
             AuthorizationEndpoint = YixinDefaults.AuthorizationEndpoint;
             TokenEndpoint = YixinDefaults.TokenEndpoint;

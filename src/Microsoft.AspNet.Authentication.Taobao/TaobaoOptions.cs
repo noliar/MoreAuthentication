@@ -17,7 +17,7 @@ namespace Microsoft.AspNet.Authentication.Taobao
         public TaobaoOptions()
         {
             AuthenticationScheme = TaobaoDefaults.AuthenticationScheme;
-            Caption = AuthenticationScheme;
+            DisplayName = AuthenticationScheme;
             CallbackPath = "/signin-taobao"; // implicit
             AuthorizationEndpoint = TaobaoDefaults.AuthorizationEndpoint;
             TokenEndpoint = TaobaoDefaults.TokenEndpoint;

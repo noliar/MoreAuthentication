@@ -13,7 +13,7 @@ namespace Microsoft.AspNet.Authentication.Tencent
         public TencentOptions()
         {
             AuthenticationScheme = TencentDefaults.AuthenticationScheme;
-            Caption = AuthenticationScheme;
+            DisplayName = AuthenticationScheme;
             CallbackPath = "/signin-qq"; // implicit
             AuthorizationEndpoint = TencentDefaults.AuthorizationEndpoint;
             TokenEndpoint = TencentDefaults.TokenEndpoint;

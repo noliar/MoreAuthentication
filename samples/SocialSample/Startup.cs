@@ -120,7 +120,7 @@ namespace SocialSample
                     await context.Response.WriteAsync("Choose an authentication scheme: <br>");
                     foreach (var type in context.Authentication.GetAuthenticationSchemes())
                     {
-                        await context.Response.WriteAsync("<a href=\"?authscheme=" + type.AuthenticationScheme + "\">" + (type.Caption ?? "(suppressed)") + "</a><br>");
+                        await context.Response.WriteAsync("<a href=\"?authscheme=" + type.AuthenticationScheme + "\">" + (type.DisplayName ?? "(suppressed)") + "</a><br>");
                     }
                     await context.Response.WriteAsync("</body></html>");
                 });

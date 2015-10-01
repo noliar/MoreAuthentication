@@ -10,7 +10,7 @@ namespace Microsoft.AspNet.Authentication.WeChat
         public WeChatOptions()
         {
             AuthenticationScheme = WeChatDefaults.AuthenticationScheme;
-            Caption = AuthenticationScheme;
+            DisplayName = AuthenticationScheme;
             CallbackPath = "/signin-weixin";
             AuthorizationEndpoint = WeChatDefaults.AuthorizationEndpoint;
             TokenEndpoint = WeChatDefaults.TokenEndpoint;

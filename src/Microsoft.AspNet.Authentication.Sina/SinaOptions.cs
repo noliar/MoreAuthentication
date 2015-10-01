@@ -20,7 +20,7 @@ namespace Microsoft.AspNet.Authentication.Sina
         public SinaOptions()
         {
             AuthenticationScheme = SinaDefaults.AuthenticationScheme;
-            Caption = AuthenticationScheme;
+            DisplayName = AuthenticationScheme;
             CallbackPath = new Http.PathString("/signin-sina");
             AuthorizationEndpoint = SinaDefaults.AuthorizationEndpoint;
             TokenEndpoint = SinaDefaults.TokenEndpoint;

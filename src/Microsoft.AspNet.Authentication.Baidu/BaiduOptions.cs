@@ -15,7 +15,7 @@ namespace Microsoft.AspNet.Authentication.Baidu
         public BaiduOptions()
         {
             AuthenticationScheme = BaiduDefaults.AuthenticationScheme;
-            Caption = AuthenticationScheme;
+            DisplayName = AuthenticationScheme;
             CallbackPath = new Http.PathString("/signin-baidu");
             AuthorizationEndpoint = BaiduDefaults.AuthorizationEndpoint;
             TokenEndpoint = BaiduDefaults.TokenEndpoint;

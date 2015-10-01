@@ -11,7 +11,7 @@
         public DoubanOptions()
         {
             AuthenticationScheme = DoubanDefaults.AuthenticationScheme;
-            Caption = AuthenticationScheme;
+            DisplayName = AuthenticationScheme;
             CallbackPath = "/signin-douban"; // implicit
             AuthorizationEndpoint = DoubanDefaults.AuthorizationEndpoint;
             TokenEndpoint = DoubanDefaults.TokenEndpoint;
