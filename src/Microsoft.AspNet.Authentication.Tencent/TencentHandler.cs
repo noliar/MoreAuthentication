@@ -96,7 +96,7 @@ namespace Microsoft.AspNet.Authentication.Tencent
             var info = JObject.Parse(await response.Content.ReadAsStringAsync());
             info.Add("id", identifier);
 
-            var notification = new OAuthAuthenticatedContext(Context, Options, Backchannel, tokens, info)
+            var notification = new OAuthCreatingTicketContext(Context, Options, Backchannel, tokens, info)
             {
                 Properties = properties,
                 Principal = new ClaimsPrincipal(identity)
@@ -114,7 +114,7 @@ namespace Microsoft.AspNet.Authentication.Tencent
                 identity.AddClaim(new Claim("urn:qq:figure", figure, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
-            await Options.Events.Authenticated(notification);
+            await Options.Events.CreatingTicket(notification);
 
             return new AuthenticationTicket(notification.Principal, notification.Properties, notification.Options.AuthenticationScheme);
         }

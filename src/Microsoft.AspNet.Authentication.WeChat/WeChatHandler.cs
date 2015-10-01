@@ -81,7 +81,7 @@ namespace Microsoft.AspNet.Authentication.WeChat
             response.EnsureSuccessStatusCode();
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
-            var notification = new OAuthAuthenticatedContext(Context, Options, Backchannel, tokens, payload)
+            var notification = new OAuthCreatingTicketContext(Context, Options, Backchannel, tokens, payload)
             {
                 Properties = properties,
                 Principal = new ClaimsPrincipal(identity)
@@ -99,7 +99,7 @@ namespace Microsoft.AspNet.Authentication.WeChat
                 identity.AddClaim(new Claim("urn:weixin:headimgurl", img, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
-            await Options.Events.Authenticated(notification);
+            await Options.Events.CreatingTicket(notification);
 
             return new AuthenticationTicket(notification.Principal, notification.Properties, notification.Options.AuthenticationScheme);
         }
