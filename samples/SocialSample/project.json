@@ -6,6 +6,7 @@
     "DevZH.AspNet.Authentication.Baidu": "1.0.0-*",
     "DevZH.AspNet.Authentication.Douban": "1.0.0-*",
     "DevZH.AspNet.Authentication.NetEase": "1.0.0-*",
+    "DevZH.AspNet.Authentication.Qihoo": "1.0.0-*",
     "DevZH.AspNet.Authentication.Sina": "1.0.0-*",
     "DevZH.AspNet.Authentication.Taobao": "1.0.0-*",
     "DevZH.AspNet.Authentication.Tencent": "1.0.0-*",

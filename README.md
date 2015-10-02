@@ -5,6 +5,7 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 [License]: https://img.shields.io/badge/license-Apache_2.0-blue.svg?style=flat-square
 
 ### 目前支持的授权平台
+- [x] [360 OAuth2.0 授权](http://wiki.dev.app.360.cn/index.php?title=OAuth2.0%E6%96%87%E6%A1%A3)
 - [x] [百度 OAuth2.0 授权](http://developer.baidu.com/wiki/index.php?title=docs/oauth)
 - [x] [豆瓣 OAuth2.0 授权](https://developers.douban.com/wiki/?title=oauth2)
 - [x] [淘宝 OAuth2.0 授权](http://open.taobao.com/doc/category_list.htm?id=199)
