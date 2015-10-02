@@ -10,6 +10,9 @@ using Microsoft.Framework.WebEncoders;
 
 namespace DevZH.AspNet.Authentication.Qihoo
 {
+    /// <summary>
+	/// An ASP.NET middleware for authenticating users using Qihoo.
+	/// </summary>
     public class QihooMiddleware : OAuthMiddleware<QihooOptions>
     {
         /// <summary>
@@ -38,7 +41,7 @@ namespace DevZH.AspNet.Authentication.Qihoo
             {
                 throw new ArgumentException($"参数 {nameof(Options.AppSecret)} 值非法");
             }
-            if (this.Options.Scope.Count == 0)
+            if (Options.Scope.Count == 0)
             {
                 Options.Scope.Add("basic");
             }

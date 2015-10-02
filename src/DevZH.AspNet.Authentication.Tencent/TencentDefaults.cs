@@ -1,6 +1,6 @@
 ﻿namespace DevZH.AspNet.Authentication.Tencent
 {
-    public class TencentDefaults
+    public static class TencentDefaults
     {
         // 授权名称标识
         public const string AuthenticationScheme = "Tencent";

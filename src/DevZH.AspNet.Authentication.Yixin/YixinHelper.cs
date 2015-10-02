@@ -6,7 +6,7 @@ namespace DevZH.AspNet.Authentication.Yixin
     /// Contains static methods that allow to extract user's information from a <see cref="JObject"/>
     /// instance retrieved from Yixin after a successful authentication process.
     /// </summary>
-    internal class YixinHelper
+    internal static class YixinHelper
     {
         /// <summary>
         ///  获取易信账号 ID

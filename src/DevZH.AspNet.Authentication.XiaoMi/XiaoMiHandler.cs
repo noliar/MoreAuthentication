@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DevZH.AspNet.Authentication.Common;
 using DevZH.AspNet.Authentication.Internal;
-using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Http.Authentication;
 using Newtonsoft.Json.Linq;
 
@@ -83,7 +83,8 @@ namespace DevZH.AspNet.Authentication.XiaoMi
             {
                 var key = tokens.Response.Value<string>("mac_key");
                 var algorithm = tokens.Response.Value<string>("mac_algorithm");
-                message.Headers.Authorization = new AuthenticationHeaderValue("MAC", ComputeMAC(tokens.AccessToken, key, algorithm, message));
+                message.Headers.Authorization = new AuthenticationHeaderValue("MAC",
+                    ComputeMAC(tokens.AccessToken, key, message, algorithm));
             }
             var response = await Backchannel.SendAsync(message, Context.RequestAborted);
             response.EnsureSuccessStatusCode();
@@ -124,8 +125,10 @@ namespace DevZH.AspNet.Authentication.XiaoMi
         /// </summary>
         /// <param name="token">访问令牌</param>
         /// <param name="key">加密密钥</param>
+        /// <param name="algorithm"></param>
+        /// <param name="message"></param>
         /// <exception cref="NullReferenceException">message 为空</exception>
-        private string ComputeMAC(string token, string key, string algorithm = "HmacSHA1" , HttpRequestMessage message = null)
+        private string ComputeMAC(string token, string key,HttpRequestMessage message, string algorithm = "HmacSHA1")
         {
             var nonce = ComputeNonce();
             var param = new[] {

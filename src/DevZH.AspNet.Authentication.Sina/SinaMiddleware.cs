@@ -44,9 +44,9 @@ namespace DevZH.AspNet.Authentication.Sina
         }
 
         /// <summary>
-		/// Provides the <see cref="AuthenticationHandler" /> object for processing authentication-related requests.
+		/// Provides the <see cref="AuthenticationHandler{TOptions}" /> object for processing authentication-related requests.
 		/// </summary>
-		/// <returns>An <see cref="AuthenticationHandler" /> configured with the <see cref="SinaOptions" /> supplied to the constructor.</returns>
+		/// <returns>An <see cref="AuthenticationHandler{TOptions}" /> configured with the <see cref="SinaOptions" /> supplied to the constructor.</returns>
         protected override AuthenticationHandler<SinaOptions> CreateHandler()
         {
             return new SinaHandler(Backchannel);

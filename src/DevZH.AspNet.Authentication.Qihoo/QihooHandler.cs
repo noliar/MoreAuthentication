@@ -33,7 +33,7 @@ namespace DevZH.AspNet.Authentication.Qihoo
                 { "display", Options.Display.GetDescription() },
                 { "relogin", Options.ReLogin }
             };
-            return Options.AuthorizationEndpoint + queryBuilder.ToString();
+            return Options.AuthorizationEndpoint + queryBuilder;
         }
 
         /// <summary>
@@ -56,20 +56,20 @@ namespace DevZH.AspNet.Authentication.Qihoo
             if (!string.IsNullOrEmpty(identifier))
             {
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:360:id", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:qihoo:id", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
             var name = QihooHelper.GetName(payload);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:360:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:qihoo:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
             var avatar = QihooHelper.GetAvatar(payload);
             if (!string.IsNullOrEmpty(avatar))
             {
-                identity.AddClaim(new Claim("urn:360:avatar", avatar, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:qihoo:avatar", avatar, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
             await Options.Events.CreatingTicket(notification);

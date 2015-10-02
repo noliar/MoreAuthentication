@@ -6,7 +6,7 @@ namespace DevZH.AspNet.Authentication.XiaoMi
     /// Contains static methods that allow to extract user's information from a <see cref="JObject"/>
     /// instance retrieved from Xiao MI after a successful authentication process.
     /// </summary>
-    internal class XiaoMiHelper
+    internal static class XiaoMiHelper
     {
         /// <summary>
         ///  获取米聊 ID

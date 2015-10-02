@@ -8,7 +8,7 @@ namespace DevZH.AspNet.Authentication.WeChat
         {
             AuthenticationScheme = WeChatDefaults.AuthenticationScheme;
             DisplayName = AuthenticationScheme;
-            CallbackPath = "/signin-weixin";
+            CallbackPath = "/signin-wechat";
             AuthorizationEndpoint = WeChatDefaults.AuthorizationEndpoint;
             TokenEndpoint = WeChatDefaults.TokenEndpoint;
             UserInformationEndpoint = WeChatDefaults.UserInformationEndpoint;

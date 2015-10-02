@@ -1,6 +1,6 @@
 ﻿namespace DevZH.AspNet.Authentication.NetEase
 {
-    public class NetEaseDefaults
+    public static class NetEaseDefaults
     {
         // 授权名称标识
         public const string AuthenticationScheme = "NetEase";

@@ -1,8 +1,8 @@
 ﻿using System;
-using Microsoft.AspNet.Builder;
+using DevZH.AspNet.Authentication.NetEase;
 using Microsoft.Framework.Internal;
 
-namespace DevZH.AspNet.Authentication.NetEase
+namespace Microsoft.AspNet.Builder
 {
     /// <summary>
     /// Extension methods for using <see cref="NetEaseMiddleware" />

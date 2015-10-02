@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using DevZH.AspNet.Authentication.Baidu;
 using DevZH.AspNet.Authentication.Common;
-using DevZH.AspNet.Authentication.NetEase;
 using DevZH.AspNet.Authentication.Qihoo;
 using DevZH.AspNet.Authentication.Sina;
 using DevZH.AspNet.Authentication.Taobao;

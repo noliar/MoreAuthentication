@@ -16,7 +16,7 @@ namespace DevZH.AspNet.Authentication.Qihoo
         {
             AuthenticationScheme = QihooDefaults.AuthenticationScheme;
             DisplayName = AuthenticationScheme;
-            CallbackPath = "/signin-360";
+            CallbackPath = "/signin-qihoo";
             AuthorizationEndpoint = QihooDefaults.AuthorizationEndpoint;
             TokenEndpoint = QihooDefaults.TokenEndpoint;
             UserInformationEndpoint = QihooDefaults.UserInformationEndpoint;

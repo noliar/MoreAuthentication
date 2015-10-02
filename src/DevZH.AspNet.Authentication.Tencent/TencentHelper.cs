@@ -6,7 +6,7 @@ namespace DevZH.AspNet.Authentication.Tencent
     /// Contains static methods that allow to extract user's information from a <see cref="JObject"/>
     /// instance retrieved from Tencent after a successful authentication process.
     /// </summary>
-    internal class TencentHelper
+    internal static class TencentHelper
     {
         /// <summary>
         ///  获取 QQ 昵称
