@@ -15,7 +15,7 @@ namespace DevZH.AspNet.Authentication.NetEase
         internal static string GetId([NotNull] JObject user) => user.Value<string>("userId");
 
         /// <summary>
-        ///  获取用户 名称
+        ///  获取用户名称
         /// </summary>
         internal static string GetName([NotNull] JObject user) => user.Value<string>("username");
     }

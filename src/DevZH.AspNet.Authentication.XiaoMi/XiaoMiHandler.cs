@@ -67,7 +67,7 @@ namespace DevZH.AspNet.Authentication.XiaoMi
         /// </summary>
         protected override async Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
-            var openId = tokens.Response.Value<string>("openId");
+            var openId = XiaoMiHelper.GetOpenId(tokens.Response);
             if (!string.IsNullOrEmpty(openId))
             {
                 identity.AddClaim(new Claim("urn:mi:openid", openId, ClaimValueTypes.String, Options.ClaimsIssuer));
@@ -103,11 +103,11 @@ namespace DevZH.AspNet.Authentication.XiaoMi
                 identity.AddClaim(new Claim("urn:mi:id", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
-            var name = XiaoMiHelper.GetNickName(payload);
+            var name = XiaoMiHelper.GetName(payload);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:mi:nickname", name, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:mi:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
             var icon = XiaoMiHelper.GetIcon(payload);
             if (!string.IsNullOrEmpty(icon))

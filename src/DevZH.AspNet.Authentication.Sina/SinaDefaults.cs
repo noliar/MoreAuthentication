@@ -12,5 +12,6 @@
         public const string TokenEndpoint = "https://api.weibo.com/oauth2/access_token";
         // 获取 uid 的链接，这里没用
         public const string UserInformationEndpoint = "https://api.weibo.com/2/account/get_uid.json";
+        // public const string UserInformationEndpoint = "https://api.weibo.com/2/users/show.json?access_token={0}&uid={1}";
     }
 }

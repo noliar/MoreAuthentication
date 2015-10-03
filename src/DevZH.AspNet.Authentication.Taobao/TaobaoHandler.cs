@@ -28,13 +28,13 @@ namespace DevZH.AspNet.Authentication.Taobao
         /// </summary>
         protected override Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
-            var identifier = tokens.Response.Value<string>("taobao_user_id");
+            var identifier = TaobaoHelper.GetId(tokens.Response);
             if (!string.IsNullOrEmpty(identifier))
             {
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
                 identity.AddClaim(new Claim("urn:taobao:id", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
-            var name = System.Uri.UnescapeDataString(tokens.Response.Value<string>("taobao_user_nick"));
+            var name = TaobaoHelper.GetName(tokens.Response);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));

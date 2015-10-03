@@ -9,6 +9,12 @@ namespace DevZH.AspNet.Authentication.XiaoMi
     internal static class XiaoMiHelper
     {
         /// <summary>
+        ///  获取米聊用户 OpenId
+        /// </summary>
+        // 因为有了 Id 所以就不用 OpenId 来指代了。
+        internal static string GetOpenId(JObject payload) => payload.Value<string>("openId");
+
+        /// <summary>
         ///  获取米聊 ID
         /// </summary>
         internal static string GetId(JObject payload) => payload["data"].Value<string>("userId");
@@ -16,7 +22,7 @@ namespace DevZH.AspNet.Authentication.XiaoMi
         /// <summary>
         ///  获取米聊昵称
         /// </summary>
-        internal static string GetNickName(JObject payload) => payload["data"].Value<string>("miliaoNick");
+        internal static string GetName(JObject payload) => payload["data"].Value<string>("miliaoNick");
 
         /// <summary>
         ///  获取米聊头像

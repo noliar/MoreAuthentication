@@ -11,7 +11,7 @@ namespace DevZH.AspNet.Authentication.Tencent
         /// <summary>
         ///  获取 QQ 昵称
         /// </summary>
-        internal static string GetNickName(JObject info) => info.Value<string>("nickname");
+        internal static string GetName(JObject info) => info.Value<string>("nickname");
 
         /// <summary>
         ///  获取 QQ 头像
@@ -21,6 +21,6 @@ namespace DevZH.AspNet.Authentication.Tencent
         /// <summary>
         ///  获取 应用账号 的 OpenID
         /// </summary>
-        internal static string GetOpenId(JObject json) => json.Value<string>("openid");
+        internal static string GetId(JObject json) => json.Value<string>("openid");
     }
 }

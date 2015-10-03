@@ -9,9 +9,20 @@ namespace DevZH.AspNet.Authentication.WeChat
     internal static class WeChatHelper
     {
         /// <summary>
+        ///  微信用户 OpenId
+        /// </summary>
+        /// <remarks>
+        ///  微信获取不到具体的微信号或 QQ 号，对于每个应用而言，用 OpenId 来识别不同的用户。
+        ///  所以以此来替代 Id。
+        /// </remarks>
+        internal static string GetId(JObject payload)
+         => payload.Value<string>("openid");
+
+        /// <summary>
         /// 微信普通用户昵称
         /// </summary>
-        internal static string GetNick(JObject payload)
+        // 方法名为了统一，国内常见的都是用昵称来显示名称。
+        internal static string GetName(JObject payload)
          => payload.Value<string>("nickname");
 
         /// <summary>

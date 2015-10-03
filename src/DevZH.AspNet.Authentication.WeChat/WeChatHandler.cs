@@ -67,11 +67,11 @@ namespace DevZH.AspNet.Authentication.WeChat
         /// </summary>
         protected override async Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
-            var identifier = tokens.Response.Value<string>("openid");
+            var identifier = WeChatHelper.GetId(tokens.Response);
             if (!string.IsNullOrEmpty(identifier))
             {
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:wechat:openid", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:wechat:id", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
             var query = new QueryBuilder
             {
@@ -88,7 +88,7 @@ namespace DevZH.AspNet.Authentication.WeChat
                 Principal = new ClaimsPrincipal(identity)
             };
 
-            var name = WeChatHelper.GetNick(payload);
+            var name = WeChatHelper.GetName(payload);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));

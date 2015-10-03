@@ -66,7 +66,7 @@ namespace DevZH.AspNet.Authentication.Tencent
         }
 
         /// <summary>
-        ///  与本站通信，获得可获取用户基本信息
+        ///  与本站通信，可获取用户基本信息
         /// </summary>
         protected override async Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
@@ -79,7 +79,7 @@ namespace DevZH.AspNet.Authentication.Tencent
             var regex = new System.Text.RegularExpressions.Regex("callback\\((?<json>[ -~]+)\\);");
             // just throw it when error appears.
             var json = JObject.Parse(regex.Match(tmp).Groups["json"].Value);
-            var identifier = TencentHelper.GetOpenId(json);
+            var identifier = TencentHelper.GetId(json);
             if (!string.IsNullOrEmpty(identifier))
             {
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
@@ -88,9 +88,9 @@ namespace DevZH.AspNet.Authentication.Tencent
 
             var content = new FormUrlEncodedContent(new Dictionary<string, string>
             {
-                { "oauth_consumer_key", Options.ClientId },
-                { "access_token", tokens.AccessToken },
-                {"openid", identifier }
+                {"oauth_consumer_key", Options.ClientId},
+                {"access_token", tokens.AccessToken},
+                {"openid", identifier}
             });
             response = await Backchannel.PostAsync(Options.UserInformationEndpoint, content);
             response.EnsureSuccessStatusCode();
@@ -103,11 +103,11 @@ namespace DevZH.AspNet.Authentication.Tencent
                 Principal = new ClaimsPrincipal(identity)
             };
 
-            var name = TencentHelper.GetNickName(info);
+            var name = TencentHelper.GetName(info);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:qq:nickname", name, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:qq:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
             var figure = TencentHelper.GetFigure(info);
             if (!string.IsNullOrEmpty(name))
