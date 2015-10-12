@@ -24,15 +24,17 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 
 所以，你可以跟 `Microsoft.AspNet.Authentication.*` 下的众多账号授权组件一样使用：
 
-1. 首先，在 `Startup` 中的 `ConfigureServices` 添加配置 Identity、Token、CookieAuthentication 等服务
-2. 其次，再添加配置相关 Authentication、Session 等服务
-3. 最后，在 `Startup` 中的 `Configure` 里 开启使用 这些服务。
+1. 在 `Startup` 中的 `ConfigureServices` 添加配置 Identity、Token、Authentication、CookieAuthentication 等服务
+2. 在 `Startup` 中的 `Configure` 里 直接添加配置并使用 这些服务。
 
 ## 示例代码
 在这里，就贴关键的部分（以豆瓣为例），有关账号授权的较为完整代码，建议参考官方提供的例子 —— 
 [Music Store](https://github.com/aspnet/MusicStore/tree/dev) 或者查看 [Security sample](https://github.com/aspnet/Security/tree/dev/samples)
 
-根据[文档][store-with-secretmanager]建议，可使用 [Microsoft.Framework.SecretManager][UserSecrets] 存储相关数据
+根据[文档][store-with-secretmanager]建议，开发时可使用 [Microsoft.Framework.SecretManager][UserSecrets] 存储相关数据，
+需要在 ConfigureServices 中使用 `IConfigurationBuilder.AddUserSecrets()`
+
+目前大概有两种方法添加数据，一种是命令行（必须确保 `project.json` 中 `userSecretsId` 值唯一）；另一种是在 Visual Studio 右键项目中，点击“管理用户机密”，会自动添加 `userSecretsId`。
 
 1. Visual Studio 2015 默认没有将 dnx runtime 放入 %PATH% 中，所以必须先将其放入，或者使用 `dnvm upgrade` 自动添加
 2. dnu commands install Microsoft.Framework.SecretManager
@@ -42,18 +44,26 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 [store-with-secretmanager]: http://docs.asp.net/en/latest/security/sociallogins.html#use-secretmanager-to-store-facebook-appid-and-appsecret
 [UserSecrets]: https://github.com/aspnet/UserSecrets
 
+打开项目机密文件，可以得到类似这样的 json 结构：
+```
+{
+  "Authentication:Douban:ApiKey": "00d***060",
+  "Authentication:Douban:Secret": "39**b4"
+}
+```
+
 ``` csharp
 ...
 // ConfigureServices 下
-services.AddDoubanAuthentication(options =>
+services.AddAuthentication(options => options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
+
+...
+// Configure 下
+app.UseDoubanAuthentication(options =>
 {
     options.ApiKey = Configuration["Authentication:Douban:ApiKey"];
     options.Secret = Configuration["Authentication:Douban:Secret"];
 });
-
-...
-// Configure 下
-app.UseDoubanAuthentication();
 
 ...
 ```
