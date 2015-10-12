@@ -14,11 +14,11 @@
     "DevZH.AspNet.Authentication.XiaoMi": "1.0.0-beta8",
     "DevZH.AspNet.Authentication.Yixin": "1.0.0-beta8",
     "DevZH.AspNet.Authentication.Youku": "1.0.0-beta8",
-    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-beta8-*",
-    "Microsoft.AspNet.DataProtection": "1.0.0-beta8-*",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta8-*",
-    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta8-*",
-    "Microsoft.Framework.Logging.Console": "1.0.0-beta8-*"
+    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-beta8",
+    "Microsoft.AspNet.DataProtection": "1.0.0-beta8",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta8",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta8",
+    "Microsoft.Framework.Logging.Console": "1.0.0-beta8"
   },
 
   "commands": {
