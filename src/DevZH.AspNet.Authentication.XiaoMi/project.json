@@ -7,6 +7,8 @@
     "type": "git",
     "url": "git://github.com/noliar/MoreAuthentication"
   },
+  "projectUrl": "https://github.com/noliar/MoreAuthentication",
+  "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
   "dependencies": {
     "Microsoft.AspNet.Authentication.OAuth": "1.0.0-*",
     "Microsoft.Framework.NotNullAttribute.Sources": {
