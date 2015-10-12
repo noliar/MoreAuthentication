@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
-using Microsoft.Framework.Internal;
+using Microsoft.Extensions.Internal;
 
 namespace DevZH.AspNet.Authentication.Youku
 {

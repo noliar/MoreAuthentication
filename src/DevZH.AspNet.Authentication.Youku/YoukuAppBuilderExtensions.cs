@@ -1,6 +1,6 @@
 ﻿using System;
 using DevZH.AspNet.Authentication.Youku;
-using Microsoft.Framework.Internal;
+using Microsoft.Extensions.Internal;
 
 namespace Microsoft.AspNet.Builder
 {

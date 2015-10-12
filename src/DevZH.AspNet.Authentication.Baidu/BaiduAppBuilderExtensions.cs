@@ -1,5 +1,5 @@
 ﻿using DevZH.AspNet.Authentication.Baidu;
-using Microsoft.Framework.Internal;
+using Microsoft.Extensions.Internal;
 using System;
 
 namespace Microsoft.AspNet.Builder
