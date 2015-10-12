@@ -1,18 +1,17 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Http.Authentication;
-using System.Security.Claims;
-using Newtonsoft.Json.Linq;
+﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Net.Http.Headers;
-using DevZH.AspNet.Authentication.Common;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Globalization;
-using System;
+using System.Threading.Tasks;
+using DevZH.AspNet.Authentication.Common;
 using DevZH.AspNet.Authentication.Internal;
 using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Authentication.OAuth;
+using Microsoft.AspNet.Http.Authentication;
+using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.XiaoMi
 {
@@ -68,7 +67,7 @@ namespace DevZH.AspNet.Authentication.XiaoMi
         /// </summary>
         protected override async Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
-            var openId = tokens.Response.Value<string>("openId");
+            var openId = XiaoMiHelper.GetOpenId(tokens.Response);
             if (!string.IsNullOrEmpty(openId))
             {
                 identity.AddClaim(new Claim("urn:mi:openid", openId, ClaimValueTypes.String, Options.ClaimsIssuer));
@@ -84,7 +83,8 @@ namespace DevZH.AspNet.Authentication.XiaoMi
             {
                 var key = tokens.Response.Value<string>("mac_key");
                 var algorithm = tokens.Response.Value<string>("mac_algorithm");
-                message.Headers.Authorization = new AuthenticationHeaderValue("MAC", ComputeMAC(tokens.AccessToken, key, algorithm, message));
+                message.Headers.Authorization = new AuthenticationHeaderValue("MAC",
+                    ComputeMAC(tokens.AccessToken, key, message, algorithm));
             }
             var response = await Backchannel.SendAsync(message, Context.RequestAborted);
             response.EnsureSuccessStatusCode();
@@ -103,11 +103,11 @@ namespace DevZH.AspNet.Authentication.XiaoMi
                 identity.AddClaim(new Claim("urn:mi:id", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
-            var name = XiaoMiHelper.GetNickName(payload);
+            var name = XiaoMiHelper.GetName(payload);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:mi:nickname", name, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:mi:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
             var icon = XiaoMiHelper.GetIcon(payload);
             if (!string.IsNullOrEmpty(icon))
@@ -125,8 +125,10 @@ namespace DevZH.AspNet.Authentication.XiaoMi
         /// </summary>
         /// <param name="token">访问令牌</param>
         /// <param name="key">加密密钥</param>
+        /// <param name="algorithm"></param>
+        /// <param name="message"></param>
         /// <exception cref="NullReferenceException">message 为空</exception>
-        private string ComputeMAC(string token, string key, string algorithm = "HmacSHA1" , HttpRequestMessage message = null)
+        private string ComputeMAC(string token, string key,HttpRequestMessage message, string algorithm = "HmacSHA1")
         {
             var nonce = ComputeNonce();
             var param = new[] {

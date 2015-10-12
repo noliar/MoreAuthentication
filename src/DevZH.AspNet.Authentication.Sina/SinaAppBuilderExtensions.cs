@@ -1,7 +1,6 @@
-﻿using DevZH.AspNet.Authentication.Sina;
+﻿using System;
+using DevZH.AspNet.Authentication.Sina;
 using Microsoft.Framework.Internal;
-using Microsoft.Framework.OptionsModel;
-using System;
 
 namespace Microsoft.AspNet.Builder
 {

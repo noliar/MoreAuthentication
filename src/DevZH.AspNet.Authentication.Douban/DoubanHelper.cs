@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.Douban
 {
@@ -7,7 +6,7 @@ namespace DevZH.AspNet.Authentication.Douban
     /// Contains static methods that allow to extract user's information from a <see cref="JObject"/>
     /// instance retrieved from Douban after a successful authentication process.
     /// </summary>
-    internal class DoubanHelper
+    internal static class DoubanHelper
     {
         /// <summary>
         ///  获取用户 ID

@@ -1,6 +1,6 @@
 ﻿namespace DevZH.AspNet.Authentication.Yixin
 {
-    public class YixinDefaults
+    public static class YixinDefaults
     {
         // 授权名称标识
         public const string AuthenticationScheme = "Yixin";

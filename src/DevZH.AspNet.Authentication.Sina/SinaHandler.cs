@@ -37,9 +37,12 @@ namespace DevZH.AspNet.Authentication.Sina
         /// <summary>
         ///  根据 token，与本站配对通信
         /// </summary>
+        /// <remarks>
+        ///  因为文档上说获取账号信息的接口有频次限制，所以就没获取了
+        /// </remarks>
         protected override Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
-            var identifier = tokens.Response.Value<string>("uid");
+            var identifier = SinaHelper.GetId(tokens.Response);
             if (!string.IsNullOrEmpty(identifier))
             {
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, identifier, ClaimValueTypes.String, Options.ClaimsIssuer));

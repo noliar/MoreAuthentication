@@ -1,6 +1,6 @@
 ﻿namespace DevZH.AspNet.Authentication.XiaoMi
 {
-    public class XiaoMiDefaults
+    public static class XiaoMiDefaults
     {
         // 授权名称标识
         public const string AuthenticationScheme = "XiaoMi";

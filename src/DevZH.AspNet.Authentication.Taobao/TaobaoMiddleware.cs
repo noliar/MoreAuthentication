@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.DataProtection;
 using Microsoft.Framework.Internal;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.OptionsModel;
 using Microsoft.Framework.WebEncoders;
-using System;
-using Microsoft.AspNet.Authentication;
 
 namespace DevZH.AspNet.Authentication.Taobao
 {
@@ -36,9 +35,9 @@ namespace DevZH.AspNet.Authentication.Taobao
         }
 
         /// <summary>
-		/// Provides the <see cref="AuthenticationHandler" /> object for processing authentication-related requests.
+		/// Provides the <see cref="AuthenticationHandler{TOptions}" /> object for processing authentication-related requests.
 		/// </summary>
-		/// <returns>An <see cref="AuthenticationHandler" /> configured with the <see cref="TaobaoOptions" /> supplied to the constructor.</returns>
+		/// <returns>An <see cref="AuthenticationHandler{TOptions}" /> configured with the <see cref="TaobaoOptions" /> supplied to the constructor.</returns>
         protected override AuthenticationHandler<TaobaoOptions> CreateHandler()
         {
             return new TaobaoHandler(Backchannel);

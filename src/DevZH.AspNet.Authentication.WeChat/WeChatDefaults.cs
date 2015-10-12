@@ -1,6 +1,6 @@
 ﻿namespace DevZH.AspNet.Authentication.WeChat
 {
-    public class WeChatDefaults
+    public static class WeChatDefaults
     {
         // 授权名称标识
         public const string AuthenticationScheme = "WeChat";

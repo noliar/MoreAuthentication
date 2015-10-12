@@ -1,6 +1,6 @@
 ﻿namespace DevZH.AspNet.Authentication.Youku
 {
-    public class YoukuDefaults
+    public static class YoukuDefaults
     {
         // 授权名称标识
         public const string AuthenticationScheme = "Youku";

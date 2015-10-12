@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Authentication;
+﻿using System.Linq;
 using DevZH.AspNet.Authentication.Baidu;
 using DevZH.AspNet.Authentication.Common;
-using Microsoft.AspNet.Authentication.Cookies;
+using DevZH.AspNet.Authentication.Qihoo;
 using DevZH.AspNet.Authentication.Sina;
 using DevZH.AspNet.Authentication.Taobao;
+using Microsoft.AspNet.Authentication.Cookies;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Http.Authentication;
@@ -37,13 +33,15 @@ namespace SocialSample
 
             // 测试应用，其他用户不能登，除非手动添加。
             // 本来打算用 BAE 测试的，只是最近 BAE 大改了，旧版管理界面的API 都失效，看不了 KEY 和 SECRET 了，蛋疼
+            // 豆瓣样例
             app.UseDoubanAuthentication(options =>
             {
                 options.ApiKey = "00d08dfa114c80200271a9ee33e58060";
                 options.Secret = "39e079a2c685fbb4";
             });
 
-            // 下面几个全都是凑数的
+            #region 下面几个全都是凑数的
+            // 百度样例
             app.UseBaiduAuthentication(options =>
             {
                 options.AccessKeyId = "00d08dfa114c80200271a9ee33e58060";
@@ -53,6 +51,23 @@ namespace SocialSample
                 options.UseSms = true;
             });
 
+            // 360 样例
+            app.UseQihooAuthentication(options =>
+            {
+                options.AppKey = "00d08dfa114c80200271a9ee33e58060";
+                options.AppSecret = "39e079a2c685fbb4";
+                options.ReLogin = "360.cn";
+                options.Display = QihooOptions.DisplayStyle.Desktop;
+            });
+
+            // 网易样例
+            app.UseNetEaseAuthentication(options =>
+            {
+                options.Key = "00d08dfa114c80200271a9ee33e58060";
+                options.Secret = "39e079a2c685fbb4";
+            });
+
+            // 新浪样例
             app.UseSinaAuthentication(options =>
             {
                 options.AppKey = "00d08dfa114c80200271a9ee33e58060";
@@ -61,6 +76,7 @@ namespace SocialSample
                 options.Display = SinaOptions.DisplayStyle.Mobile;
             });
 
+            // 淘宝样例
             app.UseTaobaoAuthentication(options =>
             {
                 options.ClientId = "00d08dfa114c80200271a9ee33e58060";
@@ -68,6 +84,7 @@ namespace SocialSample
                 options.View = TaobaoOptions.ViewStyle.Tmall;
             });
 
+            // QQ 样例
             app.UseTencentAuthentication(options =>
             {
                 options.AppId = "00d08dfa114c80200271a9ee33e58060";
@@ -75,12 +92,14 @@ namespace SocialSample
                 options.IsMobile = true;
             });
 
+            // 微信样例
             app.UseWeChatAuthentication(options =>
             {
                 options.AppId = "00d08dfa114c80200271a9ee33e58060";
                 options.AppSecret = "39e079a2c685fbb4";
             });
 
+            // 小米样例
             app.UseXiaoMiAuthentication(options =>
             {
                 options.AppId = "00d08dfa114c80200271a9ee33e58060";
@@ -89,17 +108,20 @@ namespace SocialSample
                 options.TokenType = TokenType.MAC;
             });
 
+            // 易信样例
             app.UseYixinAuthentication(options =>
             {
                 options.AppId = "00d08dfa114c80200271a9ee33e58060";
                 options.AppSecret = "39e079a2c685fbb4";
             });
 
+            // 优酷样例
             app.UseYoukuAuthentication(options =>
             {
                 options.ClientId = "00d08dfa114c80200271a9ee33e58060";
                 options.ClientSecret = "39e079a2c685fbb4";
             });
+            #endregion
 
             // Choose an authentication type
             app.Map("/login", signoutApp =>

@@ -39,7 +39,7 @@ namespace DevZH.AspNet.Authentication.WeChat
                 {"scope", FormatScope()},
                 {"state", Options.StateDataFormat.Protect(properties)}
             };
-            return Options.AuthorizationEndpoint + query.ToString();
+            return Options.AuthorizationEndpoint + query;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace DevZH.AspNet.Authentication.WeChat
                 {"grant_type", "authorization_code"},
                 {"redirect_uri", redirectUri}
             };
-            var response = await Backchannel.GetAsync(Options.TokenEndpoint + query.ToString(), Context.RequestAborted);
+            var response = await Backchannel.GetAsync(Options.TokenEndpoint + query, Context.RequestAborted);
             response.EnsureSuccessStatusCode();
             return new OAuthTokenResponse(JObject.Parse(await response.Content.ReadAsStringAsync()));
         }
@@ -67,18 +67,18 @@ namespace DevZH.AspNet.Authentication.WeChat
         /// </summary>
         protected override async Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
-            var identifier = tokens.Response.Value<string>("openid");
+            var identifier = WeChatHelper.GetId(tokens.Response);
             if (!string.IsNullOrEmpty(identifier))
             {
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:weixin:openid", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:wechat:id", identifier, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
             var query = new QueryBuilder
             {
                 {"access_token", tokens.AccessToken},
                 {"openid", identifier}
             };
-            var response = await Backchannel.GetAsync(Options.UserInformationEndpoint + query.ToString(), Context.RequestAborted);
+            var response = await Backchannel.GetAsync(Options.UserInformationEndpoint + query, Context.RequestAborted);
             response.EnsureSuccessStatusCode();
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
@@ -88,16 +88,16 @@ namespace DevZH.AspNet.Authentication.WeChat
                 Principal = new ClaimsPrincipal(identity)
             };
 
-            var name = WeChatHelper.GetNick(payload);
+            var name = WeChatHelper.GetName(payload);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim("urn:weixin:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:wechat:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
             var img = WeChatHelper.GetHeadImage(payload);
             if (!string.IsNullOrEmpty(img))
             {
-                identity.AddClaim(new Claim("urn:weixin:headimgurl", img, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim("urn:wechat:headimgurl", img, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
             await Options.Events.CreatingTicket(notification);

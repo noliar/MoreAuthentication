@@ -1,6 +1,6 @@
 ﻿namespace DevZH.AspNet.Authentication.Taobao
 {
-    public class TaobaoDefaults
+    public static class TaobaoDefaults
     {
         // 授权名称标识
         public const string AuthenticationScheme = "Taobao";

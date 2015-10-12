@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Http.Authentication;
 using System.Security.Claims;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Authentication.OAuth;
+using Microsoft.AspNet.Http.Authentication;
+using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.Youku
 {

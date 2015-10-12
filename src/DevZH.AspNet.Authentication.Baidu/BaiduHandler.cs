@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using System.Net.Http;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using DevZH.AspNet.Authentication.Internal;
+using Microsoft.AspNet.Authentication.OAuth;
+using Microsoft.AspNet.Authentication;
+using Microsoft.AspNet.Http.Authentication;
 using Microsoft.AspNet.Http.Extensions;
 using Newtonsoft.Json.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Http.Authentication;
-using System.Security.Claims;
-using Microsoft.AspNet.Http.Features.Authentication;
-using Microsoft.Framework.Internal;
-using DevZH.AspNet.Authentication.Internal;
-using Microsoft.AspNet.Authentication;
 
 namespace DevZH.AspNet.Authentication.Baidu
 {
@@ -27,8 +25,8 @@ namespace DevZH.AspNet.Authentication.Baidu
         protected override string BuildChallengeUrl(AuthenticationProperties properties, string redirectUri)
         {
             var queryBuilder = new QueryBuilder {
-                { "client_id", this.Options.ClientId },
-                { "scope", this.FormatScope() },
+                { "client_id", Options.ClientId },
+                { "scope", FormatScope() },
                 { "response_type", "code" },
                 { "redirect_uri", redirectUri },
                 { "state", Options.StateDataFormat.Protect(properties) },
@@ -37,7 +35,7 @@ namespace DevZH.AspNet.Authentication.Baidu
             if (Options.IsForce) queryBuilder.Add("force_login", "1");
             if (Options.IsConfirm) queryBuilder.Add("confirm_login", "1");
             if (Options.UseSms) queryBuilder.Add("login_type", "sms");
-            return Options.AuthorizationEndpoint + queryBuilder.ToString();
+            return Options.AuthorizationEndpoint + queryBuilder;
         }
 
         /// <summary>
