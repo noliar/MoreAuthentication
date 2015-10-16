@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.Qihoo
@@ -11,12 +12,28 @@ namespace DevZH.AspNet.Authentication.Qihoo
         /// <summary>
         ///  360 用户ID
         /// </summary>
-        public static string GetId(JObject payload) => payload.Value<string>("id");
+        public static string GetId(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload.Value<string>("id");
+        }
 
         /// <summary>
         ///  360 用户名
         /// </summary>
-        public static string GetName(JObject payload) => payload.Value<string>("name");
+        public static string GetName(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload.Value<string>("name");
+        }
 
         /// <summary>
         ///  360 用户头像

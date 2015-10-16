@@ -1,6 +1,5 @@
 ﻿using System;
 using DevZH.AspNet.Authentication.Taobao;
-using Microsoft.Framework.Internal;
 
 namespace Microsoft.AspNet.Builder
 {
@@ -15,8 +14,18 @@ namespace Microsoft.AspNet.Builder
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <param name="options">The Middleware options.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseTaobaoAuthentication([NotNull] this IApplicationBuilder app, [NotNull] TaobaoOptions options)
+        public static IApplicationBuilder UseTaobaoAuthentication(this IApplicationBuilder app, TaobaoOptions options)
         {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
             return app.UseMiddleware<TaobaoMiddleware>(options);
         }
 
@@ -26,8 +35,13 @@ namespace Microsoft.AspNet.Builder
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <param name="configureOptions">Used to configure Middleware options.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseTaobaoAuthentication([NotNull] this IApplicationBuilder app, Action<TaobaoOptions> configureOptions)
+        public static IApplicationBuilder UseTaobaoAuthentication(this IApplicationBuilder app, Action<TaobaoOptions> configureOptions)
         {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
             var options = new TaobaoOptions();
             configureOptions?.Invoke(options);
             return app.UseTaobaoAuthentication(options);

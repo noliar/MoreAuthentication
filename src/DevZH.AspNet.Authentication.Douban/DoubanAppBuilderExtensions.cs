@@ -1,6 +1,5 @@
 ﻿using System;
 using DevZH.AspNet.Authentication.Douban;
-using Microsoft.Framework.Internal;
 
 namespace Microsoft.AspNet.Builder
 {
@@ -15,8 +14,18 @@ namespace Microsoft.AspNet.Builder
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <param name="options">The Middleware options.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseDoubanAuthentication([NotNull] this IApplicationBuilder app, [NotNull] DoubanOptions options)
+        public static IApplicationBuilder UseDoubanAuthentication(this IApplicationBuilder app, DoubanOptions options)
         {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
             return app.UseMiddleware<DoubanMiddleware>(options);
         }
 
@@ -26,8 +35,13 @@ namespace Microsoft.AspNet.Builder
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <param name="configureOptions">Used to configure Middleware options.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseDoubanAuthentication([NotNull] this IApplicationBuilder app, Action<DoubanOptions> configureOptions)
+        public static IApplicationBuilder UseDoubanAuthentication(this IApplicationBuilder app, Action<DoubanOptions> configureOptions)
         {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
             var options = new DoubanOptions();
             configureOptions?.Invoke(options);
             return app.UseDoubanAuthentication(options);

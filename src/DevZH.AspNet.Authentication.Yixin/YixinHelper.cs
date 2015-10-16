@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.Yixin
 {
@@ -11,16 +12,40 @@ namespace DevZH.AspNet.Authentication.Yixin
         /// <summary>
         ///  获取易信账号 ID
         /// </summary>
-        internal static string GetId(JObject payload) => payload["userinfo"]?.Value<string>("accountId");
+        internal static string GetId(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload["userinfo"]?.Value<string>("accountId");
+        }
 
         /// <summary>
         ///  获取易信昵称
         /// </summary>
-        internal static string GetName(JObject payload) => payload["userinfo"]?.Value<string>("nick");
+        internal static string GetName(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload["userinfo"]?.Value<string>("nick");
+        }
 
         /// <summary>
         ///  获取易信用户头像
         /// </summary>
-        internal static string GetIcon(JObject payload) => payload["userinfo"]?.Value<string>("icon");
+        internal static string GetIcon(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload["userinfo"]?.Value<string>("icon");
+        }
     }
 }

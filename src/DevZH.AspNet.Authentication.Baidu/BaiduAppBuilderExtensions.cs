@@ -1,5 +1,4 @@
 ﻿using DevZH.AspNet.Authentication.Baidu;
-using Microsoft.Framework.Internal;
 using System;
 
 namespace Microsoft.AspNet.Builder
@@ -15,8 +14,18 @@ namespace Microsoft.AspNet.Builder
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <param name="options">The Middleware options.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseBaiduAuthentication([NotNull] this IApplicationBuilder app, [NotNull] BaiduOptions options)
+        public static IApplicationBuilder UseBaiduAuthentication(this IApplicationBuilder app, BaiduOptions options)
         {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
             return app.UseMiddleware<BaiduMiddleware>(options);
         }
 
@@ -26,8 +35,13 @@ namespace Microsoft.AspNet.Builder
         /// <param name="app">The <see cref="IApplicationBuilder"/> passed to the configure method.</param>
         /// <param name="configureOptions">Configures the options.</param>
         /// <returns>The updated <see cref="IApplicationBuilder"/>.</returns>
-        public static IApplicationBuilder UseBaiduAuthentication([NotNull] this IApplicationBuilder app, Action<BaiduOptions> configureOptions)
+        public static IApplicationBuilder UseBaiduAuthentication(this IApplicationBuilder app, Action<BaiduOptions> configureOptions)
         {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
             var options = new BaiduOptions();
             configureOptions?.Invoke(options);
             return app.UseBaiduAuthentication(options);
