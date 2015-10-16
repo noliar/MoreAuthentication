@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.Tencent
 {
@@ -11,16 +12,40 @@ namespace DevZH.AspNet.Authentication.Tencent
         /// <summary>
         ///  获取 QQ 昵称
         /// </summary>
-        internal static string GetName(JObject info) => info.Value<string>("nickname");
+        internal static string GetName(JObject info)
+        {
+            if (info == null)
+            {
+                throw new ArgumentNullException(nameof(info));
+            }
+
+            return info.Value<string>("nickname");
+        }
 
         /// <summary>
         ///  获取 QQ 头像
         /// </summary>
-        internal static string GetFigure(JObject info) => info.Value<string>("figureurl_qq_1");
+        internal static string GetFigure(JObject info)
+        {
+            if (info == null)
+            {
+                throw new ArgumentNullException(nameof(info));
+            }
+
+            return info.Value<string>("figureurl_qq_1");
+        }
 
         /// <summary>
         ///  获取 应用账号 的 OpenID
         /// </summary>
-        internal static string GetId(JObject json) => json.Value<string>("openid");
+        internal static string GetId(JObject json)
+        {
+            if (json == null)
+            {
+                throw new ArgumentNullException(nameof(json));
+            }
+
+            return json.Value<string>("openid");
+        }
     }
 }

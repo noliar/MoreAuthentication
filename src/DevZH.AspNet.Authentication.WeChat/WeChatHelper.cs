@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.WeChat
 {
@@ -16,14 +17,28 @@ namespace DevZH.AspNet.Authentication.WeChat
         ///  所以以此来替代 Id。
         /// </remarks>
         internal static string GetId(JObject payload)
-         => payload.Value<string>("openid");
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload.Value<string>("openid");
+        }
 
         /// <summary>
         /// 微信普通用户昵称
         /// </summary>
         // 方法名为了统一，国内常见的都是用昵称来显示名称。
         internal static string GetName(JObject payload)
-         => payload.Value<string>("nickname");
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload.Value<string>("nickname");
+        }
 
         /// <summary>
         /// 微信用户头像
@@ -32,6 +47,13 @@ namespace DevZH.AspNet.Authentication.WeChat
         /// 最后一个数值代表正方形头像大小（有0、46、64、96、132数值可选，0代表640*640正方形头像），用户没有头像时该项为空
         /// </remarks>
         internal static string GetHeadImage(JObject payload)
-        => payload.Value<string>("headimgurl");
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload.Value<string>("headimgurl");
+        }
     }
 }

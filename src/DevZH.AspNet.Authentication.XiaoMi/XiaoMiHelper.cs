@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.XiaoMi
 {
@@ -12,21 +13,53 @@ namespace DevZH.AspNet.Authentication.XiaoMi
         ///  获取米聊用户 OpenId
         /// </summary>
         // 因为有了 Id 所以就不用 OpenId 来指代了。
-        internal static string GetOpenId(JObject payload) => payload.Value<string>("openId");
+        internal static string GetOpenId(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload.Value<string>("openId");
+        }
 
         /// <summary>
         ///  获取米聊 ID
         /// </summary>
-        internal static string GetId(JObject payload) => payload["data"].Value<string>("userId");
+        internal static string GetId(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload["data"].Value<string>("userId");
+        }
 
         /// <summary>
         ///  获取米聊昵称
         /// </summary>
-        internal static string GetName(JObject payload) => payload["data"].Value<string>("miliaoNick");
+        internal static string GetName(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload["data"].Value<string>("miliaoNick");
+        }
 
         /// <summary>
         ///  获取米聊头像
         /// </summary>
-        internal static string GetIcon(JObject payload) => payload["data"].Value<string>("miliaoIcon");
+        internal static string GetIcon(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload["data"].Value<string>("miliaoIcon");
+        }
     }
 }

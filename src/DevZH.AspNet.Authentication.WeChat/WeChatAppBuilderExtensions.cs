@@ -1,6 +1,5 @@
 ﻿using System;
 using DevZH.AspNet.Authentication.WeChat;
-using Microsoft.Extensions.Internal;
 
 namespace Microsoft.AspNet.Builder
 {
@@ -15,8 +14,18 @@ namespace Microsoft.AspNet.Builder
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <param name="options">The Middleware options.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseWeChatAuthentication([NotNull] this IApplicationBuilder app, [NotNull] WeChatOptions options)
+        public static IApplicationBuilder UseWeChatAuthentication(this IApplicationBuilder app, WeChatOptions options)
         {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
             return app.UseMiddleware<WeChatMiddleware>(options);
         }
 
@@ -26,8 +35,13 @@ namespace Microsoft.AspNet.Builder
 		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
 		/// <param name="configureOptions">Used to configure Middleware options.</param>
 		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
-        public static IApplicationBuilder UseWeChatAuthentication([NotNull] this IApplicationBuilder app, Action<WeChatOptions> configureOptions)
+        public static IApplicationBuilder UseWeChatAuthentication(this IApplicationBuilder app, Action<WeChatOptions> configureOptions)
         {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
             var options = new WeChatOptions();
             configureOptions?.Invoke(options);
             return app.UseWeChatAuthentication(options);

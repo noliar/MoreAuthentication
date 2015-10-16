@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Internal;
+﻿using System;
 using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.Baidu
@@ -12,16 +12,40 @@ namespace DevZH.AspNet.Authentication.Baidu
         /// <summary>
         ///  获取百度账号 ID
         /// </summary>
-        public static string GetId([NotNull] JObject user) => user.Value<string>("uid");
+        public static string GetId(JObject user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            return user.Value<string>("uid");
+        }
 
         /// <summary>
         ///  获取百度账号昵称
         /// </summary>
-        public static string GetName([NotNull] JObject user) => user.Value<string>("uname");
+        public static string GetName(JObject user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            return user.Value<string>("uname");
+        } 
 
         /// <summary>
         ///  获取百度账号标识，一般用来获取头像
         /// </summary>
-        public static string GetPortrait([NotNull] JObject user) => user.Value<string>("portrait");
+        public static string GetPortrait(JObject user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            return user.Value<string>("portrait");
+        }
     }
 }

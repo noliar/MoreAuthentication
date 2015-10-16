@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Internal;
+﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.Youku
 {
@@ -12,16 +12,39 @@ namespace DevZH.AspNet.Authentication.Youku
         /// <summary>
         ///  优酷头像
         /// </summary>
-        internal static string GetAvatar([NotNull]JObject payload) => payload.Value<string>("id");
+        internal static string GetAvatar(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload.Value<string>("id");
+        }
 
         /// <summary>
         ///  优酷用户名
         /// </summary>
-        internal static string GetName([NotNull]JObject payload) => payload.Value<string>("name");
+        internal static string GetName(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload.Value<string>("name");
+        }
 
         /// <summary>
         ///  优酷用户ID
         /// </summary>
-        internal static string GetId([NotNull]JObject payload) => payload.Value<string>("avatar");
+        internal static string GetId(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+            return payload.Value<string>("avatar");
+        }
     }
 }

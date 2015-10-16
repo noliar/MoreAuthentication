@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace DevZH.AspNet.Authentication.Sina
 {
@@ -11,6 +12,14 @@ namespace DevZH.AspNet.Authentication.Sina
         /// <summary>
         ///  新浪微博用户ID
         /// </summary>
-        public static string GetId(JObject payload) => payload.Value<string>("uid");
+        public static string GetId(JObject payload)
+        {
+            if (payload == null)
+            {
+                throw new ArgumentNullException(nameof(payload));
+            }
+
+            return payload.Value<string>("uid");
+        }
     }
 }
