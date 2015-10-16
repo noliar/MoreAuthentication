@@ -11,10 +11,6 @@
   "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
   "dependencies": {
     "Microsoft.AspNet.Authentication.OAuth": "1.0.0-beta8-*",
-    "Microsoft.Framework.NotNullAttribute.Sources": {
-      "type": "build",
-      "version": "1.0.0-beta8-*"
-    },
     "DevZH.AspNet.Authentication.Common.Sources": {
       "type": "build",
       "version": "1.0.0-beta8"
