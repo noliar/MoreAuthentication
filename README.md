@@ -33,13 +33,13 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 在这里，就贴关键的部分（以豆瓣为例），有关账号授权的较为完整代码，建议参考官方提供的例子 —— 
 [Music Store](https://github.com/aspnet/MusicStore/tree/dev) 或者查看 [Security sample](https://github.com/aspnet/Security/tree/dev/samples)
 
-根据[文档][store-with-secretmanager]建议，开发时可使用 [Microsoft.Framework.SecretManager][UserSecrets] 存储相关数据，
+根据[文档][store-with-secretmanager]建议，开发时可使用 [Microsoft.Extensions.SecretManager][UserSecrets] 存储相关数据，
 需要在 ConfigureServices 中使用 `IConfigurationBuilder.AddUserSecrets()`
 
 目前大概有两种方法添加数据，一种是命令行（必须确保 `project.json` 中 `userSecretsId` 值唯一）；另一种是在 Visual Studio 右键项目中，点击“管理用户机密”，会自动添加 `userSecretsId`。
 
 1. Visual Studio 2015 默认没有将 dnx runtime 放入 %PATH% 中，所以必须先将其放入，或者使用 `dnvm upgrade` 自动添加
-2. dnu commands install Microsoft.Framework.SecretManager
+2. dnu commands install Microsoft.Extensions.SecretManager
 3. user-secret set Authentication:Douban:ApiKey 00d***060
 4. user-secret set Authentication:Douban:Secret 39**b4
 

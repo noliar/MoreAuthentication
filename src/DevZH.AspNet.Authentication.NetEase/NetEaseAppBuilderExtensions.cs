@@ -4,16 +4,16 @@ using DevZH.AspNet.Authentication.NetEase;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="NetEaseMiddleware" />
+    /// Extension methods to add NetEase authentication capabilities to an HTTP application pipeline.
     /// </summary>
     public static class NetEaseAppBuilderExtensions
     {
         /// <summary>
-		/// Authenticate users using NetEase.
+		/// Adds the <see cref="NetEaseMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables NetEase authentication capabilities.
 		/// </summary>
-		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-		/// <param name="options">The Middleware options.</param>
-		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+		/// <param name="options">A <see cref="NetEaseOptions"/> that specifies options for the middleware.</param>
+		/// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseNetEaseAuthentication(this IApplicationBuilder app, NetEaseOptions options)
         {
             if (app == null)
@@ -30,11 +30,11 @@ namespace Microsoft.AspNet.Builder
         }
 
         /// <summary>
-        /// Authenticate users using NetEase.
+        /// Adds the <see cref="NetEaseMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables NetEase authentication capabilities.
         /// </summary>
-        /// <param name="app">The <see cref="IApplicationBuilder"/> passed to the configure method.</param>
-        /// <param name="configureOptions">Configures the options.</param>
-        /// <returns>The updated <see cref="IApplicationBuilder"/>.</returns>
+        /// <param name="app">The <see cref="IApplicationBuilder"/> to add the middleware to.</param>
+        /// <param name="configureOptions">An action delegate to configure the provided <see cref="NetEaseOptions"/>.</param>
+        /// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseNetEaseAuthentication(this IApplicationBuilder app, Action<NetEaseOptions> configureOptions)
         {
             if (app == null)

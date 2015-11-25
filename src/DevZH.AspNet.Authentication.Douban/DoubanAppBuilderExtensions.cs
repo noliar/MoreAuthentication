@@ -4,16 +4,16 @@ using DevZH.AspNet.Authentication.Douban;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="DoubanMiddleware" />
+    /// Extension methods to add Douban authentication capabilities to an HTTP application pipeline.
     /// </summary>
     public static class DoubanAppBuilderExtensions
     {
         /// <summary>
-		/// Authenticate users using Douban.
+		/// Adds the <see cref="DoubanMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Douban authentication capabilities.
 		/// </summary>
-		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-		/// <param name="options">The Middleware options.</param>
-		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+		/// <param name="options">A <see cref="DoubanOptions"/> that specifies options for the middleware.</param>
+		/// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseDoubanAuthentication(this IApplicationBuilder app, DoubanOptions options)
         {
             if (app == null)
@@ -30,11 +30,11 @@ namespace Microsoft.AspNet.Builder
         }
 
         /// <summary>
-		/// Authenticate users using Douban.
+		/// Adds the <see cref="DoubanMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Douban authentication capabilities.
 		/// </summary>
-		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-		/// <param name="configureOptions">Used to configure Middleware options.</param>
-		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+		/// <param name="configureOptions">An action delegate to configure the provided <see cref="DoubanOptions"/>.</param>
+		/// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseDoubanAuthentication(this IApplicationBuilder app, Action<DoubanOptions> configureOptions)
         {
             if (app == null)

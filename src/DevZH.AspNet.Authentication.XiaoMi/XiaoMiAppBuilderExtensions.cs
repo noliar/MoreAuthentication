@@ -4,16 +4,16 @@ using DevZH.AspNet.Authentication.XiaoMi;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="XiaoMiMiddleware" />
+    /// Extension methods to add XiaoMi authentication capabilities to an HTTP application pipeline.
     /// </summary>
     public static class XiaoMiAppBuilderExtensions
     {
         /// <summary>
-        /// Authenticate users using Xiao Mi.
+        /// Adds the <see cref="XiaoMiMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables XiaoMi authentication capabilities.
         /// </summary>
-        /// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-        /// <param name="options">The Middleware options.</param>
-        /// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+        /// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+        /// <param name="options">A <see cref="XiaoMiOptions"/> that specifies options for the middleware.</param>
+        /// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseXiaoMiAuthentication(this IApplicationBuilder app, XiaoMiOptions options)
         {
             if (app == null)
@@ -30,11 +30,11 @@ namespace Microsoft.AspNet.Builder
         }
 
         /// <summary>
-        /// Authenticate users using Xiao Mi.
+        /// Adds the <see cref="XiaoMiMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables XiaoMi authentication capabilities.
         /// </summary>
-        /// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-        /// <param name="configureOptions">Used to configure Middleware options.</param>
-        /// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+        /// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+        /// <param name="configureOptions">An action delegate to configure the provided <see cref="XiaoMiOptions"/>.</param>
+        /// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseXiaoMiAuthentication(this IApplicationBuilder app, Action<XiaoMiOptions> configureOptions)
         {
             if (app == null)

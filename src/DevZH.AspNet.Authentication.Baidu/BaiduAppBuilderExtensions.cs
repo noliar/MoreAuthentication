@@ -4,16 +4,16 @@ using System;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="BaiduMiddleware" />
+    /// Extension methods to add Baidu authentication capabilities to an HTTP application pipeline.
     /// </summary>
     public static class BaiduAppBuilderExtensions
     {
         /// <summary>
-		/// Authenticate users using Baidu.
+		/// Adds the <see cref="BaiduMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Baidu authentication capabilities.
 		/// </summary>
-		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-		/// <param name="options">The Middleware options.</param>
-		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+		/// <param name="options">A <see cref="BaiduOptions"/> that specifies options for the middleware.</param>
+		/// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseBaiduAuthentication(this IApplicationBuilder app, BaiduOptions options)
         {
             if (app == null)
@@ -30,11 +30,11 @@ namespace Microsoft.AspNet.Builder
         }
 
         /// <summary>
-        /// Authenticate users using Baidu.
+        /// Adds the <see cref="BaiduMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Baidu authentication capabilities.
         /// </summary>
-        /// <param name="app">The <see cref="IApplicationBuilder"/> passed to the configure method.</param>
-        /// <param name="configureOptions">Configures the options.</param>
-        /// <returns>The updated <see cref="IApplicationBuilder"/>.</returns>
+        /// <param name="app">The <see cref="IApplicationBuilder"/> to add the middleware to.</param>
+        /// <param name="configureOptions">An action delegate to configure the provided <see cref="BaiduOptions"/>.</param>
+        /// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseBaiduAuthentication(this IApplicationBuilder app, Action<BaiduOptions> configureOptions)
         {
             if (app == null)
