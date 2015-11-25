@@ -3,12 +3,12 @@
     public static class YixinDefaults
     {
         // 授权名称标识
-        public const string AuthenticationScheme = "Yixin";
+        public static readonly string AuthenticationScheme = "Yixin";
         // 认证及获取临时 code 的链接
-        public const string AuthorizationEndpoint = "https://open.yixin.im/oauth/authorize";
+        public static readonly string AuthorizationEndpoint = "https://open.yixin.im/oauth/authorize";
         // 获取相关 token 的链接
-        public const string TokenEndpoint = "https://open.yixin.im/oauth/token";
+        public static readonly string TokenEndpoint = "https://open.yixin.im/oauth/token";
         // 获取 用户基本信息 的链接
-        public const string UserInformationEndpoint = "https://open.yixin.im/api/userinfo";
+        public static readonly string UserInformationEndpoint = "https://open.yixin.im/api/userinfo";
     }
 }

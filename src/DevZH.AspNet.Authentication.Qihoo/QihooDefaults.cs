@@ -4,12 +4,12 @@
     public static class QihooDefaults
     {
         // 授权名称标识
-        public const string AuthenticationScheme = "Qihoo";
+        public static readonly string AuthenticationScheme = "Qihoo";
         // 认证及获取临时 code 的链接
-        public const string AuthorizationEndpoint = "https://openapi.360.cn/oauth2/authorize";
+        public static readonly string AuthorizationEndpoint = "https://openapi.360.cn/oauth2/authorize";
         // 获取 token 及 refresh token 的链接
-        public const string TokenEndpoint = "https://openapi.360.cn/oauth2/access_token";
+        public static readonly string TokenEndpoint = "https://openapi.360.cn/oauth2/access_token";
         // 获取用户基本信息，如 ID ，姓名等，可用来与本站 ID 进行配对
-        public const string UserInformationEndpoint = "https://openapi.360.cn/user/me.json";
+        public static readonly string UserInformationEndpoint = "https://openapi.360.cn/user/me.json";
     }
 }
