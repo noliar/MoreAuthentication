@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Authentication.OAuth;
+using Microsoft.AspNet.Http;
 
 namespace DevZH.AspNet.Authentication.Baidu
 {

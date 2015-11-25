@@ -4,16 +4,16 @@ using DevZH.AspNet.Authentication.Sina;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="SinaMiddleware" />
+    /// Extension methods to add Sina authentication capabilities to an HTTP application pipeline.
     /// </summary>
     public static class SinaAppBuilderExtensions
     {
         /// <summary>
-		/// Authenticate users using Sina.
+		/// Adds the <see cref="SinaMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Sina authentication capabilities.
 		/// </summary>
-		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-		/// <param name="options">The Middleware options.</param>
-		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+		/// <param name="options">A <see cref="SinaOptions"/> that specifies options for the middleware.</param>
+		/// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseSinaAuthentication(this IApplicationBuilder app, SinaOptions options)
         {
             if (app == null)
@@ -30,11 +30,11 @@ namespace Microsoft.AspNet.Builder
         }
 
         /// <summary>
-		/// Authenticate users using Sina.
+		/// Adds the <see cref="SinaMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Sina authentication capabilities.
 		/// </summary>
-		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-		/// <param name="configureOptions">Used to configure Middleware options.</param>
-		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+		/// <param name="configureOptions">An action delegate to configure the provided <see cref="SinaOptions"/>.</param>
+		/// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseSinaAuthentication(this IApplicationBuilder app, Action<SinaOptions> configureOptions)
         {
             if (app == null)

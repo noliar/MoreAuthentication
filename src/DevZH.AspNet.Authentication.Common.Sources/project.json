@@ -1,17 +1,17 @@
 ﻿{
-  "version": "1.0.0-beta8",
+  "version": "1.0.0-rc1-final",
   "shared": "*.cs",
   "dependencies": {
   },
   "frameworks": {
-    "dnx451": {
+    "net451": {
       "frameworkAssemblies": {
         "System.ComponentModel.DataAnnotations": "4.0.0.0"
       }
     },
-    "dnxcore50": {
+    "dotnet5.4": {
       "dependencies": {
-        "System.ComponentModel.Annotations": "4.0.11-*"
+        "System.ComponentModel.Annotations": "4.0.11-beta-23516"
       }
     }
   }

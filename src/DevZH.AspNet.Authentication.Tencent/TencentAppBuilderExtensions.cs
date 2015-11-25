@@ -4,16 +4,16 @@ using DevZH.AspNet.Authentication.Tencent;
 namespace Microsoft.AspNet.Builder
 {
     /// <summary>
-    /// Extension methods for using <see cref="TencentMiddleware" />
+    /// Extension methods to add Tencent authentication capabilities to an HTTP application pipeline.
     /// </summary>
     public static class TencentAppBuilderExtensions
     {
         /// <summary>
-		/// Authenticate users using Tencent.
+		/// Adds the <see cref="TencentMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Tencent authentication capabilities.
 		/// </summary>
-		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-		/// <param name="options">The Middleware options.</param>
-		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+		/// <param name="options">A <see cref="TencentOptions"/> that specifies options for the middleware.</param>
+		/// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseTencentAuthentication(this IApplicationBuilder app, TencentOptions options)
         {
             if (app == null)
@@ -30,11 +30,11 @@ namespace Microsoft.AspNet.Builder
         }
 
         /// <summary>
-		/// Authenticate users using Tencent.
+		/// Adds the <see cref="TencentMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Tencent authentication capabilities.
 		/// </summary>
-		/// <param name="app">The <see cref="IApplicationBuilder" /> passed to the configure method.</param>
-		/// <param name="configureOptions">Used to configure Middleware options.</param>
-		/// <returns>The updated <see cref="IApplicationBuilder" />.</returns>
+		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+		/// <param name="configureOptions">An action delegate to configure the provided <see cref="TencentOptions"/>.</param>
+		/// <returns>A reference to this instance after the operation has completed.</returns>
         public static IApplicationBuilder UseTencentAuthentication(this IApplicationBuilder app, Action<TencentOptions> configureOptions)
         {
             if (app == null)

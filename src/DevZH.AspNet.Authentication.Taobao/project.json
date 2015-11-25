@@ -1,6 +1,6 @@
 ﻿{
   "authors": [ "杜晓宇" ],
-  "version": "1.0.0-beta8",
+  "version": "1.0.0-rc1-final",
   "description": "ASP.NET 5 middleware that enables an application to support the Taobao Account authentication workflow.",
   "tags": [ "ASP.NET", "Authentication", "taobao", "tmall" ],
   "repository": {
@@ -10,14 +10,14 @@
   "projectUrl": "https://github.com/noliar/MoreAuthentication",
   "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
   "dependencies": {
-    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-beta8",
+    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-rc1-final",
     "DevZH.AspNet.Authentication.Common.Sources": {
       "type": "build",
-      "version": "1.0.0-beta8"
+      "version": "1.0.0-rc1-final"
     }
   },
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "net451": { },
+    "dotnet5.4": { }
   }
 }
