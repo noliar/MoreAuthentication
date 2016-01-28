@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A629AEC0-862F-42E6-8C28-0F7CA0643830}"
 EndProject
@@ -11,35 +11,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Baidu", "src\DevZH.AspNet.Authentication.Baidu\DevZH.AspNet.Authentication.Baidu.xproj", "{12486D00-6929-4C59-B3B2-EC07B9870639}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Baidu", "src\DevZH.AspNetCore.Authentication.Baidu\DevZH.AspNetCore.Authentication.Baidu.xproj", "{12486D00-6929-4C59-B3B2-EC07B9870639}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Sina", "src\DevZH.AspNet.Authentication.Sina\DevZH.AspNet.Authentication.Sina.xproj", "{8BACE8C6-4B10-4B4F-9C33-3C7CA835FC67}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Sina", "src\DevZH.AspNetCore.Authentication.Sina\DevZH.AspNetCore.Authentication.Sina.xproj", "{8BACE8C6-4B10-4B4F-9C33-3C7CA835FC67}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Yixin", "src\DevZH.AspNet.Authentication.Yixin\DevZH.AspNet.Authentication.Yixin.xproj", "{C000E5BD-4959-460F-8986-C3C3CB222D98}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Yixin", "src\DevZH.AspNetCore.Authentication.Yixin\DevZH.AspNetCore.Authentication.Yixin.xproj", "{C000E5BD-4959-460F-8986-C3C3CB222D98}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Douban", "src\DevZH.AspNet.Authentication.Douban\DevZH.AspNet.Authentication.Douban.xproj", "{B502D456-78D6-4BDF-90E3-BF2379B5329B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Douban", "src\DevZH.AspNetCore.Authentication.Douban\DevZH.AspNetCore.Authentication.Douban.xproj", "{B502D456-78D6-4BDF-90E3-BF2379B5329B}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Tencent", "src\DevZH.AspNet.Authentication.Tencent\DevZH.AspNet.Authentication.Tencent.xproj", "{330AE64C-011C-4E4B-885C-78CE234B22B9}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Tencent", "src\DevZH.AspNetCore.Authentication.Tencent\DevZH.AspNetCore.Authentication.Tencent.xproj", "{330AE64C-011C-4E4B-885C-78CE234B22B9}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.XiaoMi", "src\DevZH.AspNet.Authentication.XiaoMi\DevZH.AspNet.Authentication.XiaoMi.xproj", "{A731EEF9-AA90-4E93-8031-F3E8721AE03B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.XiaoMi", "src\DevZH.AspNetCore.Authentication.XiaoMi\DevZH.AspNetCore.Authentication.XiaoMi.xproj", "{A731EEF9-AA90-4E93-8031-F3E8721AE03B}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Common", "src\DevZH.AspNet.Authentication.Common\DevZH.AspNet.Authentication.Common.xproj", "{790D9EF7-4C96-4F3B-B838-F043E19AB90C}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Common", "src\DevZH.AspNetCore.Authentication.Common\DevZH.AspNetCore.Authentication.Common.xproj", "{790D9EF7-4C96-4F3B-B838-F043E19AB90C}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Youku", "src\DevZH.AspNet.Authentication.Youku\DevZH.AspNet.Authentication.Youku.xproj", "{DA0D9BFF-DCC4-4FFC-99C3-A29D618BF0D6}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Youku", "src\DevZH.AspNetCore.Authentication.Youku\DevZH.AspNetCore.Authentication.Youku.xproj", "{DA0D9BFF-DCC4-4FFC-99C3-A29D618BF0D6}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Taobao", "src\DevZH.AspNet.Authentication.Taobao\DevZH.AspNet.Authentication.Taobao.xproj", "{EBD07077-B5A3-4030-A54F-4DE4C3D355CA}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Taobao", "src\DevZH.AspNetCore.Authentication.Taobao\DevZH.AspNetCore.Authentication.Taobao.xproj", "{EBD07077-B5A3-4030-A54F-4DE4C3D355CA}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Common.Sources", "src\DevZH.AspNet.Authentication.Common.Sources\DevZH.AspNet.Authentication.Common.Sources.xproj", "{AD978508-0829-419C-9839-C7CF98CF5F42}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Common.Sources", "src\DevZH.AspNetCore.Authentication.Common.Sources\DevZH.AspNetCore.Authentication.Common.Sources.xproj", "{AD978508-0829-419C-9839-C7CF98CF5F42}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.WeChat", "src\DevZH.AspNet.Authentication.WeChat\DevZH.AspNet.Authentication.WeChat.xproj", "{08E37AC5-83C5-40E5-9E7C-794482E4CFDA}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.WeChat", "src\DevZH.AspNetCore.Authentication.WeChat\DevZH.AspNetCore.Authentication.WeChat.xproj", "{08E37AC5-83C5-40E5-9E7C-794482E4CFDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{374A9E31-AB15-4E5C-9B3E-39562449CCF9}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SocialSample", "samples\SocialSample\SocialSample.xproj", "{9BEDF869-7417-4E71-B321-52176C2DE25A}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.NetEase", "src\DevZH.AspNet.Authentication.NetEase\DevZH.AspNet.Authentication.NetEase.xproj", "{2A97F3B9-4AED-40EB-A65A-7F45A957BF58}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.NetEase", "src\DevZH.AspNetCore.Authentication.NetEase\DevZH.AspNetCore.Authentication.NetEase.xproj", "{2A97F3B9-4AED-40EB-A65A-7F45A957BF58}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNet.Authentication.Qihoo", "src\DevZH.AspNet.Authentication.Qihoo\DevZH.AspNet.Authentication.Qihoo.xproj", "{945759B4-02E3-4AF0-AD8E-E086B4DFF320}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DevZH.AspNetCore.Authentication.Qihoo", "src\DevZH.AspNetCore.Authentication.Qihoo\DevZH.AspNetCore.Authentication.Qihoo.xproj", "{945759B4-02E3-4AF0-AD8E-E086B4DFF320}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
