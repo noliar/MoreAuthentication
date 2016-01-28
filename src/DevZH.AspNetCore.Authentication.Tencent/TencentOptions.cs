@@ -1,4 +1,5 @@
 ﻿using DevZH.AspNetCore.Authentication.Tencent;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {
@@ -16,6 +17,7 @@ namespace DevZH.AspNetCore.Builder
             TokenEndpoint = TencentDefaults.TokenEndpoint;
             UserInformationEndpoint = TencentDefaults.UserInformationEndpoint;
             OpenIdEndpoint = TencentDefaults.OpenIdEndpoint;
+            Scope.Add("get_user_info");
         }
 
         /// <summary>

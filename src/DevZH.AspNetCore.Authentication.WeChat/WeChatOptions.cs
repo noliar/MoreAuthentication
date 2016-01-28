@@ -1,4 +1,5 @@
 ﻿using DevZH.AspNetCore.Authentication.WeChat;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {
@@ -12,6 +13,8 @@ namespace DevZH.AspNetCore.Builder
             AuthorizationEndpoint = WeChatDefaults.AuthorizationEndpoint;
             TokenEndpoint = WeChatDefaults.TokenEndpoint;
             UserInformationEndpoint = WeChatDefaults.UserInformationEndpoint;
+            Scope.Add("snsapi_login");
+            Scope.Add("snsapi_userinfo");
         }
 
         /// <summary>

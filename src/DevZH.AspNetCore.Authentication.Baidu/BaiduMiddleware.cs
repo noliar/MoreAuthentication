@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Text.Encodings.Web;
+using DevZH.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.Extensions.WebEncoders;
 
 namespace DevZH.AspNetCore.Authentication.Baidu
 {
@@ -27,9 +28,9 @@ namespace DevZH.AspNetCore.Authentication.Baidu
             RequestDelegate next,
             IDataProtectionProvider dataProtectionProvider,
             ILoggerFactory loggerFactory,
-            IUrlEncoder encoder,
+            UrlEncoder encoder,
             IOptions<SharedAuthenticationOptions> sharedOptions,
-            BaiduOptions options) 
+            IOptions<BaiduOptions> options) 
             : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options)
         {
             if (next == null)
@@ -64,10 +65,6 @@ namespace DevZH.AspNetCore.Authentication.Baidu
             if (string.IsNullOrWhiteSpace(Options.SecretAccessKey))
             {
                 throw new ArgumentException("请输入有效的 Secret Access Key 或 Secret Key");
-            }
-            if (Options.Scope.Count == 0)
-            {
-                Options.Scope.Add("basic");
             }
         }
 

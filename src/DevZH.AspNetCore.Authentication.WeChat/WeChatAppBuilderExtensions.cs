@@ -1,5 +1,6 @@
 ﻿using System;
 using DevZH.AspNetCore.Authentication.WeChat;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {

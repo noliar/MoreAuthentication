@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using DevZH.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Http.Authentication;

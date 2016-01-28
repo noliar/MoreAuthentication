@@ -1,7 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 using DevZH.AspNetCore.Authentication.Common;
 using DevZH.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,11 +39,29 @@ namespace SocialSample
         {
             loggerfactory.AddConsole(LogLevel.Information);
 
-            app.UseCookieAuthentication(options =>
+            // Simple error page to avoid a repo dependency.
+            app.Use(async (context, next) =>
             {
-                options.AutomaticAuthenticate = true;
-                options.AutomaticChallenge = true;
-                options.LoginPath = new PathString("/login");
+                try
+                {
+                    await next();
+                }
+                catch (Exception ex)
+                {
+                    if (context.Response.HasStarted)
+                    {
+                        throw;
+                    }
+                    context.Response.StatusCode = 500;
+                    await context.Response.WriteAsync(ex.ToString());
+                }
+            });
+
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AutomaticAuthenticate = true,
+                AutomaticChallenge = true,
+                LoginPath = new PathString("/login")
             });
 
             // 测试应用，其他用户不能登，除非手动添加。
@@ -49,6 +71,17 @@ namespace SocialSample
             {
                 options.ApiKey = Configuration["douban:apikey"];
                 options.Secret = Configuration["douban:secret"];
+
+                options.Events = new OAuthEvents()
+                {
+                    OnRemoteFailure = ctx =>
+
+                    {
+                        ctx.Response.Redirect("/error?FailureMessage=" + UrlEncoder.Default.Encode(ctx.Failure.Message));
+                        ctx.HandleResponse();
+                        return Task.FromResult(0);
+                    }
+                };
             });
 
             #region 下面几个全都是凑数的

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevZH.AspNetCore.Authentication.Common;
 using DevZH.AspNetCore.Authentication.Internal;
+using DevZH.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Http.Authentication;
@@ -59,7 +60,7 @@ namespace DevZH.AspNetCore.Authentication.XiaoMi
             var response = await Backchannel.SendAsync(message, Context.RequestAborted);
             response.EnsureSuccessStatusCode();
             // Replace("&&&START&&&", "")
-            return new OAuthTokenResponse(JObject.Parse((await response.Content.ReadAsStringAsync()).Remove(0,11)));
+            return OAuthTokenResponse.Success(JObject.Parse((await response.Content.ReadAsStringAsync()).Remove(0,11)));
         }
 
         /// <summary>
@@ -138,7 +139,7 @@ namespace DevZH.AspNetCore.Authentication.XiaoMi
             };
             var mac = ComputeSignature(string.Join("\n", param) + "\n", key, algorithm);
             //return $"access_token=\"{token.ToEscapeData()}\", nonce=\"{nonce.ToEscapeData()}\",mac=\"{mac.ToEscapeData()}\"";
-            return $"access_token=\"{UrlEncoder.UrlEncode(token)}\", nonce=\"{UrlEncoder.UrlEncode(nonce)}\",mac=\"{UrlEncoder.UrlEncode(mac)}\"";
+            return $"access_token=\"{UrlEncoder.Encode(token)}\", nonce=\"{UrlEncoder.Encode(nonce)}\",mac=\"{UrlEncoder.Encode(mac)}\"";
         }
 
         /// <summary>

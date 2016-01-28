@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DevZH.AspNetCore.Authentication.Sina;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
 namespace DevZH.AspNetCore.Builder

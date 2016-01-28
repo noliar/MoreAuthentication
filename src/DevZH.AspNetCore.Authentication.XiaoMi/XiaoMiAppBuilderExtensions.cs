@@ -1,5 +1,6 @@
 ﻿using System;
 using DevZH.AspNetCore.Authentication.XiaoMi;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {

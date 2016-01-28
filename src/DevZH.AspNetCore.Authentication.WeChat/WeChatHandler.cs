@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using DevZH.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Http.Authentication;
@@ -59,7 +60,7 @@ namespace DevZH.AspNetCore.Authentication.WeChat
             };
             var response = await Backchannel.GetAsync(Options.TokenEndpoint + query, Context.RequestAborted);
             response.EnsureSuccessStatusCode();
-            return new OAuthTokenResponse(JObject.Parse(await response.Content.ReadAsStringAsync()));
+            return OAuthTokenResponse.Success(JObject.Parse(await response.Content.ReadAsStringAsync()));
         }
 
         /// <summary>

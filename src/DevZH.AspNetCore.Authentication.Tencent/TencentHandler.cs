@@ -3,6 +3,7 @@ using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using DevZH.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Http.Authentication;
@@ -62,7 +63,7 @@ namespace DevZH.AspNetCore.Authentication.Tencent
             // 虽然标准是说 access_token 的范围是 0x20-0x7e，不过我看腾讯的实现看起来像 MD5 后的
             // 标准不是说返回 json 或 xml 么，，，这返回的 类似 query 的又是什么坑爹货，难道我记错了
             result = "{\"" + result.Replace("=", "\":\"").Replace("&", "\",\"") + "\"}";
-            return new OAuthTokenResponse(JObject.Parse(result));
+            return OAuthTokenResponse.Success(JObject.Parse(result));
         }
 
         /// <summary>

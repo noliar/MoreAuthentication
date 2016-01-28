@@ -1,5 +1,6 @@
 ﻿using System;
 using DevZH.AspNetCore.Authentication.Qihoo;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {

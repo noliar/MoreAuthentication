@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DevZH.AspNetCore.Authentication.Taobao;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {

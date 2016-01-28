@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Text.Encodings.Web;
+using DevZH.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.Extensions.WebEncoders;
 
 namespace DevZH.AspNetCore.Authentication.Tencent
 {
@@ -27,9 +28,9 @@ namespace DevZH.AspNetCore.Authentication.Tencent
            RequestDelegate next,
            IDataProtectionProvider dataProtectionProvider,
            ILoggerFactory loggerFactory,
-           IUrlEncoder encoder,
+           UrlEncoder encoder,
            IOptions<SharedAuthenticationOptions> sharedOptions,
-           TencentOptions options)
+           IOptions<TencentOptions> options)
             : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options)
         {
             if (next == null)
@@ -64,10 +65,6 @@ namespace DevZH.AspNetCore.Authentication.Tencent
             if (string.IsNullOrWhiteSpace(Options.AppKey))
             {
                 throw new ArgumentException($"参数 {nameof(Options.AppKey)} 值非法");
-            }
-            if (Options.Scope.Count == 0)
-            {
-                Options.Scope.Add("get_user_info");
             }
         }
 

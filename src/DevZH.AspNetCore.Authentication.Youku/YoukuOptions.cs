@@ -1,4 +1,5 @@
 ﻿using DevZH.AspNetCore.Authentication.Youku;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {

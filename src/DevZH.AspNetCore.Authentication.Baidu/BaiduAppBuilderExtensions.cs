@@ -1,5 +1,6 @@
 ﻿using DevZH.AspNetCore.Authentication.Baidu;
 using System;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {

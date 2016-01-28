@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using DevZH.AspNetCore.Authentication.Baidu;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
 namespace DevZH.AspNetCore.Builder
@@ -21,6 +22,7 @@ namespace DevZH.AspNetCore.Builder
             AuthorizationEndpoint = BaiduDefaults.AuthorizationEndpoint;
             TokenEndpoint = BaiduDefaults.TokenEndpoint;
             UserInformationEndpoint = BaiduDefaults.UserInformationEndpoint;
+            Scope.Add("basic");
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using DevZH.AspNetCore.Authentication.Internal;
+using DevZH.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Http.Authentication;
@@ -41,7 +42,7 @@ namespace DevZH.AspNetCore.Authentication.Qihoo
         /// </summary>
         protected override async Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
-            var endpoint = Options.UserInformationEndpoint + "?access_token=" + UrlEncoder.UrlEncode(tokens.AccessToken);
+            var endpoint = Options.UserInformationEndpoint + "?access_token=" + UrlEncoder.Encode(tokens.AccessToken);
             var response = await Backchannel.GetAsync(endpoint, Context.RequestAborted);
             response.EnsureSuccessStatusCode();
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());

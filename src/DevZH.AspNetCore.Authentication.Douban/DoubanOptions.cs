@@ -1,4 +1,5 @@
 ﻿using DevZH.AspNetCore.Authentication.Douban;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {
@@ -18,6 +19,7 @@ namespace DevZH.AspNetCore.Builder
             AuthorizationEndpoint = DoubanDefaults.AuthorizationEndpoint;
             TokenEndpoint = DoubanDefaults.TokenEndpoint;
             UserInformationEndpoint = DoubanDefaults.UserInformationEndpoint;
+            Scope.Add("douban_basic_common");
         }
 
         /// <summary>

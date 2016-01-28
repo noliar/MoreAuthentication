@@ -1,5 +1,6 @@
 ﻿using DevZH.AspNetCore.Authentication.Common;
 using DevZH.AspNetCore.Authentication.XiaoMi;
+using Microsoft.AspNetCore.Builder;
 
 namespace DevZH.AspNetCore.Builder
 {
@@ -16,6 +17,7 @@ namespace DevZH.AspNetCore.Builder
             AuthorizationEndpoint = XiaoMiDefaults.AuthorizationEndpoint;
             TokenEndpoint = XiaoMiDefaults.TokenEndpoint;
             UserInformationEndpoint = XiaoMiDefaults.UserInformationEndpoint;
+            Scope.Add("1");
         }
 
         /// <summary>

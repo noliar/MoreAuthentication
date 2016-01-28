@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Text.Encodings.Web;
+using DevZH.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.Extensions.WebEncoders;
 
 namespace DevZH.AspNetCore.Authentication.Yixin
 {
@@ -27,9 +28,9 @@ namespace DevZH.AspNetCore.Authentication.Yixin
            RequestDelegate next,
            IDataProtectionProvider dataProtectionProvider,
            ILoggerFactory loggerFactory,
-           IUrlEncoder encoder,
+           UrlEncoder encoder,
            IOptions<SharedAuthenticationOptions> sharedOptions,
-           YixinOptions options)
+           IOptions<YixinOptions> options)
             : base(next, dataProtectionProvider, loggerFactory, encoder, sharedOptions, options)
         {
             if (next == null)
