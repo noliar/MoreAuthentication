@@ -8,6 +8,7 @@ using Microsoft.AspNet.Authentication.Cookies;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Http.Authentication;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -15,6 +16,17 @@ namespace SocialSample
 {
     public class Startup
     {
+        public Startup()
+        {
+            Configuration = new ConfigurationBuilder()
+                .AddEnvironmentVariables()
+                .AddJsonFile("config.json")
+                .AddUserSecrets()
+                .Build();
+        }
+
+        public IConfiguration Configuration { get; set; }
+
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
@@ -37,16 +49,16 @@ namespace SocialSample
             // 豆瓣样例
             app.UseDoubanAuthentication(options =>
             {
-                options.ApiKey = "00d08dfa114c80200271a9ee33e58060";
-                options.Secret = "39e079a2c685fbb4";
+                options.ApiKey = Configuration["douban:apikey"];
+                options.Secret = Configuration["douban:secret"];
             });
 
             #region 下面几个全都是凑数的
             // 百度样例
             app.UseBaiduAuthentication(options =>
             {
-                options.AccessKeyId = "00d08dfa114c80200271a9ee33e58060";
-                options.SecretAccessKey = "39e079a2c685fbb4";
+                options.AccessKeyId = Configuration["baidu:accesskeyid"];
+                options.SecretAccessKey = Configuration["baidu:secretaccesskey"];
                 options.Display = BaiduOptions.DisplayStyle.Touch;
                 options.IsForce = true;
                 options.UseSms = true;
@@ -55,8 +67,8 @@ namespace SocialSample
             // 360 样例
             app.UseQihooAuthentication(options =>
             {
-                options.AppKey = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
+                options.AppKey = Configuration["qihoo:appkey"];
+                options.AppSecret = Configuration["qihoo:appsecret"];
                 options.ReLogin = "360.cn";
                 options.Display = QihooOptions.DisplayStyle.Desktop;
             });
@@ -64,15 +76,15 @@ namespace SocialSample
             // 网易样例
             app.UseNetEaseAuthentication(options =>
             {
-                options.Key = "00d08dfa114c80200271a9ee33e58060";
-                options.Secret = "39e079a2c685fbb4";
+                options.Key = Configuration["netease:key"];
+                options.Secret = Configuration["netease:secret"];
             });
 
             // 新浪样例
             app.UseSinaAuthentication(options =>
             {
-                options.AppKey = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
+                options.AppKey = Configuration["sina:appkey"];
+                options.AppSecret = Configuration["sina:appsecret"];
                 options.Language = SinaOptions.LanguageType.English;
                 options.Display = SinaOptions.DisplayStyle.Mobile;
             });
@@ -80,31 +92,31 @@ namespace SocialSample
             // 淘宝样例
             app.UseTaobaoAuthentication(options =>
             {
-                options.ClientId = "00d08dfa114c80200271a9ee33e58060";
-                options.ClientSecret = "39e079a2c685fbb4";
+                options.ClientId = Configuration["taobao:clientid"];
+                options.ClientSecret = Configuration["taobao:clientsecret"];
                 options.View = TaobaoOptions.ViewStyle.Tmall;
             });
 
             // QQ 样例
             app.UseTencentAuthentication(options =>
             {
-                options.AppId = "00d08dfa114c80200271a9ee33e58060";
-                options.AppKey = "39e079a2c685fbb4";
+                options.AppId = Configuration["tencent:appid"];
+                options.AppKey = Configuration["tencent:appkey"];
                 options.IsMobile = true;
             });
 
             // 微信样例
             app.UseWeChatAuthentication(options =>
             {
-                options.AppId = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
+                options.AppId = Configuration["wechat:appid"];
+                options.AppSecret = Configuration["wechat:appsecret"];
             });
 
             // 小米样例
             app.UseXiaoMiAuthentication(options =>
             {
-                options.AppId = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
+                options.AppId = Configuration["xiaomi:appid"];
+                options.AppSecret = Configuration["xiaomi:appsecret"];
                 options.SkpConfirm = true;
                 options.TokenType = TokenType.MAC;
             });
@@ -112,15 +124,15 @@ namespace SocialSample
             // 易信样例
             app.UseYixinAuthentication(options =>
             {
-                options.AppId = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
+                options.AppId = Configuration["yixin:appid"];
+                options.AppSecret = Configuration["yixin:appkey"];
             });
 
             // 优酷样例
             app.UseYoukuAuthentication(options =>
             {
-                options.ClientId = "00d08dfa114c80200271a9ee33e58060";
-                options.ClientSecret = "39e079a2c685fbb4";
+                options.ClientId = Configuration["youku:clientid"];
+                options.ClientSecret = Configuration["youku:clientsecret"];
             });
             #endregion
 
