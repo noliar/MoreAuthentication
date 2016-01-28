@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
-namespace DevZH.AspNet.Authentication.Internal
+namespace DevZH.AspNetCore.Authentication.Internal
 {
     internal static class EnumExtensions
     {

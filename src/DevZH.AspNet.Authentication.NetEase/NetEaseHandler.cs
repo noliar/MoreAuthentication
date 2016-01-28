@@ -1,12 +1,12 @@
 ﻿using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Authentication;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http.Authentication;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Http.Authentication;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.NetEase
+namespace DevZH.AspNetCore.Authentication.NetEase
 {
     /// <summary>
     /// 对一系列认证过程的调控

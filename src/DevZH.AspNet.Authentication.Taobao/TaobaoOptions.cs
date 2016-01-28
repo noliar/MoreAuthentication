@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Authentication.OAuth;
+using DevZH.AspNetCore.Authentication.Taobao;
 
-namespace DevZH.AspNet.Authentication.Taobao
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// 淘宝用户授权过程中所涉及到的基本信息

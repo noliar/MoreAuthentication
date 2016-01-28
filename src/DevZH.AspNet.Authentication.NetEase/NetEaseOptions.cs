@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using DevZH.AspNetCore.Authentication.NetEase;
 
-namespace DevZH.AspNet.Authentication.NetEase
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Configuration options for <see cref="NetEaseMiddleware" />.

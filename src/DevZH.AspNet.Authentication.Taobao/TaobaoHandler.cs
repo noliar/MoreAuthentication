@@ -1,12 +1,12 @@
 ﻿using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using DevZH.AspNet.Authentication.Internal;
-using Microsoft.AspNet.Authentication;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http.Authentication;
+using DevZH.AspNetCore.Authentication.Internal;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Http.Authentication;
 
-namespace DevZH.AspNet.Authentication.Taobao
+namespace DevZH.AspNetCore.Authentication.Taobao
 {
     /// <summary>
     ///  淘宝授权核心处理类

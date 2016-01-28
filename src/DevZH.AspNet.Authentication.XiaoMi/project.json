@@ -10,9 +10,9 @@
   "projectUrl": "https://github.com/noliar/MoreAuthentication",
   "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
   "dependencies": {
-    "Microsoft.AspNet.Authentication.OAuth": "1.0.0-*",
-    "DevZH.AspNet.Authentication.Common": "1.0.0-*",
-    "DevZH.AspNet.Authentication.Common.Sources": {
+    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-*",
+    "DevZH.AspNetCore.Authentication.Common": "1.0.0-*",
+    "DevZH.AspNetCore.Authentication.Common.Sources": {
       "type": "build",
       "version": "1.0.0-*"
     }

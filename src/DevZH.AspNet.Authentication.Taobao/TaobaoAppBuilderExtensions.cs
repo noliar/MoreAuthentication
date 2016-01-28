@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.Taobao;
+using DevZH.AspNetCore.Authentication.Taobao;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add Taobao authentication capabilities to an HTTP application pipeline.

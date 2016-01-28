@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using DevZH.AspNetCore.Authentication.WeChat;
 
-namespace DevZH.AspNet.Authentication.WeChat
+namespace DevZH.AspNetCore.Builder
 {
     public class WeChatOptions : OAuthOptions
     {

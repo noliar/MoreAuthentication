@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using DevZH.AspNetCore.Authentication.Tencent;
 
-namespace DevZH.AspNet.Authentication.Tencent
+namespace DevZH.AspNetCore.Builder
 {
     public class TencentOptions : OAuthOptions
     {

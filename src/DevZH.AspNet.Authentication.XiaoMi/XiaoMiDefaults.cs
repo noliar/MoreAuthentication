@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.XiaoMi
+﻿namespace DevZH.AspNetCore.Authentication.XiaoMi
 {
     public static class XiaoMiDefaults
     {

@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.Yixin
+﻿namespace DevZH.AspNetCore.Authentication.Yixin
 {
     public static class YixinDefaults
     {

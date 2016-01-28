@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.Qihoo
+﻿namespace DevZH.AspNetCore.Authentication.Qihoo
 {
     // 一些有关授权的参数
     public static class QihooDefaults

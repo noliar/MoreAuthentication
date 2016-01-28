@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.NetEase;
+using DevZH.AspNetCore.Authentication.NetEase;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add NetEase authentication capabilities to an HTTP application pipeline.

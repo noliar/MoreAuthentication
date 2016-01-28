@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.Douban;
+using DevZH.AspNetCore.Authentication.Douban;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add Douban authentication capabilities to an HTTP application pipeline.

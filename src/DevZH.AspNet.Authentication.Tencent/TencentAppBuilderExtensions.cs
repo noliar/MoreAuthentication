@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.Tencent;
+using DevZH.AspNetCore.Authentication.Tencent;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add Tencent authentication capabilities to an HTTP application pipeline.

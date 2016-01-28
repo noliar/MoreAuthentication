@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.Youku;
+using DevZH.AspNetCore.Authentication.Youku;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add Youku authentication capabilities to an HTTP application pipeline.

@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.Baidu
+﻿namespace DevZH.AspNetCore.Authentication.Baidu
 {
     public static class BaiduDefaults
     {

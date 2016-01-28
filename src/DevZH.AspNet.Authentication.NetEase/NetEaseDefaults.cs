@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.NetEase
+﻿namespace DevZH.AspNetCore.Authentication.NetEase
 {
     public static class NetEaseDefaults
     {

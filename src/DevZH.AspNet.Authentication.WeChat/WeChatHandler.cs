@@ -1,13 +1,13 @@
 ﻿using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Authentication;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http.Authentication;
-using Microsoft.AspNet.Http.Extensions;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Http.Authentication;
+using Microsoft.AspNetCore.Http.Extensions;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.WeChat
+namespace DevZH.AspNetCore.Authentication.WeChat
 {
     /// <summary>
     ///  微信授权登录处理核心类

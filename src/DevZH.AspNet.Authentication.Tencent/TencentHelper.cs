@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.Tencent
+namespace DevZH.AspNetCore.Authentication.Tencent
 {
     /// <summary>
     /// Contains static methods that allow to extract user's information from a <see cref="JObject"/>

@@ -1,14 +1,14 @@
 ﻿using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using DevZH.AspNet.Authentication.Internal;
-using Microsoft.AspNet.Authentication;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http.Authentication;
-using Microsoft.AspNet.Http.Extensions;
+using DevZH.AspNetCore.Authentication.Internal;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Http.Authentication;
+using Microsoft.AspNetCore.Http.Extensions;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.Baidu
+namespace DevZH.AspNetCore.Authentication.Baidu
 {
     /// <summary>
     /// 对一系列认证过程的调控

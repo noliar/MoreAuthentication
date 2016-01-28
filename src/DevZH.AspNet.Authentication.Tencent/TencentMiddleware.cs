@@ -1,13 +1,13 @@
 ﻿using System;
-using Microsoft.AspNet.Authentication;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.DataProtection;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.WebEncoders;
 
-namespace DevZH.AspNet.Authentication.Tencent
+namespace DevZH.AspNetCore.Authentication.Tencent
 {
     /// <summary>
     /// An ASP.NET middleware for authenticating users using the Tencent QQ Account service.

@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.WeChat;
+using DevZH.AspNetCore.Authentication.WeChat;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add WeChat authentication capabilities to an HTTP application pipeline.

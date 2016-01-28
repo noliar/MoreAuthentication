@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.Sina;
+using DevZH.AspNetCore.Authentication.Sina;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add Sina authentication capabilities to an HTTP application pipeline.

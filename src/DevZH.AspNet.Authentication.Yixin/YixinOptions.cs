@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using DevZH.AspNetCore.Authentication.Yixin;
 
-namespace DevZH.AspNet.Authentication.Yixin
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// 易信用户授权过程中所涉及到的基本信息

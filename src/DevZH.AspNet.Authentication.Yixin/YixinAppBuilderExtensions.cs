@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.Yixin;
+using DevZH.AspNetCore.Authentication.Yixin;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add Yixin authentication capabilities to an HTTP application pipeline.

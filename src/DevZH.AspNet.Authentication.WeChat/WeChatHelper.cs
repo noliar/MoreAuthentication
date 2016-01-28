@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.WeChat
+namespace DevZH.AspNetCore.Authentication.WeChat
 {
     /// <summary>
     /// Contains static methods that allow to extract user's information from a <see cref="JObject"/>

@@ -3,12 +3,12 @@ using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Authentication;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http.Authentication;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Http.Authentication;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.Tencent
+namespace DevZH.AspNetCore.Authentication.Tencent
 {
     /// <summary>
     ///  腾讯开放平台用户接入授权处理核心类

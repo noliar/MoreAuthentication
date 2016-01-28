@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.Sina
+﻿namespace DevZH.AspNetCore.Authentication.Sina
 {
     public static class SinaDefaults
     {

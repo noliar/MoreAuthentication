@@ -1,7 +1,7 @@
-﻿using DevZH.AspNet.Authentication.Common;
-using Microsoft.AspNet.Authentication.OAuth;
+﻿using DevZH.AspNetCore.Authentication.Common;
+using DevZH.AspNetCore.Authentication.XiaoMi;
 
-namespace DevZH.AspNet.Authentication.XiaoMi
+namespace DevZH.AspNetCore.Builder
 {
     public class XiaoMiOptions : OAuthOptions
     {

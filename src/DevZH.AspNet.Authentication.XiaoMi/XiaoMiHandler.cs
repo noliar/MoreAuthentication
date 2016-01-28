@@ -6,14 +6,14 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using DevZH.AspNet.Authentication.Common;
-using DevZH.AspNet.Authentication.Internal;
-using Microsoft.AspNet.Authentication;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http.Authentication;
+using DevZH.AspNetCore.Authentication.Common;
+using DevZH.AspNetCore.Authentication.Internal;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Http.Authentication;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.XiaoMi
+namespace DevZH.AspNetCore.Authentication.XiaoMi
 {
     /// <summary>
     ///  小米开放平台用户接入授权处理核心类

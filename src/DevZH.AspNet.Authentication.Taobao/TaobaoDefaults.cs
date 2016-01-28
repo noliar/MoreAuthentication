@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.Taobao
+﻿namespace DevZH.AspNetCore.Authentication.Taobao
 {
     public static class TaobaoDefaults
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.Qihoo;
+using DevZH.AspNetCore.Authentication.Qihoo;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add Qihoo 360 authentication capabilities to an HTTP application pipeline.

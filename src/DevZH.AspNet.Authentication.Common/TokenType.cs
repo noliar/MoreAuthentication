@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DevZH.AspNet.Authentication.Common
+namespace DevZH.AspNetCore.Authentication.Common
 {
     /// <summary>
     ///  指示请求所需要令牌的类型，一般资源服务器都实现了 None 和 Bearer 。

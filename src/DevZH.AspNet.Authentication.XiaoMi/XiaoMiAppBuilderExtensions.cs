@@ -1,7 +1,7 @@
 ﻿using System;
-using DevZH.AspNet.Authentication.XiaoMi;
+using DevZH.AspNetCore.Authentication.XiaoMi;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add XiaoMi authentication capabilities to an HTTP application pipeline.

@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.Tencent
+﻿namespace DevZH.AspNetCore.Authentication.Tencent
 {
     public static class TencentDefaults
     {

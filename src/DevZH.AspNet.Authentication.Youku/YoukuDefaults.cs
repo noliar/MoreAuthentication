@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.Youku
+﻿namespace DevZH.AspNetCore.Authentication.Youku
 {
     public static class YoukuDefaults
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http;
+using DevZH.AspNetCore.Authentication.Baidu;
+using Microsoft.AspNetCore.Http;
 
-namespace DevZH.AspNet.Authentication.Baidu
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Configuration options for <see cref="BaiduMiddleware" />.

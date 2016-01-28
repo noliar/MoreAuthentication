@@ -1,7 +1,7 @@
-﻿using DevZH.AspNet.Authentication.Baidu;
+﻿using DevZH.AspNetCore.Authentication.Baidu;
 using System;
 
-namespace Microsoft.AspNet.Builder
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Extension methods to add Baidu authentication capabilities to an HTTP application pipeline.

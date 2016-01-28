@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http;
+using DevZH.AspNetCore.Authentication.Sina;
+using Microsoft.AspNetCore.Http;
 
-namespace DevZH.AspNet.Authentication.Sina
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// 新浪用户授权过程中所涉及到的基本信息

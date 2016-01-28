@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.Yixin
+namespace DevZH.AspNetCore.Authentication.Yixin
 {
     /// <summary>
     /// Contains static methods that allow to extract user's information from a <see cref="JObject"/>

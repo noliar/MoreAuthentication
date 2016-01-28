@@ -2,12 +2,12 @@
 using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Authentication;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http.Authentication;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Http.Authentication;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.Youku
+namespace DevZH.AspNetCore.Authentication.Youku
 {
     /// <summary>
     ///  优酷开放平台授权核心处理类

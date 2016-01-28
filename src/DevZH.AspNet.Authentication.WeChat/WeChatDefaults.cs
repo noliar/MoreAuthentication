@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.WeChat
+﻿namespace DevZH.AspNetCore.Authentication.WeChat
 {
     public static class WeChatDefaults
     {

@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNet.Authentication.OAuth;
+﻿using DevZH.AspNetCore.Authentication.Youku;
 
-namespace DevZH.AspNet.Authentication.Youku
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// 优酷用户授权过程中所涉及到的基本信息

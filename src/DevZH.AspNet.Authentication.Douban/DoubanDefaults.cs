@@ -1,4 +1,4 @@
-﻿namespace DevZH.AspNet.Authentication.Douban
+﻿namespace DevZH.AspNetCore.Authentication.Douban
 {
     public static class DoubanDefaults
     {

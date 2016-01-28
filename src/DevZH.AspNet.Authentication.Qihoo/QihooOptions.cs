@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Authentication.OAuth;
+using DevZH.AspNetCore.Authentication.Qihoo;
 
-namespace DevZH.AspNet.Authentication.Qihoo
+namespace DevZH.AspNetCore.Builder
 {
     /// <summary>
     /// Configuration options for <see cref="QihooMiddleware" />.

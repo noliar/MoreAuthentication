@@ -1,12 +1,12 @@
 ﻿using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Authentication;
-using Microsoft.AspNet.Authentication.OAuth;
-using Microsoft.AspNet.Http.Authentication;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Http.Authentication;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.Yixin
+namespace DevZH.AspNetCore.Authentication.Yixin
 {
     /// <summary>
     ///  易信开放平台授权核心处理类

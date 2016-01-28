@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 
-namespace DevZH.AspNet.Authentication.XiaoMi
+namespace DevZH.AspNetCore.Authentication.XiaoMi
 {
     /// <summary>
     /// Contains static methods that allow to extract user's information from a <see cref="JObject"/>
