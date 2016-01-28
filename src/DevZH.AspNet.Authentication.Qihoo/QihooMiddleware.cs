@@ -4,7 +4,7 @@ using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.DataProtection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.OptionsModel;
+using Microsoft.Extensions.Options;
 using Microsoft.Extensions.WebEncoders;
 
 namespace DevZH.AspNet.Authentication.Qihoo
