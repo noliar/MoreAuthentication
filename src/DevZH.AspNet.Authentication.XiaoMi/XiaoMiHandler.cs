@@ -90,11 +90,7 @@ namespace DevZH.AspNet.Authentication.XiaoMi
             response.EnsureSuccessStatusCode();
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
-            var notification = new OAuthCreatingTicketContext(Context, Options, Backchannel, tokens, payload)
-            {
-                Properties = properties,
-                Principal = new ClaimsPrincipal(identity)
-            };
+            var notification = new OAuthCreatingTicketContext(new ClaimsPrincipal(identity), properties, Context, Options, Backchannel, tokens, payload);
 
             var identifier = XiaoMiHelper.GetId(payload);
             if (!string.IsNullOrEmpty(identifier))

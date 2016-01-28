@@ -27,11 +27,7 @@ namespace DevZH.AspNet.Authentication.NetEase
             response.EnsureSuccessStatusCode();
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
-            var context = new OAuthCreatingTicketContext(Context, Options, Backchannel, tokens, payload)
-            {
-                Properties = properties,
-                Principal = new ClaimsPrincipal(identity)
-            };
+            var context = new OAuthCreatingTicketContext(new ClaimsPrincipal(identity), properties, Context, Options, Backchannel, tokens, payload);
 
             var identifier = NetEaseHelper.GetId(payload);
             if (!string.IsNullOrEmpty(identifier))

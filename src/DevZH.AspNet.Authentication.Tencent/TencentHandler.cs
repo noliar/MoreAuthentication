@@ -97,11 +97,7 @@ namespace DevZH.AspNet.Authentication.Tencent
             var info = JObject.Parse(await response.Content.ReadAsStringAsync());
             info.Add("id", identifier);
 
-            var notification = new OAuthCreatingTicketContext(Context, Options, Backchannel, tokens, info)
-            {
-                Properties = properties,
-                Principal = new ClaimsPrincipal(identity)
-            };
+            var notification = new OAuthCreatingTicketContext(new ClaimsPrincipal(identity), properties, Context, Options, Backchannel, tokens, info);
 
             var name = TencentHelper.GetName(info);
             if (!string.IsNullOrEmpty(name))
