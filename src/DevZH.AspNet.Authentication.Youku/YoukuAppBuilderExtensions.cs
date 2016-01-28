@@ -41,10 +41,15 @@ namespace Microsoft.AspNet.Builder
             {
                 throw new ArgumentNullException(nameof(app));
             }
-            
+
+            if (configureOptions == null)
+            {
+                throw new ArgumentNullException(nameof(configureOptions));
+            }
+
             var options = new YoukuOptions();
-            configureOptions?.Invoke(options);
-            return app.UseYoukuAuthentication(options);
+            configureOptions(options);
+            return app.UseMiddleware<YoukuMiddleware>(options);
         }
     }
 }

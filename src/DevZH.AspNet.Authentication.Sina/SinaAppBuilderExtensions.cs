@@ -42,9 +42,14 @@ namespace Microsoft.AspNet.Builder
                 throw new ArgumentNullException(nameof(app));
             }
 
+            if (configureOptions == null)
+            {
+                throw new ArgumentNullException(nameof(configureOptions));
+            }
+
             var options = new SinaOptions();
-            configureOptions?.Invoke(options);
-            return app.UseSinaAuthentication(options);
+            configureOptions(options);
+            return app.UseMiddleware<SinaMiddleware>(options);
         }
     }
 }

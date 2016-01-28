@@ -42,9 +42,14 @@ namespace Microsoft.AspNet.Builder
                 throw new ArgumentNullException(nameof(app));
             }
 
+            if (configureOptions == null)
+            {
+                throw new ArgumentNullException(nameof(configureOptions));
+            }
+
             var options = new TaobaoOptions();
-            configureOptions?.Invoke(options);
-            return app.UseTaobaoAuthentication(options);
+            configureOptions(options);
+            return app.UseMiddleware<TaobaoMiddleware>(options);
         }
     }
 

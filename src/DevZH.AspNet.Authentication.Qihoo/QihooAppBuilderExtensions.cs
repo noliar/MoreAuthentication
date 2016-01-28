@@ -42,9 +42,14 @@ namespace Microsoft.AspNet.Builder
                 throw new ArgumentNullException(nameof(app));
             }
 
+            if (configureOptions == null)
+            {
+                throw new ArgumentNullException(nameof(configureOptions));
+            }
+
             var options = new QihooOptions();
-            configureOptions?.Invoke(options);
-            return app.UseQihooAuthentication(options);
+            configureOptions(options);
+            return app.UseMiddleware<QihooMiddleware>(options);
         }
     }
 }

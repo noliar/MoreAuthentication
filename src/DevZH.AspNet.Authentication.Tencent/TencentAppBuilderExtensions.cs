@@ -42,9 +42,14 @@ namespace Microsoft.AspNet.Builder
                 throw new ArgumentNullException(nameof(app));
             }
 
+            if (configureOptions == null)
+            {
+                throw new ArgumentNullException(nameof(configureOptions));
+            }
+
             var options = new TencentOptions();
-            configureOptions?.Invoke(options);
-            return app.UseTencentAuthentication(options);
+            configureOptions(options);
+            return app.UseMiddleware<TencentMiddleware>(options);
         }
     }
 }
