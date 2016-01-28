@@ -94,26 +94,27 @@ namespace DevZH.AspNet.Authentication.Tencent
             });
             response = await Backchannel.PostAsync(Options.UserInformationEndpoint, content);
             response.EnsureSuccessStatusCode();
-            var info = JObject.Parse(await response.Content.ReadAsStringAsync());
-            info.Add("id", identifier);
+            var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
+            payload.Add("id", identifier);
 
-            var notification = new OAuthCreatingTicketContext(new ClaimsPrincipal(identity), properties, Context, Options, Backchannel, tokens, info);
+            var ticket = new AuthenticationTicket(new ClaimsPrincipal(identity), properties, Options.AuthenticationScheme);
+            var context = new OAuthCreatingTicketContext(ticket, Context, Options, Backchannel, tokens, payload);
 
-            var name = TencentHelper.GetName(info);
+            var name = TencentHelper.GetName(payload);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, Options.ClaimsIssuer));
                 identity.AddClaim(new Claim("urn:qq:name", name, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
-            var figure = TencentHelper.GetFigure(info);
+            var figure = TencentHelper.GetFigure(payload);
             if (!string.IsNullOrEmpty(name))
             {
                 identity.AddClaim(new Claim("urn:qq:figure", figure, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
-            await Options.Events.CreatingTicket(notification);
+            await Options.Events.CreatingTicket(context);
 
-            return new AuthenticationTicket(notification.Principal, notification.Properties, notification.Options.AuthenticationScheme);
+            return context.Ticket;
         }
     }
 }

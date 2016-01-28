@@ -43,7 +43,8 @@ namespace DevZH.AspNet.Authentication.Yixin
             response.EnsureSuccessStatusCode();
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
-            var notification = new OAuthCreatingTicketContext(new ClaimsPrincipal(identity), properties, Context, Options, Backchannel, tokens, payload);
+            var ticket = new AuthenticationTicket(new ClaimsPrincipal(identity), properties, Options.AuthenticationScheme);
+            var context = new OAuthCreatingTicketContext(ticket, Context, Options, Backchannel, tokens, payload);
 
             var identifier = YixinHelper.GetId(payload);
             if (!string.IsNullOrEmpty(identifier))
@@ -65,9 +66,9 @@ namespace DevZH.AspNet.Authentication.Yixin
                 identity.AddClaim(new Claim("urn:yixin:icon", icon, ClaimValueTypes.String, Options.ClaimsIssuer));
             }
 
-            await Options.Events.CreatingTicket(notification);
+            await Options.Events.CreatingTicket(context);
 
-            return new AuthenticationTicket(notification.Principal, notification.Properties, notification.Options.AuthenticationScheme);
+            return context.Ticket;
         }
     }
 }
