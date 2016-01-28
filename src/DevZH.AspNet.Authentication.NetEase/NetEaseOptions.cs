@@ -18,7 +18,6 @@ namespace DevZH.AspNet.Authentication.NetEase
             AuthorizationEndpoint = NetEaseDefaults.AuthorizationEndpoint;
             TokenEndpoint = NetEaseDefaults.TokenEndpoint;
             UserInformationEndpoint = NetEaseDefaults.UserInformationEndpoint;
-            SaveTokensAsClaims = false;
         }
 
         /// <summary>

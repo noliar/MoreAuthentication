@@ -21,7 +21,6 @@ namespace DevZH.AspNet.Authentication.Baidu
             AuthorizationEndpoint = BaiduDefaults.AuthorizationEndpoint;
             TokenEndpoint = BaiduDefaults.TokenEndpoint;
             UserInformationEndpoint = BaiduDefaults.UserInformationEndpoint;
-            SaveTokensAsClaims = false;
         }
 
         /// <summary>

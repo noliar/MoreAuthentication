@@ -20,7 +20,6 @@ namespace DevZH.AspNet.Authentication.Qihoo
             AuthorizationEndpoint = QihooDefaults.AuthorizationEndpoint;
             TokenEndpoint = QihooDefaults.TokenEndpoint;
             UserInformationEndpoint = QihooDefaults.UserInformationEndpoint;
-            SaveTokensAsClaims = false;
         }
 
         /// <summary>
