@@ -22,7 +22,8 @@
     "dotnet5.4": {
       "dependencies": {
         "System.Security.Cryptography.Algorithms": "4.0.0-*"
-      }
+      },
+      "imports": "portable-net451+win8"
     }
   }
 }
