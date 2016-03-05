@@ -1,6 +1,7 @@
 ﻿using System;
 using DevZH.AspNetCore.Authentication.Yixin;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Options;
 
 namespace DevZH.AspNetCore.Builder
 {
@@ -27,30 +28,22 @@ namespace DevZH.AspNetCore.Builder
                 throw new ArgumentNullException(nameof(options));
             }
 
-            return app.UseMiddleware<YixinMiddleware>(options);
+            return app.UseMiddleware<YixinMiddleware>(Options.Create(options));
         }
 
         /// <summary>
 		/// Adds the <see cref="YixinMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Yixin authentication capabilities.
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
-		/// <param name="configureOptions">An action delegate to configure the provided <see cref="YixinOptions"/>.</param>
 		/// <returns>A reference to this instance after the operation has completed.</returns>
-        public static IApplicationBuilder UseYixinAuthentication(this IApplicationBuilder app, Action<YixinOptions> configureOptions)
+        public static IApplicationBuilder UseYixinAuthentication(this IApplicationBuilder app)
         {
             if (app == null)
             {
                 throw new ArgumentNullException(nameof(app));
             }
-
-            if (configureOptions == null)
-            {
-                throw new ArgumentNullException(nameof(configureOptions));
-            }
-
-            var options = new YixinOptions();
-            configureOptions(options);
-            return app.UseMiddleware<YixinMiddleware>(options);
+            
+            return app.UseMiddleware<YixinMiddleware>();
         }
     }
 }

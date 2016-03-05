@@ -67,12 +67,12 @@ namespace SocialSample
             // 测试应用，其他用户不能登，除非手动添加。
             // 本来打算用 BAE 测试的，只是最近 BAE 大改了，旧版管理界面的API 都失效，看不了 KEY 和 SECRET 了，蛋疼
             // 豆瓣样例
-            app.UseDoubanAuthentication(options =>
+            app.UseDoubanAuthentication(new DoubanOptions
             {
-                options.ApiKey = Configuration["douban:apikey"];
-                options.Secret = Configuration["douban:secret"];
+                ApiKey = Configuration["douban:apikey"],
+                Secret = Configuration["douban:secret"],
 
-                options.Events = new OAuthEvents()
+                Events = new OAuthEvents()
                 {
                     OnRemoteFailure = ctx =>
 
@@ -81,89 +81,89 @@ namespace SocialSample
                         ctx.HandleResponse();
                         return Task.FromResult(0);
                     }
-                };
+                }
             });
 
             #region 下面几个全都是凑数的
             // 百度样例
-            app.UseBaiduAuthentication(options =>
+            app.UseBaiduAuthentication(new BaiduOptions
             {
-                options.AccessKeyId = Configuration["baidu:accesskeyid"];
-                options.SecretAccessKey = Configuration["baidu:secretaccesskey"];
-                options.Display = BaiduOptions.DisplayStyle.Touch;
-                options.IsForce = true;
-                options.UseSms = true;
+                AccessKeyId = Configuration["baidu:accesskeyid"],
+                SecretAccessKey = Configuration["baidu:secretaccesskey"],
+                Display = BaiduOptions.DisplayStyle.Touch,
+                IsForce = true,
+                UseSms = true
             });
 
             // 360 样例
-            app.UseQihooAuthentication(options =>
+            app.UseQihooAuthentication(new QihooOptions
             {
-                options.AppKey = Configuration["qihoo:appkey"];
-                options.AppSecret = Configuration["qihoo:appsecret"];
-                options.ReLogin = "360.cn";
-                options.Display = QihooOptions.DisplayStyle.Desktop;
+                AppKey = Configuration["qihoo:appkey"],
+                AppSecret = Configuration["qihoo:appsecret"],
+                ReLogin = "360.cn",
+                Display = QihooOptions.DisplayStyle.Desktop
             });
 
             // 网易样例
-            app.UseNetEaseAuthentication(options =>
+            app.UseNetEaseAuthentication(new NetEaseOptions
             {
-                options.Key = Configuration["netease:key"];
-                options.Secret = Configuration["netease:secret"];
+                Key = Configuration["netease:key"],
+                Secret = Configuration["netease:secret"]
             });
 
             // 新浪样例
-            app.UseSinaAuthentication(options =>
+            app.UseSinaAuthentication(new SinaOptions
             {
-                options.AppKey = Configuration["sina:appkey"];
-                options.AppSecret = Configuration["sina:appsecret"];
-                options.Language = SinaOptions.LanguageType.English;
-                options.Display = SinaOptions.DisplayStyle.Mobile;
+                AppKey = Configuration["sina:appkey"],
+                AppSecret = Configuration["sina:appsecret"],
+                Language = SinaOptions.LanguageType.English,
+                Display = SinaOptions.DisplayStyle.Mobile
             });
 
             // 淘宝样例
-            app.UseTaobaoAuthentication(options =>
+            app.UseTaobaoAuthentication(new TaobaoOptions
             {
-                options.ClientId = Configuration["taobao:clientid"];
-                options.ClientSecret = Configuration["taobao:clientsecret"];
-                options.View = TaobaoOptions.ViewStyle.Tmall;
+                ClientId = Configuration["taobao:clientid"],
+                ClientSecret = Configuration["taobao:clientsecret"],
+                View = TaobaoOptions.ViewStyle.Tmall
             });
 
             // QQ 样例
-            app.UseTencentAuthentication(options =>
+            app.UseTencentAuthentication(new TencentOptions
             {
-                options.AppId = Configuration["tencent:appid"];
-                options.AppKey = Configuration["tencent:appkey"];
-                options.IsMobile = true;
+                AppId = Configuration["tencent:appid"],
+                AppKey = Configuration["tencent:appkey"],
+                IsMobile = true
             });
 
             // 微信样例
-            app.UseWeChatAuthentication(options =>
+            app.UseWeChatAuthentication(new WeChatOptions
             {
-                options.AppId = Configuration["wechat:appid"];
-                options.AppSecret = Configuration["wechat:appsecret"];
+                AppId = Configuration["wechat:appid"],
+                AppSecret = Configuration["wechat:appsecret"]
             });
 
             // 小米样例
-            app.UseXiaoMiAuthentication(options =>
+            app.UseXiaoMiAuthentication(new XiaoMiOptions
             {
-                options.AppId = Configuration["xiaomi:appid"];
-                options.AppSecret = Configuration["xiaomi:appsecret"];
-                options.SkpConfirm = true;
-                options.TokenType = TokenType.MAC;
+                AppId = Configuration["xiaomi:appid"],
+                AppSecret = Configuration["xiaomi:appsecret"],
+                SkpConfirm = true,
+                TokenType = TokenType.MAC
             });
 
             // 易信样例
-            app.UseYixinAuthentication(options =>
+            app.UseYixinAuthentication(new YixinOptions
             {
-                options.AppId = Configuration["yixin:appid"];
-                options.AppSecret = Configuration["yixin:appkey"];
+                AppId = Configuration["yixin:appid"],
+                AppSecret = Configuration["yixin:appkey"]
             });
 
             // 优酷样例
-            app.UseYoukuAuthentication(options =>
+            app.UseYoukuAuthentication(new YoukuOptions
             {
-                options.ClientId = Configuration["youku:clientid"];
-                options.ClientSecret = Configuration["youku:clientsecret"];
+                ClientId = Configuration["youku:clientid"],
+                ClientSecret = Configuration["youku:clientsecret"]
             });
             #endregion
 

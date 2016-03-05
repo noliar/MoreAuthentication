@@ -1,6 +1,7 @@
 ﻿using System;
 using DevZH.AspNetCore.Authentication.WeChat;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Options;
 
 namespace DevZH.AspNetCore.Builder
 {
@@ -27,30 +28,22 @@ namespace DevZH.AspNetCore.Builder
                 throw new ArgumentNullException(nameof(options));
             }
 
-            return app.UseMiddleware<WeChatMiddleware>(options);
+            return app.UseMiddleware<WeChatMiddleware>(Options.Create(options));
         }
 
         /// <summary>
 		/// Adds the <see cref="WeChatMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables WeChat authentication capabilities.
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
-		/// <param name="configureOptions">An action delegate to configure the provided <see cref="WeChatOptions"/>.</param>
 		/// <returns>A reference to this instance after the operation has completed.</returns>
-        public static IApplicationBuilder UseWeChatAuthentication(this IApplicationBuilder app, Action<WeChatOptions> configureOptions)
+        public static IApplicationBuilder UseWeChatAuthentication(this IApplicationBuilder app)
         {
             if (app == null)
             {
                 throw new ArgumentNullException(nameof(app));
             }
-
-            if (configureOptions == null)
-            {
-                throw new ArgumentNullException(nameof(configureOptions));
-            }
-
-            var options = new WeChatOptions();
-            configureOptions(options);
-            return app.UseMiddleware<WeChatMiddleware>(options);
+            
+            return app.UseMiddleware<WeChatMiddleware>();
         }
     }
 }

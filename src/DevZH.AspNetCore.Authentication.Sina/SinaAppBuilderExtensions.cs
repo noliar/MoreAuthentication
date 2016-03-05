@@ -1,6 +1,7 @@
 ﻿using System;
 using DevZH.AspNetCore.Authentication.Sina;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Options;
 
 namespace DevZH.AspNetCore.Builder
 {
@@ -27,30 +28,22 @@ namespace DevZH.AspNetCore.Builder
                 throw new ArgumentNullException(nameof(options));
             }
 
-            return app.UseMiddleware<SinaMiddleware>(options);
+            return app.UseMiddleware<SinaMiddleware>(Options.Create(options));
         }
 
         /// <summary>
 		/// Adds the <see cref="SinaMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Sina authentication capabilities.
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
-		/// <param name="configureOptions">An action delegate to configure the provided <see cref="SinaOptions"/>.</param>
 		/// <returns>A reference to this instance after the operation has completed.</returns>
-        public static IApplicationBuilder UseSinaAuthentication(this IApplicationBuilder app, Action<SinaOptions> configureOptions)
+        public static IApplicationBuilder UseSinaAuthentication(this IApplicationBuilder app)
         {
             if (app == null)
             {
                 throw new ArgumentNullException(nameof(app));
             }
-
-            if (configureOptions == null)
-            {
-                throw new ArgumentNullException(nameof(configureOptions));
-            }
-
-            var options = new SinaOptions();
-            configureOptions(options);
-            return app.UseMiddleware<SinaMiddleware>(options);
+            
+            return app.UseMiddleware<SinaMiddleware>();
         }
     }
 }

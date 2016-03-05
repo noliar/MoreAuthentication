@@ -1,6 +1,7 @@
 ﻿using System;
 using DevZH.AspNetCore.Authentication.Tencent;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Options;
 
 namespace DevZH.AspNetCore.Builder
 {
@@ -27,30 +28,22 @@ namespace DevZH.AspNetCore.Builder
                 throw new ArgumentNullException(nameof(options));
             }
 
-            return app.UseMiddleware<TencentMiddleware>(options);
+            return app.UseMiddleware<TencentMiddleware>(Options.Create(options));
         }
 
         /// <summary>
 		/// Adds the <see cref="TencentMiddleware"/> middleware to the specified <see cref="IApplicationBuilder"/>, which enables Tencent authentication capabilities.
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder" /> to add the middleware to.</param>
-		/// <param name="configureOptions">An action delegate to configure the provided <see cref="TencentOptions"/>.</param>
 		/// <returns>A reference to this instance after the operation has completed.</returns>
-        public static IApplicationBuilder UseTencentAuthentication(this IApplicationBuilder app, Action<TencentOptions> configureOptions)
+        public static IApplicationBuilder UseTencentAuthentication(this IApplicationBuilder app)
         {
             if (app == null)
             {
                 throw new ArgumentNullException(nameof(app));
             }
-
-            if (configureOptions == null)
-            {
-                throw new ArgumentNullException(nameof(configureOptions));
-            }
-
-            var options = new TencentOptions();
-            configureOptions(options);
-            return app.UseMiddleware<TencentMiddleware>(options);
+            
+            return app.UseMiddleware<TencentMiddleware>();
         }
     }
 }
