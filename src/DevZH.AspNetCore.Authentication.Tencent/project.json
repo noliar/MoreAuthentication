@@ -10,7 +10,8 @@
   "projectUrl": "https://github.com/noliar/MoreAuthentication",
   "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
   "dependencies": {
-    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-*"
+    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-*",
+    "System.Text.RegularExpressions": "4.0.12-*"
   },
   "frameworks": {
     "net451": { },
