@@ -194,3 +194,4 @@ project.lock.json
 
 # Visual Studio ASP.NET Config
 /.vs/config/applicationhost.config
+/samples/SocialSample/Properties/launchSettings.json
