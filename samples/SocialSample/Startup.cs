@@ -237,9 +237,9 @@ namespace SocialSample
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .UseDefaultConfiguration(args)
-                .UseServer("Microsoft.AspNetCore.Server.Kestrel")
-                .UseIISPlatformHandlerUrl()
+                .UseDefaultHostingConfiguration(args)
+                .UseKestrel()
+                .UseIIS()
                 .UseStartup<Startup>()
                 .Build();
 
