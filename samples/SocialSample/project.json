@@ -52,5 +52,9 @@
     "node_modules",
     "bower_components"
   ],
-  "userSecretsId": "aspnet5-SocialSample-20160128115154"
+  "userSecretsId": "aspnet5-SocialSample-20160128115154",
+  "content": [
+    "config.json",
+    "project.json"
+  ]
 }
