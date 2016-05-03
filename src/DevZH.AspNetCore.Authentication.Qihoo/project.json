@@ -1,14 +1,22 @@
 ﻿{
   "version": "1.0.0-*",
-  "description": "ASP.NET 5 middleware that enables an application to support the Qihoo Account authentication workflow.",
+  "description": "ASP.NET Core middleware that enables an application to support the Qihoo Account authentication workflow.",
   "authors": [ "杜晓宇" ],
-  "tags": [ "ASP.NET", "Authentication", "Qihoo", "360" ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/noliar/MoreAuthentication"
+  "packOptions":{
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/noliar/MoreAuthentication"
+    },
+    "tags": [
+      "ASP.NET",
+      "aspnetcore",
+      "Authentication",
+      "Qihoo",
+      "360"
+    ],
+    "projectUrl": "https://github.com/noliar/MoreAuthentication",
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0"
   },
-  "projectUrl": "https://github.com/noliar/MoreAuthentication",
-  "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
   "dependencies": {
     "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-*",
     "DevZH.AspNetCore.Authentication.Common.Sources": {
