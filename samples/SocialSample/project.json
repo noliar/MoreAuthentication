@@ -24,7 +24,14 @@
   },
 
   "buildOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "copyToOutput": {
+      "include": [
+        "config.json",
+        "project.json",
+        "web.config"
+      ]
+    },
   },
 
   "frameworks": {
