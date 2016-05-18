@@ -31,7 +31,7 @@
         "project.json",
         "web.config"
       ]
-    },
+    }
   },
 
   "frameworks": {

@@ -18,12 +18,14 @@
     "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0"
   },
   "dependencies": {
-    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-*",
-    "System.Text.RegularExpressions": "4.0.12-*"
+    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-*"
   },
   "frameworks": {
     "net451": { },
     "netstandard1.3": {
+      "dependencies": {
+        "System.Text.RegularExpressions": "4.0.12-*"
+      },
       "imports": [
         "dotnet5.4",
         "portable-net451+win8"

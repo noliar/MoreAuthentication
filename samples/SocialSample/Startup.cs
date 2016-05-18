@@ -18,13 +18,17 @@ namespace SocialSample
 {
     public class Startup
     {
-        public Startup()
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = new ConfigurationBuilder()
+            var builder = new ConfigurationBuilder()
                 .AddEnvironmentVariables()
-                .AddJsonFile("config.json")
-                .AddUserSecrets()
-                .Build();
+                .AddJsonFile("config.json");
+            if(env.IsDevelopment())
+            {
+                // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
+                builder.AddUserSecrets();
+            }
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; set; }
