@@ -7,17 +7,17 @@ This project is an ASP.NET Core middleware that enables an application to suppor
 ### 目前支持的授权平台
 |文档|NuGet|
 |:-:|:-:|
-|[360 OAuth2.0 授权](http://wiki.dev.app.360.cn/index.php?title=OAuth2.0%E6%96%87%E6%A1%A3)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.Qihoo.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.Qihoo/)|
-|[百度 OAuth2.0 授权](http://developer.baidu.com/wiki/index.php?title=docs/oauth)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.Baidu.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.Baidu/)|
-|[豆瓣 OAuth2.0 授权](https://developers.douban.com/wiki/?title=oauth2)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.Douban.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.Douban/)|
-|[淘宝 OAuth2.0 授权](http://open.taobao.com/doc/category_list.htm?id=199)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.Taobao.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.Taobao/)|
-|[腾讯 OAuth2.0 授权](http://wiki.open.qq.com/wiki/website/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.Tencent.svg)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.Tencent/)|
-|[网易 OAuth2.0 授权](http://reg.163.com/help/help_oauth2.html)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.NetEase.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.NetEase/)|
-|[微信 OAuth2.0 授权](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&id=open1419316505)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.WeChat.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.WeChat/)|
-|[新浪 OAuth2.0 授权](http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.Sina.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.Sina/)|
-|[小米 OAuth2.0 授权](http://dev.xiaomi.com/docs/passport/way/)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.XiaoMi.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.XiaoMi/)|
-|[优酷 OAuth2.0 授权](http://open.youku.com/docs?id=100)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.Youku.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.Youku/)|
-|[易信 OAuth2.0 授权](https://open.yixin.im/document/oauth/web)|[![](https://img.shields.io/nuget/v/DevZH.AspNet.Authentication.Yixin.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNet.Authentication.Yixin/)|
+|[360 OAuth2.0 授权](http://wiki.dev.app.360.cn/index.php?title=OAuth2.0%E6%96%87%E6%A1%A3)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.Qihoo.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.Qihoo/)|
+|[百度 OAuth2.0 授权](http://developer.baidu.com/wiki/index.php?title=docs/oauth)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.Baidu.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.Baidu/)|
+|[豆瓣 OAuth2.0 授权](https://developers.douban.com/wiki/?title=oauth2)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.Douban.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.Douban/)|
+|[淘宝 OAuth2.0 授权](http://open.taobao.com/doc/category_list.htm?id=199)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.Taobao.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.Taobao/)|
+|[腾讯 OAuth2.0 授权](http://wiki.open.qq.com/wiki/website/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.Tencent.svg)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.Tencent/)|
+|[网易 OAuth2.0 授权](http://reg.163.com/help/help_oauth2.html)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.NetEase.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.NetEase/)|
+|[微信 OAuth2.0 授权](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&id=open1419316505)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.WeChat.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.WeChat/)|
+|[新浪 OAuth2.0 授权](http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.Sina.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.Sina/)|
+|[小米 OAuth2.0 授权](http://dev.xiaomi.com/docs/passport/way/)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.XiaoMi.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.XiaoMi/)|
+|[优酷 OAuth2.0 授权](http://open.youku.com/docs?id=100)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.Youku.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.Youku/)|
+|[易信 OAuth2.0 授权](https://open.yixin.im/document/oauth/web)|[![](https://img.shields.io/nuget/v/DevZH.AspNetCore.Authentication.Yixin.svg?style=flat-square)](https://www.nuget.org/packages/DevZH.AspNetCore.Authentication.Yixin/)|
 
 > ### 更多关于 OAuth 2.0 的信息，可参考 [oauth.net](http://oauth.net/2/) 和 [OAuth 2.0 中文文档](https://github.com/jeansfish/RFC6749.zh-cn/blob/master/TableofContents.md)。
 
