@@ -1,13 +1,16 @@
-﻿using System.Linq;
-using DevZH.AspNet.Authentication.Baidu;
-using DevZH.AspNet.Authentication.Common;
-using DevZH.AspNet.Authentication.Qihoo;
-using DevZH.AspNet.Authentication.Sina;
-using DevZH.AspNet.Authentication.Taobao;
-using Microsoft.AspNet.Authentication.Cookies;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Http.Authentication;
+﻿using System;
+using System.Linq;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
+using DevZH.AspNetCore.Authentication.Common;
+using DevZH.AspNetCore.Builder;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Authentication;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -15,6 +18,21 @@ namespace SocialSample
 {
     public class Startup
     {
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .AddEnvironmentVariables()
+                .AddJsonFile("config.json");
+            if(env.IsDevelopment())
+            {
+                // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
+                builder.AddUserSecrets();
+            }
+            Configuration = builder.Build();
+        }
+
+        public IConfiguration Configuration { get; set; }
+
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
@@ -25,102 +43,131 @@ namespace SocialSample
         {
             loggerfactory.AddConsole(LogLevel.Information);
 
-            app.UseCookieAuthentication(options =>
+            // Simple error page to avoid a repo dependency.
+            app.Use(async (context, next) =>
             {
-                options.AutomaticAuthenticate = true;
-                options.AutomaticChallenge = true;
-                options.LoginPath = new PathString("/login");
+                try
+                {
+                    await next();
+                }
+                catch (Exception ex)
+                {
+                    if (context.Response.HasStarted)
+                    {
+                        throw;
+                    }
+                    context.Response.StatusCode = 500;
+                    await context.Response.WriteAsync(ex.ToString());
+                }
+            });
+
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AutomaticAuthenticate = true,
+                AutomaticChallenge = true,
+                LoginPath = new PathString("/login")
             });
 
             // 测试应用，其他用户不能登，除非手动添加。
             // 本来打算用 BAE 测试的，只是最近 BAE 大改了，旧版管理界面的API 都失效，看不了 KEY 和 SECRET 了，蛋疼
             // 豆瓣样例
-            app.UseDoubanAuthentication(options =>
+            app.UseDoubanAuthentication(new DoubanOptions
             {
-                options.ApiKey = "00d08dfa114c80200271a9ee33e58060";
-                options.Secret = "39e079a2c685fbb4";
+                ApiKey = Configuration["douban:apikey"],
+                Secret = Configuration["douban:secret"],
+
+                Events = new OAuthEvents()
+                {
+                    OnRemoteFailure = ctx =>
+
+                    {
+                        ctx.Response.Redirect("/error?FailureMessage=" + UrlEncoder.Default.Encode(ctx.Failure.Message));
+                        ctx.HandleResponse();
+                        return Task.FromResult(0);
+                    }
+                }
             });
 
             #region 下面几个全都是凑数的
             // 百度样例
-            app.UseBaiduAuthentication(options =>
+            app.UseBaiduAuthentication(new BaiduOptions
             {
-                options.AccessKeyId = "00d08dfa114c80200271a9ee33e58060";
-                options.SecretAccessKey = "39e079a2c685fbb4";
-                options.Display = BaiduOptions.DisplayStyle.Touch;
-                options.IsForce = true;
-                options.UseSms = true;
+                AccessKeyId = Configuration["baidu:accesskeyid"],
+                SecretAccessKey = Configuration["baidu:secretaccesskey"],
+                Display = BaiduOptions.DisplayStyle.Touch,
+                IsForce = true,
+                UseSms = true
             });
 
             // 360 样例
-            app.UseQihooAuthentication(options =>
+            app.UseQihooAuthentication(new QihooOptions
             {
-                options.AppKey = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
-                options.ReLogin = "360.cn";
-                options.Display = QihooOptions.DisplayStyle.Desktop;
+                AppKey = Configuration["qihoo:appkey"],
+                AppSecret = Configuration["qihoo:appsecret"],
+                ReLogin = "360.cn",
+                Display = QihooOptions.DisplayStyle.Desktop
             });
 
             // 网易样例
-            app.UseNetEaseAuthentication(options =>
+            app.UseNetEaseAuthentication(new NetEaseOptions
             {
-                options.Key = "00d08dfa114c80200271a9ee33e58060";
-                options.Secret = "39e079a2c685fbb4";
+                Key = Configuration["netease:key"],
+                Secret = Configuration["netease:secret"]
             });
 
             // 新浪样例
-            app.UseSinaAuthentication(options =>
+            app.UseSinaAuthentication(new SinaOptions
             {
-                options.AppKey = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
-                options.Language = SinaOptions.LanguageType.English;
-                options.Display = SinaOptions.DisplayStyle.Mobile;
+                AppKey = Configuration["sina:appkey"],
+                AppSecret = Configuration["sina:appsecret"],
+                Language = SinaOptions.LanguageType.English,
+                Display = SinaOptions.DisplayStyle.Mobile
             });
 
             // 淘宝样例
-            app.UseTaobaoAuthentication(options =>
+            app.UseTaobaoAuthentication(new TaobaoOptions
             {
-                options.ClientId = "00d08dfa114c80200271a9ee33e58060";
-                options.ClientSecret = "39e079a2c685fbb4";
-                options.View = TaobaoOptions.ViewStyle.Tmall;
+                ClientId = Configuration["taobao:clientid"],
+                ClientSecret = Configuration["taobao:clientsecret"],
+                View = TaobaoOptions.ViewStyle.Tmall
             });
 
             // QQ 样例
-            app.UseTencentAuthentication(options =>
+            app.UseTencentAuthentication(new TencentOptions
             {
-                options.AppId = "00d08dfa114c80200271a9ee33e58060";
-                options.AppKey = "39e079a2c685fbb4";
-                options.IsMobile = true;
+                AppId = Configuration["tencent:appid"],
+                AppKey = Configuration["tencent:appkey"],
+                IsMobile = true
             });
 
             // 微信样例
-            app.UseWeChatAuthentication(options =>
+            app.UseWeChatAuthentication(new WeChatOptions
             {
-                options.AppId = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
+                AppId = Configuration["wechat:appid"],
+                AppSecret = Configuration["wechat:appsecret"]
             });
 
             // 小米样例
-            app.UseXiaoMiAuthentication(options =>
+            app.UseXiaoMiAuthentication(new XiaoMiOptions
             {
-                options.AppId = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
-                options.SkpConfirm = true;
-                options.TokenType = TokenType.MAC;
+                AppId = Configuration["xiaomi:appid"],
+                AppSecret = Configuration["xiaomi:appsecret"],
+                SkpConfirm = true,
+                TokenType = TokenType.MAC
             });
 
             // 易信样例
-            app.UseYixinAuthentication(options =>
+            app.UseYixinAuthentication(new YixinOptions
             {
-                options.AppId = "00d08dfa114c80200271a9ee33e58060";
-                options.AppSecret = "39e079a2c685fbb4";
+                AppId = Configuration["yixin:appid"],
+                AppSecret = Configuration["yixin:appkey"]
             });
 
             // 优酷样例
-            app.UseYoukuAuthentication(options =>
+            app.UseYoukuAuthentication(new YoukuOptions
             {
-                options.ClientId = "00d08dfa114c80200271a9ee33e58060";
-                options.ClientSecret = "39e079a2c685fbb4";
+                ClientId = Configuration["youku:clientid"],
+                ClientSecret = Configuration["youku:clientsecret"]
             });
             #endregion
 
@@ -189,6 +236,17 @@ namespace SocialSample
                 await context.Response.WriteAsync("<a href=\"/logout\">Logout</a>");
                 await context.Response.WriteAsync("</body></html>");
             });
+        }
+
+        public static void Main(string[] args)
+        {
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .Build();
+
+            host.Run();
         }
     }
 }
