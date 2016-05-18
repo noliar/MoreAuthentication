@@ -1,6 +1,6 @@
 {
   "authors": [ "杜晓宇" ],
-  "version": "1.0.0-*",
+  "version": "1.0.0-rc2-final",
   "description": "ASP.NET Core middleware that enables an application to support the Sina Account authentication workflow.",
   "packOptions":{
     "repository": {
@@ -17,10 +17,10 @@
     "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0"
   },
   "dependencies": {
-    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-*",
+    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-rc2-final",
     "DevZH.AspNetCore.Authentication.Common.Sources": {
       "type": "build",
-      "version": "1.0.0-*"
+      "version": "1.0.0-rc2-final"
     }
   },
   "frameworks": {
