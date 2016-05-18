@@ -1,6 +1,6 @@
-# More Authentication Middleware for ASP.NET 5  [![License][License]](LICENSE-2.0.txt)
+# More Authentication Middleware for ASP.NET Core  [![License][License]](LICENSE-2.0.txt)
 
-This project is an ASP.NET 5 middleware that enables an application to support more authentication workflow.
+This project is an ASP.NET Core middleware that enables an application to support more authentication workflow.
 
 [License]: https://img.shields.io/badge/license-Apache_2.0-blue.svg?style=flat-square
 
@@ -22,9 +22,9 @@ This project is an ASP.NET 5 middleware that enables an application to support m
 > ### 更多关于 OAuth 2.0 的信息，可参考 [oauth.net](http://oauth.net/2/) 和 [OAuth 2.0 中文文档](https://github.com/jeansfish/RFC6749.zh-cn/blob/master/TableofContents.md)。
 
 ## 使用步骤
-该项目是根据 [ASP.NET 5 Security](https://github.com/aspnet/Security) 写的众多账号平台授权登录。
+该项目是根据 [ASP.NET Core Security](https://github.com/aspnet/Security) 写的众多账号平台授权登录。
 
-所以，你可以跟 `Microsoft.AspNet.Authentication.*` 下的众多账号授权组件一样使用：
+所以，你可以跟 `Microsoft.AspNetCore.Authentication.*` 下的众多账号授权组件一样使用：
 
 1. 在 `Startup` 中的 `ConfigureServices` 添加配置 Identity、Token、Authentication、CookieAuthentication 等服务
 2. 在 `Startup` 中的 `Configure` 里 直接添加配置并使用 这些服务。
@@ -61,15 +61,15 @@ services.AddAuthentication(options => options.SignInScheme = CookieAuthenticatio
 
 ...
 // Configure 下
-app.UseDoubanAuthentication(options =>
+app.UseDoubanAuthentication(new DoubanOption
 {
-    options.ApiKey = Configuration["Authentication:Douban:ApiKey"];
-    options.Secret = Configuration["Authentication:Douban:Secret"];
+    ApiKey = Configuration["Authentication:Douban:ApiKey"],
+    Secret = Configuration["Authentication:Douban:Secret"]
 });
 
 ...
 ```
 
 ## 注意
-目前，仅在 ASP.NET 5 beta6+ 有效；也不要在意命名空间名→_→实在想不出什么名好，只好搞统一了。
+目前，仅在 ASP.NET Core beta6+ 有效；
 最后要说的，也是显而易见的是，目前的授权模式为 ***Server-side***
