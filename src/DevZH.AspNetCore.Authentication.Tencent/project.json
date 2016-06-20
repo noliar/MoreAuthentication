@@ -1,6 +1,6 @@
 ﻿{
   "authors": [ "杜晓宇" ],
-  "version": "1.0.0-*",
+  "version": "1.1.0-*",
   "description": "ASP.NET Core middleware that enables an application to support the Tencent QQ Account authentication workflow.",
   "packOptions":{
     "repository": {
@@ -18,7 +18,7 @@
     "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0"
   },
   "dependencies": {
-    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-*"
+    "Microsoft.AspNetCore.Authentication.OAuth": "1.1.0-*"
   },
   "frameworks": {
     "net451": { },
