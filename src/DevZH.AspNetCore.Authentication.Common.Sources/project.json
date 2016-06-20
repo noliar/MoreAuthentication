@@ -12,11 +12,7 @@
     "netstandard1.3": {
       "dependencies": {
         "System.ComponentModel.Annotations": "4.1.0-*"
-      },
-      "imports": [
-        "dotnet5.4",
-        "portable-net451+win8" 
-      ]
+      }
     }
   }
 }

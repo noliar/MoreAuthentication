@@ -26,11 +26,6 @@
   },
   "frameworks": {
     "net451": { },
-    "netstandard1.3": {
-      "imports": [
-        "dotnet5.4",
-        "portable-net451+win8"
-      ]
-    }
+    "netstandard1.3": { }
   }
 }
