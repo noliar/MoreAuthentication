@@ -4,6 +4,7 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using DevZH.AspNetCore.Authentication.Common;
 using DevZH.AspNetCore.Builder;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Builder;
@@ -21,13 +22,13 @@ namespace SocialSample
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-                .AddEnvironmentVariables()
                 .AddJsonFile("config.json");
             if(env.IsDevelopment())
             {
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
                 builder.AddUserSecrets();
             }
+            builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
 
@@ -75,7 +76,7 @@ namespace SocialSample
             {
                 ApiKey = Configuration["douban:apikey"],
                 Secret = Configuration["douban:secret"],
-
+                SaveTokens = true,
                 Events = new OAuthEvents()
                 {
                     OnRemoteFailure = ctx =>
@@ -211,21 +212,44 @@ namespace SocialSample
                 });
             });
 
-            // Deny anonymous request beyond this point.
-            app.Use(async (context, next) =>
+            // Display the remote error
+            app.Map("/error", errorApp =>
             {
-                if (!context.User.Identities.Any(identity => identity.IsAuthenticated))
+                errorApp.Run(async context =>
                 {
-                    // The cookie middleware will intercept this 401 and redirect to /login
-                    await context.Authentication.ChallengeAsync();
-                    return;
-                }
-                await next();
+                    context.Response.ContentType = "text/html";
+                    await context.Response.WriteAsync("<html><body>");
+                    await context.Response.WriteAsync("An remote failure has occurred: " + context.Request.Query["FailureMessage"] + "<br>");
+                    await context.Response.WriteAsync("<a href=\"/\">Home</a>");
+                    await context.Response.WriteAsync("</body></html>");
+                });
             });
 
-            // Display user information
             app.Run(async context =>
             {
+                // CookieAuthenticationOptions.AutomaticAuthenticate = true (default) causes User to be set
+                var user = context.User;
+
+                // This is what [Authorize] calls
+                // var user = await context.Authentication.AuthenticateAsync(AuthenticationManager.AutomaticScheme);
+
+                // This is what [Authorize(ActiveAuthenticationSchemes = MicrosoftAccountDefaults.AuthenticationScheme)] calls
+                // var user = await context.Authentication.AuthenticateAsync(MicrosoftAccountDefaults.AuthenticationScheme);
+
+                // Deny anonymous request beyond this point.
+                if (user == null || !user.Identities.Any(identity => identity.IsAuthenticated))
+                {
+                    // This is what [Authorize] calls
+                    // The cookie middleware will intercept this 401 and redirect to /login
+                    await context.Authentication.ChallengeAsync();
+
+                    // This is what [Authorize(ActiveAuthenticationSchemes = MicrosoftAccountDefaults.AuthenticationScheme)] calls
+                    // await context.Authentication.ChallengeAsync(MicrosoftAccountDefaults.AuthenticationScheme);
+
+                    return;
+                }
+
+                // Display user information
                 context.Response.ContentType = "text/html";
                 await context.Response.WriteAsync("<html><body>");
                 await context.Response.WriteAsync("Hello " + (context.User.Identity.Name ?? "anonymous") + "<br>");
@@ -233,7 +257,14 @@ namespace SocialSample
                 {
                     await context.Response.WriteAsync(claim.Type + ": " + claim.Value + "<br>");
                 }
-                await context.Response.WriteAsync("<a href=\"/logout\">Logout</a>");
+
+                await context.Response.WriteAsync("Tokens:<br>");
+
+                await context.Response.WriteAsync("Access Token: " + await context.Authentication.GetTokenAsync("access_token") + "<br>");
+                await context.Response.WriteAsync("Refresh Token: " + await context.Authentication.GetTokenAsync("refresh_token") + "<br>");
+                await context.Response.WriteAsync("Token Type: " + await context.Authentication.GetTokenAsync("token_type") + "<br>");
+                await context.Response.WriteAsync("expires_at: " + await context.Authentication.GetTokenAsync("expires_at") + "<br>");
+                await context.Response.WriteAsync("<a href=\"/logout\">Logout</a><br>");
                 await context.Response.WriteAsync("</body></html>");
             });
         }
