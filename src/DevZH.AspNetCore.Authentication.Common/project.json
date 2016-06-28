@@ -1,5 +1,5 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "1.0.0",
   "dependencies": {
   },
   "frameworks": {
@@ -10,7 +10,7 @@
     },
     "netstandard1.3": {
       "dependencies": {
-        "System.ComponentModel.Annotations": "4.1.0-*"
+        "System.ComponentModel.Annotations": "4.1.0"
       }
     }
   }
