@@ -1,6 +1,6 @@
 ﻿{
   "authors": [ "杜晓宇" ],
-  "version": "1.0.0-rc2-final",
+  "version": "1.0.0-*",
   "description": "ASP.NET Core middleware that enables an application to support the XiaoMi Account authentication workflow.",
   "packOptions":{
     "repository": {
@@ -19,23 +19,19 @@
     "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0"
   },
   "dependencies": {
-    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-rc2-final",
-    "DevZH.AspNetCore.Authentication.Common": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Authentication.OAuth": "1.0.0-*",
+    "DevZH.AspNetCore.Authentication.Common": "1.0.0-*",
     "DevZH.AspNetCore.Authentication.Common.Sources": {
       "type": "build",
-      "version": "1.0.0-rc2-final"
+      "version": "1.0.0-*"
     }
   },
   "frameworks": {
     "net451": { },
     "netstandard1.3": {
       "dependencies": {
-        "System.Security.Cryptography.Algorithms": "4.1.0-rc2-24027"
-      },
-      "imports": [
-        "dotnet5.4",
-        "portable-net451+win8"
-      ]
+        "System.Security.Cryptography.Algorithms": "4.2.0-*"
+      }
     }
   }
 }
