@@ -58,9 +58,12 @@ namespace DevZH.AspNetCore.Authentication.XiaoMi
             var message = new HttpRequestMessage(HttpMethod.Get, Options.TokenEndpoint + $"?{await query.ReadAsStringAsync()}");
             message.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var response = await Backchannel.SendAsync(message, Context.RequestAborted);
-            response.EnsureSuccessStatusCode();
-            // Replace("&&&START&&&", "")
-            return OAuthTokenResponse.Success(JObject.Parse((await response.Content.ReadAsStringAsync()).Remove(0,11)));
+            if (response.IsSuccessStatusCode)
+            {
+                // Replace("&&&START&&&", "")
+                return OAuthTokenResponse.Success(JObject.Parse((await response.Content.ReadAsStringAsync()).Remove(0, 11)));
+            }
+            return OAuthTokenResponse.Failed(new HttpRequestException($"Failed to get XiaoMi token ({response.StatusCode}) Please check if the authentication information is correct and the corresponding XiaoMi API is enabled."));
         }
 
         /// <summary>
@@ -88,7 +91,12 @@ namespace DevZH.AspNetCore.Authentication.XiaoMi
                     ComputeMAC(tokens.AccessToken, key, message, algorithm));
             }
             var response = await Backchannel.SendAsync(message, Context.RequestAborted);
-            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Failed to retrieve XiaoMi user information ({response.StatusCode}) Please check if the authentication information is correct and the corresponding XiaoMi API is enabled.");
+            }
+
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
             var ticket = new AuthenticationTicket(new ClaimsPrincipal(identity), properties, Options.AuthenticationScheme);

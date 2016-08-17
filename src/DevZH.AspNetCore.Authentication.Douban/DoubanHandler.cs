@@ -32,7 +32,12 @@ namespace DevZH.AspNetCore.Authentication.Douban
             var message = new HttpRequestMessage(HttpMethod.Get, Options.UserInformationEndpoint);
             message.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", tokens.AccessToken);
             var response = await Backchannel.SendAsync(message, Context.RequestAborted);
-            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Failed to retrieve Douban user information ({response.StatusCode}) Please check if the authentication information is correct and the corresponding Douban API is enabled.");
+            }
+
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
             var ticket = new AuthenticationTicket(new ClaimsPrincipal(identity), properties, Options.AuthenticationScheme);

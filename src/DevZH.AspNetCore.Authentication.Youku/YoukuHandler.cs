@@ -28,7 +28,12 @@ namespace DevZH.AspNetCore.Authentication.Youku
                 {"access_token", tokens.AccessToken}
             });
             var response = await Backchannel.PostAsync(Options.UserInformationEndpoint, query, Context.RequestAborted);
-            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Failed to retrieve Youku user information ({response.StatusCode}) Please check if the authentication information is correct and the corresponding Youku API is enabled.");
+            }
+
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
             var ticket = new AuthenticationTicket(new ClaimsPrincipal(identity), properties, Options.AuthenticationScheme);

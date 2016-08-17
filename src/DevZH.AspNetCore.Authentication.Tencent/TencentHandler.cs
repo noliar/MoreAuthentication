@@ -57,13 +57,17 @@ namespace DevZH.AspNetCore.Authentication.Tencent
             };
             message.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var response = await Backchannel.SendAsync(message, Context.RequestAborted);
-            response.EnsureSuccessStatusCode();
-            var result = await response.Content.ReadAsStringAsync();
 
-            // 虽然标准是说 access_token 的范围是 0x20-0x7e，不过我看腾讯的实现看起来像 MD5 后的
-            // 标准不是说返回 json 或 xml 么，，，这返回的 类似 query 的又是什么坑爹货，难道我记错了
-            result = "{\"" + result.Replace("=", "\":\"").Replace("&", "\",\"") + "\"}";
-            return OAuthTokenResponse.Success(JObject.Parse(result));
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+
+                // 虽然标准是说 access_token 的范围是 0x20-0x7e，不过我看腾讯的实现看起来像 MD5 后的
+                // 标准不是说返回 json 或 xml 么，，，这返回的 类似 query 的又是什么坑爹货，难道我记错了
+                result = "{\"" + result.Replace("=", "\":\"").Replace("&", "\",\"") + "\"}";
+                return OAuthTokenResponse.Success(JObject.Parse(result));
+            }
+            return OAuthTokenResponse.Failed(new HttpRequestException($"Failed to get Tencent token ({response.StatusCode}) Please check if the authentication information is correct and the corresponding Tencent API is enabled.")); ;
         }
 
         /// <summary>
@@ -73,7 +77,12 @@ namespace DevZH.AspNetCore.Authentication.Tencent
         {
             var openIdEndpoint = Options.OpenIdEndpoint + "?access_token=" + tokens.AccessToken;
             var response = await Backchannel.GetAsync(openIdEndpoint, Context.RequestAborted);
-            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Failed to retrived Tencent user information ({response.StatusCode}) Please check if the authentication information is correct and the corresponding Tencent API is enabled.");
+            }
+
             // 要不要这么懒……这回用正则看看
             var tmp = await response.Content.ReadAsStringAsync();
 

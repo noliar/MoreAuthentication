@@ -59,8 +59,11 @@ namespace DevZH.AspNetCore.Authentication.WeChat
                 {"redirect_uri", redirectUri}
             };
             var response = await Backchannel.GetAsync(Options.TokenEndpoint + query, Context.RequestAborted);
-            response.EnsureSuccessStatusCode();
-            return OAuthTokenResponse.Success(JObject.Parse(await response.Content.ReadAsStringAsync()));
+            if (response.IsSuccessStatusCode)
+            {
+                return OAuthTokenResponse.Success(JObject.Parse(await response.Content.ReadAsStringAsync()));
+            }
+            return OAuthTokenResponse.Failed(new HttpRequestException($"Failed to get WeChat token ({response.StatusCode}) Please check if the authentication information is correct and the corresponding WeChat API is enabled."));
         }
 
         /// <summary>
@@ -80,7 +83,12 @@ namespace DevZH.AspNetCore.Authentication.WeChat
                 {"openid", identifier}
             };
             var response = await Backchannel.GetAsync(Options.UserInformationEndpoint + query, Context.RequestAborted);
-            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Failed to retrived WeChat user information ({response.StatusCode}) Please check if the authentication information is correct and the corresponding WeChat API is enabled.");
+            }
+
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
             var ticket = new AuthenticationTicket(new ClaimsPrincipal(identity), properties, Options.AuthenticationScheme);

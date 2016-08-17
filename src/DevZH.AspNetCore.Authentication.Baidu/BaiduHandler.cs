@@ -46,7 +46,12 @@ namespace DevZH.AspNetCore.Authentication.Baidu
         {
             var endpoint = Options.UserInformationEndpoint + "?access_token=" + UrlEncoder.Encode(tokens.AccessToken);
             var response = await Backchannel.GetAsync(endpoint, Context.RequestAborted);
-            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Failed to retrieve Baidu user information ({response.StatusCode}) Please check if the authentication information is correct and the corresponding Baidu API is enabled.");
+            }
+
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
             var ticket = new AuthenticationTicket(new ClaimsPrincipal(identity), properties, Options.AuthenticationScheme);
